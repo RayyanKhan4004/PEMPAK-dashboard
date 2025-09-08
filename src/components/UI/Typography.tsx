@@ -54,12 +54,7 @@ const Typography: React.FC<TypographyProps> = ({
 }) => {
   return (
     <span
-      className={
-        (variantClasses[variant],
-        colorClasses[color],
-        className,
-        fontWeight[weight])
-      }
+        className={`${variantClasses[variant]} ${colorClasses[color]} ${fontWeight[weight]} ${className || ""}`}
     >
       {children}
     </span>
