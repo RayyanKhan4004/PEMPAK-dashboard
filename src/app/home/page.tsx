@@ -1,130 +1,14 @@
 // app/page.tsx
+import { Signatureprojects,btn1,clientlogo,news1, products1, services, team1, team2 } from "@/components/UI/home/hero";
 import Image from "next/image";
 import Link from "next/link";
+ 
 export default function Homepage() {
-
-const products1 = [
-  { id: 1, name: "Automatic Switch Transfer (ATS)", image: "homeimg/product1.jpg" },
-  { id: 2, name: "Light Power Distribution Board (BDS)", image: "homeimg/product2.jpg" },
-  { id: 3, name: "Bus Tie Duct (BTD)", image: "homeimg/product3.jpg" }
-];
-
-const services = [
-  {
-    id: 1,
-    title: "Manufacturing",
-    description: "We deliver high-quality manufacturing with precision, durability, and innovation at every stage.",
-    icon: "⚙️", 
-  },
-  {
-    id: 2,
-    title: "Installation & Commissioning",
-    description: "We deliver reliable installation and commissioning, ensuring smooth setup, optimal performance, and long-term efficiency.",
-    icon: "🛠️",
-    active: true,  
-  },
-  {
-    id: 3,
-    title: "Maintenance",
-    description: "We provide expert maintenance to keep your systems running smoothly, safely, and efficiently.",
-    icon: "🔧",
-  },
-  {
-    id: 4,
-    title: "Testing",
-    description: "We provide reliable testing services to ensure safety, accuracy, and optimum performance of your systems.",
-    icon: "📋",
-  },
-  {
-    id: 5,
-    title: "Training",
-    description: "We offer professional training to equip your team with the knowledge and skills for safe and efficient operations.",
-    icon: "👨‍🏫",
-  },
-  {
-    id: 6,
-    title: "Energy Audit",
-    description: "Identify energy waste, optimize efficiency, and reduce costs with our professional energy audit service.",
-    icon: "💡",
-  },
-];
-
-const team1= [
-  {id:1 ,
-   image: '/Teampempak/pic1.jpg',
-   name: 'Shahid Ali Malik' ,
-   description:'Cheif Executive Officer (CEO)'
-  }, 
-
-  {
-    id:2 ,
-    name:'Engr, Shahidzad Afnan' ,
-    image:'/Teampempak/pic2.jpg',
-    description:'Director'
-  },
-   {
-    id: 3,
-    name: 'Dr.Shahidzada Usman',
-    image:'/Teampempak/pic3.jpg',
-    description:'Director'
-   },
-   {
-    id:4,
-    name:'Engr.Ahmad Fawad',
-    image:'/Teampempak/pic4.jpg',
-    description:'Manager Marketing '
-   },
-   {
-    id:5,
-    name:'Engr. Ali Anwar',
-    image :'/Teampempak/pic5.jpg',
-    description: 'Directror Operations',
-    },
-    {
-      id:6,
-      name:'Engr. Qaiser Ali',
-      image:'/Teampempak/pic6.jpg',
-      description:'Application Engineer',
-    },
-    {
-      id:7,
-      name:'Engr. Muhammad Azhar',
-      image:'/Teampempak/pic7.jpg',
-      description:'Manager Production',      
-    },
-
-    {
-      id:8,
-      name:'Nazeer Ahmad',
-      image:'/Teampempak/pic8.jpg',
-      description:'Supervisor Electrical',
-    }
-]
-
-const team2=[{
-  id:1,
-  image:'/Skilled team/pic1.png',
-  description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, hic cupiditate molestiae voluptas laboriosam harum velit commodi quia vitae, voluptatum obcaecati alias in esse! Culpa minus mollitia neque sed expedita! '
-},
- {
-  id:2,
-  image:'/Skilled team/pic2.png' ,
-  description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, hic cupiditate molestiae voluptas laboriosam harum velit commodi quia vitae, voluptatum obcaecati alias in esse! Culpa minus mollitia neque sed expedita!'
- },
- {
-  id:3,
-  image:'/Skilled team/pic3.png',
-  description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, hic cupiditate molestiae voluptas laboriosam harum velit commodi quia vitae, voluptatum obcaecati alias in esse! Culpa minus mollitia neque sed expedita!'
- },
-]
-
-
+  
   return (
-
     <>
-
-<section className=" container relative bg-gray-50 bg-[url('/home-main.png')] bg-cover bg-center text-white ">
-      <div className="mx-auto px-6 lg:px-20 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+<section className="container relative bg-gray-50 bg-[url('/Block/home-main.png')] min-w-screen bg-cover bg-center text-white ">
+      <div className="mx-auto px-6 lg:px-20 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center ">
         
          <div>
           <h4 className="text-sm font-bold tracking-wide text-gray-700 uppercase">
@@ -182,9 +66,6 @@ const team2=[{
       </div>
     </section>
 
- {/* about us  */}
-     
-        
         <h1 className="text-orange-500 font-semibold mb-2 text-center mt-10 ">About us </h1>
 
        <section className="container  max-w-7xl mx-auto px-6 py-12"> 
@@ -206,8 +87,6 @@ const team2=[{
       </div>
     </div>
   </section>
-
-     
 
    <section className="bg-gray-50 py-12">
     <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8">
@@ -391,8 +270,7 @@ const team2=[{
           </div>
 
           <div className="flex justify-center gap-4 pb-6">
-            {/* Example: social icons */}
-            <a href="#" className="text-gray-400 hover:text-blue-500 transition">
+             <a href="#" className="text-gray-400 hover:text-blue-500 transition">
               <i className="fab fa-twitter"></i>
             </a>
             <a href="#" className="text-gray-400 hover:text-blue-700 transition">
@@ -470,8 +348,7 @@ const team2=[{
           className="w-full h-48 object-cover rounded-t-2xl"
         />
 
-        {/* Description */}
-        <div className="p-4">
+         <div className="p-4">
           <p className="text-sm font-normal leading-relaxed">
             {shortText}
           </p>
@@ -487,7 +364,7 @@ const team2=[{
              <h1 className="font-semibold text-[40px]">We Are Here</h1>
              <p className="text-center text-[18px] font-normal">A stunning bird’s-eye perspective showcasing the full scale and beauty of our operations.</p>
            
-           <img className="block mx-auto mt-8" src="/Images/pic1.png" alt="" />
+           <img className="block mx-auto mt-8" src="/Block/Images/pic1.png" alt="" />
             <h1 className="text-[32px] font-bold mt-5">12,000 sq.m Facility</h1>
            <p className="text-[18px]">4650 sq.m covered</p>
            
@@ -527,28 +404,119 @@ const team2=[{
                   <h1 className="text-[32px] font-semibold">OSHA Compliant /2012</h1>
                      <hr />
                </div>
-
-
                <div>
                   <img className="rounded bg-white border-2" src="\Certification\Vector.png" alt="" />
                </div>
-
              </div>
-
-
          </div>
-         
-
-
-
        </div>
 </section>
 
+    <section>
+           <div className="container mx-auto max-w-7xl text-center space-y-4 mt-15">
+            <p className="text-[#F16336] font-semibold text-[20px]">Our Major Client</p>
+            <h1 className="text-[40px] font-semibold">Client Who trust us </h1>
+            <p>We are proud to serve leading brands and organizations across diverse industries.</p>
 
+ <div className="grid grid-cols-4 gap-6">
+  {clientlogo.map((item, index) => {
+    return (
+      <div
+        key={item.id}
+        className={`flex items-center justify-center p-4 border-1   rounded-2xl shadow-sm transition duration-300 
+          ${index === 1 
+            ? "bg-orange-500 border-orange-500 shadow-orange-200" 
+            : "bg-white border-gray-200 hover:border-blue-400"
+          }`}
+      >
+        <img
+          src={item.image}
+          alt=""
+          className={`max-h-20 object-contain ${index === 1 ? "invert brightness-0" : ""}`}
+        />
+      </div>
+    );
+  })}
+</div>
+ </div>
+</section>
 
+<section>
+           <div className="container mx-auto max-w-7xl text-center space-y-4 mt-15">
+            <p className="text-[#F16336] font-semibold text-[20px]">Our Major Projects</p>
+            <h1 className="text-[40px] font-semibold">Our Signature Projects </h1>
+            <p>Showcasing the projects that highlight our expertise and commitment to excellence..</p>
+            
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 p-4 ">
+  {Signatureprojects.map((item) => (
+    <div
+      key={item.id}
+      className=" space-y-4 text-left px-4 py-4 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transform hover:-translate-y-2 transition duration-300 bg-white"
+    >
+      <img
+        className="w-full h-64 object-cover rounded-lg"
+        src={item.image}
+        alt={`Signature project ${item.id}`}
+      />
+      <h1 className="text-[20px] font-semibold">{item.title}</h1>
+      <p>{item.description}</p>
+    </div>
+  ))}
+</div>
 
+ <h1 className="text-[20px] font-bold text-right mx-60">Team Expansion</h1>
+ </div>
+ </section>
 
+ <section className=" bg-white px-23 py-23 mt-12 min-w-screen">
 
+ 
+      <div className=" container max-w-7xl mx-auto grid grid-cols-2">
+
+         <div className="space-y-4 font-semibold">
+          <h1 className="text-[#F16336]">News & Updates</h1>
+          <h1 className="text-[40px]">Updates & Announcements</h1>
+          <p className="font-normal">Stay informed with our latest news, updates, and announcements.</p>
+         </div>
+
+         <div className="text-right mt-20">
+           
+           <button className={btn1}>
+            View all News & Updates →
+           </button>
+    </div>
+    </div>
+
+   <div className="container mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+  {news1.map((item, index) => (
+    <div 
+      key={index} 
+      className="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden"
+    >
+      <img 
+        src={item.image} 
+        alt={item.title} 
+        className="w-full h-48 object-cover"
+      />
+
+      <div className="p-4">
+        <p className="text-sm text-gray-500">{item.date}</p>
+        <h1 className="text-lg font-semibold text-gray-800 mt-2">{item.title}</h1>
+        <p className="text-gray-600 text-sm mt-1">{item.description}</p>
+
+        <div className="flex items-center gap-2 mt-4">
+          <img 
+            src={item.img} 
+            alt={item.name} 
+            className="w-8 h-8 rounded-full object-cover"
+          />
+          <p className="text-gray-700 text-sm font-medium">{item.name}</p>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+ </section>
 </section> 
    
 
