@@ -2,6 +2,7 @@
 
 .basicTheme {
   --color-white: #ffffff;
+  --color-gray: #787d86;
   --color-dark: #151515;
   --color-primary: #f16336;
   font-family: var(--font-open-sans);

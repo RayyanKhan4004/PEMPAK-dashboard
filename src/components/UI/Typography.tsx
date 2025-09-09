@@ -15,7 +15,7 @@ type TypographyVariant =
 
 type TypographyProps = {
   variant?: TypographyVariant;
-  color?: "white" | "dark" | "primary";
+  color?: "white" | "dark" | "primary" |"secondary";
   children: React.ReactNode;
   className?: string;
   weight?: TypographyWeight;
@@ -43,6 +43,7 @@ const colorClasses = {
   white: "text-[#FFFFFF]",
   dark: "text-[#151515]",
   primary: "text-[#F16336]",
+  secondary:"text-[#787D86]",
 };
 
 const Typography: React.FC<TypographyProps> = ({
