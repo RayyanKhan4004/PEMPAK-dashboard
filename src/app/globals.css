@@ -2,7 +2,20 @@
 
 .basicTheme {
   --color-white: #ffffff;
+  --color-gray: #787d86;
   --color-dark: #151515;
   --color-primary: #f16336;
   font-family: var(--font-open-sans);
+}
+
+.scroll-hide::-webkit-scrollbar {
+  display: none;
+}
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
