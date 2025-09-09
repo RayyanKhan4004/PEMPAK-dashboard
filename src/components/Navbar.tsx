@@ -1,22 +1,23 @@
 // components/Navbar.tsx
 import Link from 'next/link';
 import Typography from "@/components/UI/Typography";
+import Homepage from '@/app/home/page';
 
 export const Navbar = () => {
   return (
     <nav className="shadow-md p-4 container mx-auto flex items-center justify-between">
-      {/* Logo */}
+  
       <Typography variant="h1" weight="b" color="primary" className="text-4xl">
   PEMPAK
 </Typography>
 
       {/* Navigation Links */}
       <div className="flex space-x-6 text-lg font-medium items-center">
-        <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
+        <Link href="/home" className="hover:text-blue-600 transition-colors">Home</Link>
         <Link href="/about" className="hover:text-blue-600 transition-colors">About</Link>
         <Link href="/products" className="hover:text-blue-600 transition-colors">Our Products</Link>
         <Link href="/services" className="hover:text-blue-600 transition-colors">Services</Link>
-        <Link href="/ourteam" className="hover:text-blue-600 transition-colors">Our Team</Link>
+        <Link href="/our-team" className="hover:text-blue-600 transition-colors">Our Team</Link>
         <Link href="/blogs" className="hover:text-blue-600 transition-colors">Blog</Link>
         <Link
           href="/contact"

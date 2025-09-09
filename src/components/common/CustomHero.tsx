@@ -9,7 +9,7 @@ type CustomHeroProps= {
 }
 const CustomHero = ({title , sub , bg} :CustomHeroProps ) => {
   return (
-    <div className='reletive h-[470px] w-full'>
+    <div className='relative h-[470px] w-full'>
       <Image className='absolute inset-0 -z-10 w-full' src={bg} alt='' />
       <Typography variant='h1' weight='b' color='white'>{title}</Typography>
       <Typography variant='p-l' weight='b' color='white'>{sub}</Typography>

@@ -3,6 +3,7 @@ import Footer from '../components/Footer';
 
 import './globals.css';
 import Link from 'next/link';
+import Homepage from './home/page';
 
 export const metadata = {
   title: 'My Next App',
@@ -18,8 +19,8 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-gray-100 text-gray-900">
         <Navbar/>
-        {/* Main Content */}
-        <main>
+
+         <main>
           {children}
         </main>
          <Footer/>
