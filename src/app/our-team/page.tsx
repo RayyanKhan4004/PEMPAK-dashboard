@@ -30,8 +30,8 @@ import Image from "next/image";
               </div>
 
               <div className="space-y-4">
-                    <Typography variant="h1" weight="b" color=""> Shahid Ali Malik</Typography> <br />
-                    <Typography variant="h3" weight="semi-b" color="primary">Chief Executive Officer (CEO)</Typography> <br />
+                    <Typography variant="h2" weight="b" color=""> Shahid Ali Malik</Typography> <br />
+                    <Typography variant="h4" weight="semi-b" color="primary">Chief Executive Officer (CEO)</Typography> <br />
                     <strong>PERFECT ELEKTRO MEK PAKISTAN (PRIVATE) LIMITED (PEMPAK) </strong>
                     <p>was established in the year 2000 as Distribution. A team of professionals joined hands to fulfill the market needs and challenges of the new manufacturer of complete range of LV & MV SWITCHGEARS & CONTROLGEARS for Reliable Power millennium in the corporate world. All effort made at PEMPAK are focused on perfection of the equipment and client's convenience.</p>
 
