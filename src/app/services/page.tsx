@@ -97,7 +97,7 @@ return (
       quality and reliability.
     </Typography>
 
-
+<div className="flex justify-center">
     <div className="flex mt-5">
 
       <div className="relative border border-gray-300 rounded-lg p-6 text-center shadow-sm w-100 ml-4 overflow-hidden group ml-13 " >
@@ -176,8 +176,9 @@ return (
       </div>
 
     </div>
+</div>    
 
-
+ <div className="flex justify-center">
     <div className="flex mt-5">
       <div className="relative border border-gray-300 rounded-lg p-6 text-center shadow-sm w-100 ml-4 overflow-hidden group ml-13" >
   {/* background overlay */}
@@ -254,7 +255,7 @@ return (
 </div>
 
     </div>
-
+ </div>
 
     {/* Customer Satisfaction Assured Through */}
     <div className="block bg-gray-200 p-15 h-180 mt-30" >
@@ -315,10 +316,13 @@ return (
           
 
     {/* From start to stretch */}
+    <div className="flex justify-center">
+
     <div className="mb-20 mt-20">
       <img src="ourServices/map-start-to-end.svg" alt="" className="mt-10" />
     </div>
 
+    </div>
 
   </div>
 );
