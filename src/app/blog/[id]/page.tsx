@@ -15,9 +15,11 @@ Every Homeowner </Typography>
 <Typography color='secondary'>May 19, 2025</Typography>
 </Typography>
 <div> 
- <Image className='w-full mt-[50px]' src={HeroImage} alt='' />
+ <Image className='w-full py-[50px]' src={HeroImage} alt='' />
 </div>
-
+<Typography> Electricity powers almost everything in our daily lives – from the lights in our living rooms to the appliances in our kitchens. While it makes life easier, it can also be dangerous if not handled properly. Practicing electrical safety is essential to protect your family, property, and valuable equipment. Here are five simple but powerful electrical safety tips every homeowner should follow:
+  <Typography>1. Don’t Overload Your Outlets </Typography>
+</Typography>
 
 
     </>
