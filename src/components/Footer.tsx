@@ -1,6 +1,16 @@
 "use client";
-
+import twitter from '@public/socialMedia/twitter-icon.svg'
+import linkedin from '@public/socialMedia/linkedin.svg'
+import youtube from '@public/socialMedia/youtube.svg'
+import location from '@public/socialMedia/location-icon.svg'
+import phoneNo from '@public/socialMedia/phoneNo.svg'
+import gmail from '@public/socialMedia/gmail.svg'
+import instagram from '@public/socialMedia/instagram.svg'
+// import facebook from '@public/socialMedia/facebook-icon.svg'
+import watsapp from '@public/socialMedia/watsapp.svg'
+import Image from "next/image";
 import Link from "next/link";
+//          <Image className="m-2" src="socialMedia/facebook-icon.svg" alt="" />
 
 export default function Footer() {
   return (
@@ -15,8 +25,8 @@ export default function Footer() {
           </p>
 
           <div className="flex">
-            <img
-              src="socialMedia/phoneNo.svg"
+            <Image
+              src={phoneNo}
               alt=""
               className="bg-white h-5 w-7 mr-2"
             />
@@ -25,16 +35,16 @@ export default function Footer() {
           </div>
 
           <div className="flex">
-            <img
-              src="socialMedia/gmail.svg"
+            <Image
+              src={gmail}
               alt=""
               className="bg-white h-5 w-7 mr-2"
             />
             <p className="text-sm mb-3">pempak@gmail.com</p>
           </div>
           <div className="flex">
-            <img
-              src="socialMedia/location-icon.svg"
+            <Image
+              src={location}
               alt=""
               className="bg-white h-5 w-7 mr-2"
             />
@@ -150,16 +160,16 @@ export default function Footer() {
         </div>
 
         <div className="absolute w-[90vw] p-3 flex justify-end mt-55">
-          <img className="m-2" src="socialMedia/facebook-icon.svg" alt="" />
-          <img
+          {/* <Image className="m-2" src={facebook} alt="" /> */}
+          <Image
             className="m-2 bg-white h-8 w-8 rounded-sm"
-            src="socialMedia/instagram.svg"
+            src={instagram}
             alt=""
           />
-          <img className="m-2" src="socialMedia/twitter-icon.svg" alt="" />
-          <img className="m-2" src="socialMedia/linkedin.svg" alt="" />
-          <img className="m-2" src="socialMedia/youtube.svg" alt="" />
-          <img className="m-2" src="socialMedia/watsapp.svg" alt="" />
+          <Image className="m-2" src={twitter} alt="" />
+          <Image className="m-2" src={linkedin} alt="" />
+          <Image className="m-2" src={youtube} alt="" />
+          <Image className="m-2" src={watsapp} alt="" />
         </div>
       </div>
 
