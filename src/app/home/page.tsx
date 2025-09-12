@@ -45,7 +45,7 @@ async function getTeamMembers() {
 export default function Homepage() {
   // stats
   const [teams, setTeams] = useState<TeamMember[]>([])
-  const[blogData, setBlogdata] = useState<ItemProps[]>([])
+  const [blogData, setBlogdata] = useState<ItemProps[]>([])
   // effects
   useEffect(() => {
     (async () => {
@@ -53,7 +53,7 @@ export default function Homepage() {
       setBlogdata(await getBlogs())
     })()
 
-    
+
   }, [])
   return (
     <>
@@ -293,8 +293,10 @@ export default function Homepage() {
           <h1 className="text-[40px] font-semibold text-center">Team PEMPAK</h1>
           <p className="font-[400]">A passionate group of professionals dedicated to driving PEMAPK’s vision forward with expertise and commitment.</p>
 
+
+          {/* Show the last four team members */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {teams.map((item: TeamMember, ind: number) => (
+            {teams.slice(-4).map((item: TeamMember, ind: number) => (
               <div
                 key={item._id + ind}
                 className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl"
@@ -535,8 +537,8 @@ export default function Homepage() {
           </div>
         </div>
 
-        <div className="container mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-          {blogData.map((item: ItemProps, ind: number) => (
+        <div className="container mx-auto max-w-7xl grid grid-cols-1 sm:grd-cols-2 lg:grid-cols-3 gap-6 p-4">
+          {blogData.slice(0, 3).map((item: ItemProps, ind: number) => (
             <div
               key={item._id}
               className={`rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden px-5 py-5 mt-5
@@ -551,7 +553,7 @@ export default function Homepage() {
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
-                <p className="text-sm text-gray-500">{item.date}</p>
+                <p className="text-sm text-gray-500">{item.date.split('T')[0]}</p>
                 <h1 className="text-lg font-semibold text-gray-800 mt-2">
                   {item.title}
                 </h1>
@@ -569,10 +571,6 @@ export default function Homepage() {
           ))}
         </div>
       </section>
-
-
-
-
     </>
   );
 }
