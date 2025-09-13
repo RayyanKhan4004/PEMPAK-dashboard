@@ -3,7 +3,7 @@ import Image from 'next/image'
 import React, { ReactNode } from 'react'
 import Typography from '../UI/Typography'
 type CustomHeroProps= {
-    title : string,
+    title :  React.ReactNode;
     sub : ReactNode,
     bg : string | StaticImport
 }
