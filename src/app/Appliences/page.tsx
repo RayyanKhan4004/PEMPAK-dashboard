@@ -2,6 +2,7 @@ import React from 'react'
 import CustomHero from '@/components/common/CustomHero'
 import AppliencesImage from '../../../public/Images/blog/Appliences.png'
 import CustomApplience from '@/components/common/CustomGreen'
+import CustomDes from '../../components/common/CustomDes'
 function page() {
   return (
     <div className='pb-10'>
@@ -10,6 +11,7 @@ function page() {
     </div>
     <div> 
        <CustomApplience/>
+       <CustomDes/>
        
     </div>
     </div>

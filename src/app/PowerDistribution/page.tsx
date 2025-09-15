@@ -2,6 +2,7 @@ import React from 'react'
 import CustomHero from '@/components/common/CustomHero'
 import PowerImage from '../../../public/Images/blog/powerdistribution.png'
 import CustomPowergeneration from '@/components/common/CustomGreen'
+import CustomDes from '../../components/common/CustomDes'
 function page() {
   return (
     <div className='pb-10'>
@@ -12,12 +13,14 @@ function page() {
     </>
   } 
 
-    sub ='.'/>
+    />
     </div>
     <div> 
-       <CustomPowergeneration/>
-       
+       <CustomPowergeneration/> 
+       <CustomDes/>
+        
     </div>
+    
     </div>
    
 

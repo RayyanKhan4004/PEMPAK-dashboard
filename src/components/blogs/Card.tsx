@@ -125,10 +125,10 @@ const Card = () => {
 
     ] 
   return (
-    <Typography className=' gap-6 w-[70%] grid grid-cols-3 py-[50px] '>
+    <Typography className=' gap-6  grid grid-cols-3 py-[50px] '>
         {card.map((Item, index) => (
 
-        <Typography className='border border-[#DFDFDF] p-6 rounded-lg w-[384px]  hover:bg-orange-500'key ={index}>{Item.img}
+        <Typography className='border border-[#DFDFDF] p-6 rounded-lg w-[384px]  h-[463px] hover:bg-orange-500'key ={index}>{Item.img}
             <img src="" alt="" className='h-[236px] w-[336px] rounded-[16px]' />
             <Typography   color='primary'>{Item.date}</Typography>
             <Typography variant='h4'>{Item.title}</Typography>

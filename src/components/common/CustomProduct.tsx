@@ -145,18 +145,18 @@ const CustomProduct = () => {
         <h2 className="text-3xl font-bold text-center mb-12 ">
           Product Categories
         </h2>
-        <Typography className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8 ">
+        <Typography className="flex flex-row-2 gap-6 justify-center w-full flex-wrap">
           {productCategories.map((product) => (
             <Typography
               key={product.id}
-              className="bg-white border rounded-xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-col hover:bg-orange-500"
+             className="bg-white border rounded-xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-row hover:bg-orange-500 w-[588px] p-[24px] text-black hover:text-white"
             >
               <img
                 src={product.img}
-                className="w-full h-52 object-cover"
+                className="w-full h-52 object-cover w-[223px] h-[223px] rounded-2xl"
               />
               <div className="p-5 flex flex-col flex-grow">
-                <h3 className="font-semibold text-xl mb-2 text-gray-800">
+                <h3 className="font-semibold text-xl mb-2 ">
                   {product.title}
                 </h3>
                 <p className="text-gray-600 text-sm flex-grow">
