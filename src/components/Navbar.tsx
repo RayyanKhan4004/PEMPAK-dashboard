@@ -16,7 +16,7 @@ export const Navbar = () => {
         <Link href="/products" className="hover:text-amber-600 transition-colors">Our Products</Link>
         <Link href="/services" className="hover:text-amber-600 transition-colors">Services</Link>
         <Link href="/our-team" className="hover:text-amber-600 transition-colors">Our Team</Link>
-        <Link href="/blogs" className="hover:text-amber-600 transition-colors">Blog</Link>
+        <Link href="/blog" className="hover:text-amber-600 transition-colors">Blog</Link>
         <Link
           href="/contact"
           className="hover:text-white text-white bg-orange-600 px-6 py-2 rounded-xl transition-colors"
