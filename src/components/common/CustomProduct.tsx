@@ -92,7 +92,8 @@ const CustomProduct = () => {
           <img
             src="/images/main.jpg"
             alt="Main"
-            className="w-full h-auto rounded-xl shadow-md"
+            className="w-full h-auto rounded-xl shadow-md "
+
           />
           <Typography className="flex flex-wrap gap-3 mt-4">
             {[
@@ -149,22 +150,20 @@ const CustomProduct = () => {
           {productCategories.map((product) => (
             <Typography
               key={product.id}
-             className="bg-white border rounded-xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-row hover:bg-orange-500 w-[588px] p-[24px] text-black hover:text-white"
+              className="bg-white border rounded-xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-row hover:bg-orange-500  w-[588px] p-[24px] text-black hover:text-white"
             >
               <img
                 src={product.img}
                 className="w-full h-52 object-cover w-[223px] h-[223px] rounded-2xl"
               />
               <div className="p-5 flex flex-col flex-grow">
-                <h3 className="font-semibold text-xl mb-2 ">
-                  {product.title}
-                </h3>
+                <h3 className="font-semibold text-xl mb-2 ">{product.title}</h3>
                 <p className="text-gray-600 text-sm flex-grow">
                   {product.desc}
                 </p>
                 <a
                   href="#"
-                  className="text-orange-500 font-medium hover:underline mt-3"
+                  className="text-orange-500 font-medium group-hover:text-white mt-3"
                 >
                   Learn More →
                 </a>
