@@ -1,140 +1,102 @@
-"use client";
-import React from "react";
-import Typography from "../UI/Typography";
+'use client'
+import React, { useState, useEffect } from 'react'
+import Typography from '../UI/Typography';
 
 const Card = () => {
-  interface Item {
-    name: string;
-    title: string;
-    des: string;
-    date: string;
-    ownerImage?: string;
-    img: string;
-  }
-  const card: Item[] = [
-    {
-      name: "Shahid Ali Malik",
-      img: "",
-      title: "New Solar Division Launch",
-      des: "Expanding our services to include comprehensive solar installation and maintenance",
-      date: "August 15, 2025",
-      ownerImage: "",
-    },
-    {
-      name: "Shahid Ali Malik",
-      img: "",
-      title: "New Solar Division Launch",
-      des: "Expanding our services to include comprehensive solar installation and maintenance",
-      date: "August 15, 2025",
-      ownerImage: "",
-    },
-    {
-      name: "Shahid Ali Malik",
-      img: "",
-      title: "New Solar Division Launch",
-      des: "Expanding our services to include comprehensive solar installation and maintenance",
-      date: "August 15, 2025",
-      ownerImage: "",
-    },
-    {
-      name: "Shahid Ali Malik",
-      img: "",
-      title: "New Solar Division Launch",
-      des: "Expanding our services to include comprehensive solar installation and maintenance",
-      date: "August 15, 2025",
-      ownerImage: "",
-    },
-    {
-      name: "Shahid Ali Malik",
-      img: "",
-      title: "New Solar Division Launch",
-      des: "Expanding our services to include comprehensive solar installation and maintenance",
-      date: "August 15, 2025",
-      ownerImage: "",
-    },
-    {
-      name: "Shahid Ali Malik",
-      img: "",
-      title: "New Solar Division Launch",
-      des: "Expanding our services to include comprehensive solar installation and maintenance",
-      date: "August 15, 2025",
-      ownerImage: "",
-    },
-    {
-      name: "Shahid Ali",
-      img: "",
-      title: "New Solar Division Launch",
-      des: "Expanding our services to include comprehensive solar installation and maintenance",
-      date: "August 15, 2025",
-      ownerImage: "",
-    },
-    {
-      name: "Shahid Ali Malik",
-      img: "",
-      title: "New Solar Division Launch",
-      des: "Expanding our services to include comprehensive solar installation and maintenance",
-      date: "August 15, 2025",
-      ownerImage: "",
-    },
-    {
-      name: "Shahid Ali Malik",
-      img: "",
-      title: "New Solar Division Launch",
-      des: "Expanding our services to include comprehensive solar installation and maintenance",
-      date: "August 15, 2025",
-      ownerImage: "",
-    },
-    {
-      name: "Shahid Ali Malik",
-      img: "",
-      title: "New Solar Division Launch",
-      des: "Expanding our services to include comprehensive solar installation and maintenance",
-      date: "August 15, 2025",
-      ownerImage: "",
-    },
-    {
-      name: "Shahid Ali Malik",
-      img: "",
-      title: "New Solar Division Launch",
-      des: "Expanding our services to include comprehensive solar installation and maintenance",
-      date: "August 15, 2025",
-      ownerImage: "",
-    },
-    {
-      name: "Shahid Ali Malik",
-      img: "",
-      title: "New Solar Division Launch",
-      des: "Expanding our services to include comprehensive solar installation and maintenance",
-      date: "August 15, 2025",
-      ownerImage: "",
-    },
-  ];
-  return (
-    <>
-      <Typography className=" gap-6  grid grid-cols-3 py-[50px] ">
-        {card.map((Item, index) => (
-          <Typography
-            className="border border-[#DFDFDF] p-6 rounded-lg w-[384px]  h-[463px] hover:bg-orange-500"
-            key={index}
-          >
-            {Item.img}
-            <img src="" alt="" className="h-[236px] w-[336px] rounded-[16px]" />
-            <Typography color="primary">{Item.date}</Typography>
-            <Typography variant="h4">{Item.title}</Typography>
-            <Typography>{Item.des}</Typography>
-            <Typography className="flex gap-[7px]">
-              <img src="#" alt="" className="h-[32px] w-[32px] rounded-full" />
-              <Typography>{Item.name}</Typography>
+    interface ItemProps {
+        name: string;
+        pf: string;
+        title: string;
+        des: string;
+        date: string;
+        ownerImage?: string;
+        image: string;
+        description?: string;
+    }
+
+    const [blogs, setBlogs] = useState<ItemProps[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+    const [cardData, setCardData] = useState([]);
+
+    useEffect(() => {
+        const fetchBlogs = async () => {
+            try {
+                setLoading(true);
+                const response = await fetch('https://pempak-api.vercel.app/api/blogs');
+                console.log(response);
+                const data = await response.json();
+                setBlogs(data);
+                console.log(data);
+
+                //  &&  throw new Error(`HTTP error! status: ${response.status}`);
+
+
+                // if (!response.ok) {
+                //     throw new Error(`HTTP error! status: ${response.status}`);
+                // }
+
+
+            } catch (err) {
+                setError(err instanceof Error ? err.message : 'Failed to fetch blogs');
+                console.error('Error fetching blogs:', err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchBlogs();
+    }, []);
+    if (loading) {
+        return (
+            <Typography className='gap-6 w-[70%] grid grid-cols-3 py-[50px]'>
+                <Typography className='text-center col-span-3'>Loading blogs...</Typography>
             </Typography>
-          </Typography>
-        ))}
-      </Typography>
-      <div className=" flex justify-center w-full items-center">
+        );
+    }
+
+        if (error) {
+        return (
+            <Typography className='gap-6 w-[70%] grid grid-cols-3 py-[50px]'>
+                <Typography className='text-center col-span-3 text-red-500'>
+                    Error: {error}
+                </Typography>
+            </Typography>
+        );
+    }
+
+return (
+            <>
+
+        <Typography className='gap-6 w-[70%] grid grid-cols-3 py-[50px]'>
+            {blogs.map((item  : ItemProps, index : number) => (
+                <Typography className='border border-[#DFDFDF] p-6 rounded-lg w-[384px]' key={index}>
+                    <img
+                        src={item.image || '/placeholder-image.jpg'}
+                        alt={item.title}
+                        className='h-[236px] w-[336px] rounded-[16px] object-cover'
+                    />
+                    <Typography color='primary'>{item.date.split('T')[0]}</Typography>
+                    <Typography variant='h4'>{item.title}</Typography>
+                        <Typography>{item.description}</Typography>
+                    <Typography>{item.des}</Typography>
+                    <Typography className='flex gap-2.5'>
+                        <img
+                            src={item.ownerImage || '/placeholder-avatar.jpg'}
+                            alt={item.pf}
+                            className='h-8 w-8 rounded-full object-cover'
+                        />
+                        <Typography>{item.name}</Typography>
+                    </Typography>
+                </Typography>
+            ))}
+        </Typography>
+         <div className=" flex justify-center w-full items-center">
         <button className="text-white rounded-[12px] bg-[#F16336] h-[50px] w-[146px] font-semibold text-size-[16px]  hover:bg-orange-600">
           View More
         </button>
       </div>
     </>
-  );
-};
-export default Card;
+    )
+}
+export default Card
