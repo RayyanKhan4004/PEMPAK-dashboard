@@ -86,16 +86,15 @@ const CustomProduct = () => {
   ];
 
   return (
-    <Typography className="w-full px-4 sm:px-8 md:px-12 lg:px-20 py-12">
-      <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16  ">
-        <Typography className="flex-1 mt-[100px] ">
+    <Typography className=" px-4 sm:px-8 md:px-12 lg:px-20 py-12 ">
+      <div className="flex flex-row mt-[100px] justify-center items-center px-[120px] w-full flex-wrap">
+        <Typography className="flex-1 ">
           <img
             src="/images/main.jpg"
             alt="Main"
-            className="w-full h-auto rounded-xl shadow-md "
-
+            className="  rounded-xl shadow-md w-[565px] h-[466px]  "
           />
-          <Typography className="flex flex-wrap gap-3 mt-4">
+          <Typography className="flex flex-wrap gap-3 mt-4  ">
             {[
               "/images/small1.jpg",
               "/images/small2.jpg",
@@ -105,13 +104,13 @@ const CustomProduct = () => {
               <img
                 key={index}
                 src={img}
-                className="w-20 h-20 rounded-lg shadow"
+                className="w-20 h-20 rounded-lg shadow "
               />
             ))}
           </Typography>
         </Typography>
         <Typography variant="h2" className="flex-1" color="dark">
-          <h2 className=" font-bold mb-6  mt-[100px]">Description</h2>
+          <h2 className=" font-bold mb-6">Description</h2>
           <Typography
             variant="p-l"
             color="tertiary"
@@ -154,7 +153,7 @@ const CustomProduct = () => {
             >
               <img
                 src={product.img}
-                className="w-full h-52 object-cover w-[223px] h-[223px] rounded-2xl"
+                className=" object-cover w-[223px] h-[223px] rounded-2xl"
               />
               <div className="p-5 flex flex-col flex-grow">
                 <h3 className="font-semibold text-xl mb-2 ">{product.title}</h3>
