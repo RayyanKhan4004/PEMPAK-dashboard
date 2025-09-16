@@ -1,6 +1,6 @@
 "use client"
-import CustomHero from "@/components/common/CustomHero";
-import Footer from "@/components/Footer";
+// import CustomHero from "@/components/common/CustomHero";
+// import Footer from "@/components/Footer";
 // import { ourservice1 } from "@/components/UI/home/hero";
 import Typography from "@/components/UI/Typography"
 import Image from "next/image";
@@ -20,22 +20,22 @@ async function getTeamMembers() {
   return await res.json();
 }
 
-export default  function OurTeamPage() {
+export default function OurTeamPage() {
   // const teamMembers =  getTeamMembers();
 
-  
+
   // states 
   const [ourservice1, setOurservice1] = useState<TeamMember[]>([])
   //effects 
-useEffect(() => {
-  (async () => {
-    setOurservice1(await getTeamMembers());
-  })();
-  //  getTeamMembers();
-  //  setOurservice1( getTeamMembers());
-}, [])
-// utils fx 
-const ceo = ourservice1?.find((member: TeamMember) =>
+  useEffect(() => {
+    (async () => {
+      setOurservice1(await getTeamMembers());
+    })();
+    //  getTeamMembers();
+    //  setOurservice1( getTeamMembers());
+  }, [])
+  // utils fx 
+  const ceo = ourservice1?.find((member: TeamMember) =>
     member.role.toLowerCase().includes('ceo') ||
     member.role.toLowerCase().includes('chief executive officer')
   );
@@ -132,9 +132,16 @@ const ceo = ourservice1?.find((member: TeamMember) =>
                 <div
                   className={`w-full h-[400px] flex items-center justify-center 
           ${index % 2 === 0 ? "bg-[#e0e4ee]" : "bg-[#FCEDE6]"}`}>
-                  <img
+                  <Image
                     className="h-full object-contain"
-                    src={member.image}
+                    width={384}
+                    height={364}
+                    src={member.image || "https://res.cloudinary.com/dtj45icg0/image/upload/v1758007183/ImagePlaceholder_iin1a8.png"}
+                    // src={
+                    //   member.image && member.image.trim() !== ""
+                    //     ? member.image
+                    //     : "https://res.cloudinary.com/dtj45icg0/image/upload/v1758007183/ImagePlaceholder_iin1a8.png"
+                    // }
                     alt={member.name}
                   />
                 </div>
@@ -168,7 +175,8 @@ const ceo = ourservice1?.find((member: TeamMember) =>
                 <img
                   className={`object-contain  border-gray-300 rounded-xl mb-4 h-[353px] w-full
           ${index % 2 === 0 ? 'bg-[#F3F4F6]' : 'bg-[#FCEDE6]'}`}
-                  src={member.image}
+                  // src={member.image }
+                  src={member.image || "https://res.cloudinary.com/dtj45icg0/image/upload/v1758007183/ImagePlaceholder_iin1a8.png"}
                   alt={member.name}
                 />
                 <div className="px-3 py-3 flex flex-col items-start">
