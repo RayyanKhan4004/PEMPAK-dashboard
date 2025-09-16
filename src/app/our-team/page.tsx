@@ -174,7 +174,7 @@ export default function OurTeamPage() {
                 className={`bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2`} >
                 <img
                   className={`object-contain  border-gray-300 rounded-xl mb-4 h-[353px] w-full
-          ${index % 2 === 0 ? 'bg-[#F3F4F6]' : 'bg-[#FCEDE6]'}`}
+          `}
                   // src={member.image }
                   src={member.image || "https://res.cloudinary.com/dtj45icg0/image/upload/v1758007183/ImagePlaceholder_iin1a8.png"}
                   alt={member.name}

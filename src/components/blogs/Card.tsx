@@ -27,9 +27,9 @@ const Card = () => {
                 console.log(response);
                 const data = await response.json();
                 setBlogs(data);
-                console.log(data);
+                // console.log(data);
 
-                //  &&  throw new Error(`HTTP error! status: ${response.status}`);
+                // throw new Error(`HTTP error! status: ${response.status}`);
 
 
                 // if (!response.ok) {

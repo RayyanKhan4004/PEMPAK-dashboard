@@ -1,7 +1,87 @@
-import React from "react";
+'use client'
+import React, { useState, useEffect } from "react";
 import Typography from "../UI/Typography";
 
 const CustomProduct = () => {
+
+  // interface categoies data
+  interface Categories {
+    name: string,
+    desc: string,
+    bannerimg?: string,
+    addimgs?: string[]
+  }
+
+  // interface product data
+  interface Products {
+    name: string,
+    cate: string,
+    description: string,
+    images?: string
+  }
+
+  // set stats
+  const [categoies, setCategoies] = useState<Categories[]>([])
+  const [products, setProducts] = useState<Products[]>([])
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchCategoies = async () => {
+      try {
+        setLoading(true)
+        const response = await fetch('https://pempak-api.vercel.app/api/categories')
+        const data = await response.json();
+        setCategoies(data)
+        console.log("categories")
+        console.log(data)
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to fetch categories');
+        console.error('Error fetching categories:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    const fetchProductss = async () => {
+      try {
+        setLoading(true)
+        const response = await fetch('https://pempak-api.vercel.app/api/products')
+        const data = await response.json();
+        setProducts(data)
+        console.log("producst")
+        console.log(data)
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to fetch products');
+        console.error('Error fetching products:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+
+    fetchCategoies()
+    fetchProductss()
+  }, [])
+
+  if (loading) {
+    return (
+      <Typography className='gap-6 w-[70%] grid grid-cols-3 py-[50px]'>
+        <Typography className='text-center col-span-3'>Loading blogs...</Typography>
+      </Typography>
+    );
+  }
+
+  if (error) {
+    return (
+      <Typography className='gap-6 w-[70%] grid grid-cols-3 py-[50px]'>
+        <Typography className='text-center col-span-3 text-red-500'>
+          Error: {error}
+        </Typography>
+      </Typography>
+    );
+  }
+
   // Array for product categories
   const productCategories = [
     {
@@ -90,7 +170,7 @@ const CustomProduct = () => {
       <div className="flex flex-row mt-[100px] justify-center items-center px-[120px] w-full flex-wrap">
         <Typography className="flex-1 ">
           <img
-            src="/images/main.jpg"
+            src={categoies[0].bannerimg}
             alt="Main"
             className="  rounded-xl shadow-md w-[565px] h-[466px]  "
           />
