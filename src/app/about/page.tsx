@@ -24,7 +24,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="space-y-20 space-x-3 px-10 py-10 mt-13 ml-7">
+      <div className="space-y-20 space-x-3 px-[120px] py-[100px]">
         {/* Section 1: Image Left, Text Right */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-10">
           <img
@@ -89,7 +89,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="p-19 bg-orange-100">
+      <div className="px-[120px] py-[100px] bg-orange-100">
         <div className="">
           <h1 className="text-2xl font-bold text-center">Corporate Vision</h1>
           <p className="text-center mt-3">
@@ -99,7 +99,7 @@ export default function AboutPage() {
         </div>
 
         <div className="flex bg-white m-7 p-8 justify-center align-middle rounded-4xl">
-          <div className="m-1 h-78 w-90 border-r-3 border-r-amber-500 shadow-md">
+          <div className="m-1 h-78 w-90 border-r-3 border-r-amber-500">
             <div className="flex">
               <img src="others/eye-icon.svg" alt="" className="ml-3" />
               <h1 className="text-2xl font-bold px-3">Our Vision</h1>
@@ -115,7 +115,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="m-1 h-78 w-90 border-r-3 border-r-amber-500 shadow-md">
+          <div className="m-1 h-78 w-90 border-r-3 border-r-amber-500">
             <div className="flex">
               <img src="others/our-missions.svg" alt="" className="ml-3" />
               <h1 className="text-2xl font-bold px-3">Our Mission</h1>
@@ -129,7 +129,7 @@ export default function AboutPage() {
               community well-being.
             </p>
           </div>
-          <div className="m-1 h-78 w-90 border-r-3 border-r-amber-500 shadow-md">
+          <div className="m-1 h-78 w-90 border-r-">
             <div className="flex">
               <img src="others/our-values.svg" alt="" className="ml-3" />
               <h1 className="text-2xl font-bold px-3">Our Values</h1>
@@ -148,7 +148,7 @@ export default function AboutPage() {
 
       {/* Final Section */}
 
-      <div className="space-y-20 space-x-3 px-10 py-17 mt-13 mb-8 ml-7">
+      <div className="space-y-20 space-x-3 px-[120px] py-[100px]">
         <div className="flex flex-col md:flex-row-reverse justify-between items-center gap-10">
           <img src="others/team-project.svg" alt="Not found" />
           <div className="w-[40vw]">
@@ -172,7 +172,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="p-19 bg-gray-200">
+      <div className="bg-gray-200 px-[120px] py-[100px]">
         <div className="">
           <h1 className="text-2xl font-bold text-center">
             International Standard Certifications
@@ -228,7 +228,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="p-19 bg-white">
+      <div className="bg-white px-[120px] py-[100px]">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-center">
             Registration & Recognization

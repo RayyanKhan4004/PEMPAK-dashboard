@@ -14,7 +14,6 @@ function page() {
     </div>
     <div> 
        <CustomProduct/>
-       
     </div>
     </div>
    

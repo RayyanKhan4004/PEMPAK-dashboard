@@ -169,11 +169,11 @@ const CustomProduct = () => {
     <Typography className=" px-4 sm:px-8 md:px-12 lg:px-20 py-12 ">
       <div className="flex flex-row mt-[100px] justify-center items-center px-[120px] w-full flex-wrap">
         <Typography className="flex-1 ">
-          <img
+          {/* <img
             src={categoies[0].bannerimg}
             alt="Main"
             className="  rounded-xl shadow-md w-[565px] h-[466px]  "
-          />
+          /> */}
           <Typography className="flex flex-wrap gap-3 mt-4  ">
             {[
               "/images/small1.jpg",
@@ -229,7 +229,7 @@ const CustomProduct = () => {
           {productCategories.map((product) => (
             <Typography
               key={product.id}
-              className="bg-white border rounded-xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-row hover:bg-orange-500  w-[588px] p-[24px] text-black hover:text-white"
+              className="bg-white border rounded-xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-row hover:bg-[var(--color-primary)]  w-[588px] p-[24px] text-black hover:text-white"
             >
               <img
                 src={product.img}
@@ -242,7 +242,7 @@ const CustomProduct = () => {
                 </p>
                 <a
                   href="#"
-                  className="text-orange-500 font-medium group-hover:text-white mt-3"
+                  className="text-[var(--color-primary)] font-medium group-hover:text-white mt-3"
                 >
                   Learn More →
                 </a>

@@ -82,7 +82,7 @@ const page = () => {
                 <li className="border-b pb-3">
                   <a
                     href="#"
-                    className="block font-medium hover:text-orange-500"
+                    className="block font-medium hover:text-[var(--color-primary)]"
                   >
                     Top 10 Signs Your Home Needs Electrical Upgrades
                   </a>
@@ -91,7 +91,7 @@ const page = () => {
                 <li className="border-b pb-3">
                   <a
                     href="#"
-                    className="block font-medium hover:text-orange-500"
+                    className="block font-medium hover:text-[var(--color-primary)]"
                   >
                     Why Regular Electrical Maintenance Saves You Money
                   </a>
@@ -100,7 +100,7 @@ const page = () => {
                 <li className="border-b pb-3">
                   <a
                     href="#"
-                    className="block font-medium hover:text-orange-500"
+                    className="block font-medium hover:text-[var(--color-primary)]"
                   >
                     Common Electrical Problems and How to Spot Them Early
                   </a>
@@ -109,7 +109,7 @@ const page = () => {
                 <li>
                   <a
                     href="#"
-                    className="block font-medium hover:text-orange-500"
+                    className="block font-medium hover:text-[var(--color-primary)]"
                   >
                     Energy-Saving Tips Every Homeowner Should Follow
                   </a>

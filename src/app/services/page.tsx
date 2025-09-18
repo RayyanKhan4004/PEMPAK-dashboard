@@ -102,7 +102,7 @@ return (
 
       <div className="relative border border-gray-300 rounded-lg p-6 text-center shadow-sm w-100 ml-4 overflow-hidden group ml-13 " >
   {/* background overlay */}
-  <div className="absolute bottom-0 left-0 w-full h-0 bg-orange-500 transition-all duration-500 ease-in-out group-hover:h-full "></div>
+  <div className="absolute bottom-0 left-0 w-full h-0 bg-[var(--color-primary)] transition-all duration-500 ease-in-out group-hover:h-full "></div>
 
   {obj1
     .filter((item) => item.id === 1)
@@ -121,13 +121,13 @@ return (
         </Typography>
       </div>
     ))}
-    <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-500 rounded-b-lg"></div>
+    <div className="absolute bottom-0 left-0 w-full h-2 bg-[var(--color-primary)] rounded-b-lg"></div>
       </div>
 
 
       <div className="relative border border-gray-300 rounded-lg p-6 text-center shadow-sm w-100 ml-4 overflow-hidden group">
   {/* background overlay */}
-  <div className="absolute bottom-0 left-0 w-full h-0 bg-orange-500 transition-all duration-500 ease-in-out group-hover:h-full"></div>
+  <div className="absolute bottom-0 left-0 w-full h-0 bg-[var(--color-primary)] transition-all duration-500 ease-in-out group-hover:h-full"></div>
 
   {obj1
     .filter((item) => item.id === 2)
@@ -146,14 +146,14 @@ return (
         </Typography>
       </div>
     ))}
-    <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-500 rounded-b-lg"></div>
+    <div className="absolute bottom-0 left-0 w-full h-2 bg-[var(--color-primary)] rounded-b-lg"></div>
       </div>
 
 
 
       <div className="relative border border-gray-300 rounded-lg p-6 text-center shadow-sm w-100 ml-4 overflow-hidden group mr-10 pt-10 pb-15">
   {/* background overlay */}
-  <div className="absolute bottom-0 left-0 w-full h-0 bg-orange-500 transition-all duration-500 ease-in-out group-hover:h-full"></div>
+  <div className="absolute bottom-0 left-0 w-full h-0 bg-[var(--color-primary)] transition-all duration-500 ease-in-out group-hover:h-full"></div>
 
   {obj1
     .filter((item) => item.id === 3)
@@ -172,7 +172,7 @@ return (
         </Typography>
       </div>
     ))}
-    <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-500 rounded-b-lg"></div>
+    <div className="absolute bottom-0 left-0 w-full h-2 bg-[var(--color-primary)] rounded-b-lg"></div>
       </div>
 
     </div>
@@ -182,7 +182,7 @@ return (
     <div className="flex mt-5">
       <div className="relative border border-gray-300 rounded-lg p-6 text-center shadow-sm w-100 ml-4 overflow-hidden group ml-13" >
   {/* background overlay */}
-  <div className="absolute bottom-0 left-0 w-full h-0 bg-orange-500 transition-all duration-500 ease-in-out group-hover:h-full"></div>
+  <div className="absolute bottom-0 left-0 w-full h-0 bg-[var(--color-primary)] transition-all duration-500 ease-in-out group-hover:h-full"></div>
 
   {obj1
     .filter((item) => item.id === 4)
@@ -201,13 +201,13 @@ return (
         </Typography>
       </div>
     ))}
-    <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-500 rounded-b-lg"></div>
+    <div className="absolute bottom-0 left-0 w-full h-2 bg-[var(--color-primary)] rounded-b-lg"></div>
 </div>
 
 
       <div className="relative border border-gray-300 rounded-lg p-6 text-center shadow-sm w-100 ml-4 overflow-hidden group">
   {/* background overlay */}
-  <div className="absolute bottom-0 left-0 w-full h-0 bg-orange-500 transition-all duration-500 ease-in-out group-hover:h-full"></div>
+  <div className="absolute bottom-0 left-0 w-full h-0 bg-[var(--color-primary)] transition-all duration-500 ease-in-out group-hover:h-full"></div>
 
   {obj1
     .filter((item) => item.id === 5)
@@ -226,13 +226,13 @@ return (
         </Typography>
       </div>
     ))}
-        <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-500 rounded-b-lg"></div>
+        <div className="absolute bottom-0 left-0 w-full h-2 bg-[var(--color-primary)] rounded-b-lg"></div>
 </div>
 
 
       <div className="relative border border-gray-300 rounded-lg p-6 text-center shadow-sm w-100 ml-4 overflow-hidden group mr-10">
   {/* background overlay */}
-  <div className="absolute bottom-0 left-0 w-full h-0 bg-orange-500 transition-all duration-500 ease-in-out group-hover:h-full"></div>
+  <div className="absolute bottom-0 left-0 w-full h-0 bg-[var(--color-primary)] transition-all duration-500 ease-in-out group-hover:h-full"></div>
 
   {obj1
     .filter((item) => item.id === 6)
@@ -251,7 +251,7 @@ return (
         </Typography>
       </div>
     ))}
-    <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-500 rounded-b-lg"></div>
+    <div className="absolute bottom-0 left-0 w-full h-2 bg-[var(--color-primary)] rounded-b-lg"></div>
 </div>
 
     </div>
@@ -273,35 +273,35 @@ return (
     <div className="p-3 m-10 flex space-x-49 space-y-10 overflow-x-auto scroll-hide">
   <div className="min-w-[220px] h-53 rounded-full flex items-center justify-center relative bg-white shadow-xl">
     <p className="text-center p-3">{data[0].description}</p>
-    <div className="absolute top-0 right-6 bg-orange-500 text-white rounded-full h-9 w-9 flex items-center justify-center text-sm">
+    <div className="absolute top-0 right-6 bg-[var(--color-primary)] text-white rounded-full h-9 w-9 flex items-center justify-center text-sm">
       {data[0].id}
     </div>
   </div>
 
   <div className="min-w-[220px] h-53 rounded-full flex items-center justify-center relative bg-white shadow-xl mt-20 ">
     <p className="text-center p-3">{data[1].description}</p>
-    <div className="absolute top-0 right-6 bg-orange-500 text-white rounded-full h-9 w-9 flex items-center justify-center text-sm">
+    <div className="absolute top-0 right-6 bg-[var(--color-primary)] text-white rounded-full h-9 w-9 flex items-center justify-center text-sm">
       {data[1].id}
     </div>
   </div>
 
   <div className="min-w-[220px] h-53 rounded-full flex items-center justify-center relative bg-white shadow-xl">
     <p className="text-center p-3">{data[2].description}</p>
-    <div className="absolute top-0 right-6 bg-orange-500 text-white rounded-full h-9 w-9 flex items-center justify-center text-sm">
+    <div className="absolute top-0 right-6 bg-[var(--color-primary)] text-white rounded-full h-9 w-9 flex items-center justify-center text-sm">
       {data[2].id}
     </div>
   </div>
 
   <div className="min-w-[220px] h-53 rounded-full flex items-center justify-center relative bg-white shadow-xl mt-20">
     <p className="text-center p-3">{data[1].description}</p>
-    <div className="absolute top-0 right-6 bg-orange-500 text-white rounded-full h-9 w-9 flex items-center justify-center text-sm">
+    <div className="absolute top-0 right-6 bg-[var(--color-primary)] text-white rounded-full h-9 w-9 flex items-center justify-center text-sm">
       {data[1].id}
     </div>
   </div>
 
   <div className="min-w-[220px] h-53 rounded-full flex items-center justify-center relative bg-white shadow-xl">
     <p className="text-center p-3">{data[2].description}</p>
-    <div className="absolute top-0 right-6 bg-orange-500 text-white rounded-full h-9 w-9 flex items-center justify-center text-sm">
+    <div className="absolute top-0 right-6 bg-[var(--color-primary)] text-white rounded-full h-9 w-9 flex items-center justify-center text-sm">
       {data[2].id}
     </div>
   </div>

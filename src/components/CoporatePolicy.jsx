@@ -2,7 +2,7 @@ export default function CoporatePolicy() {
   return (
     // used this in about page
     <div>
-      <div className="bg-orange-50 pt-25">
+      <div className="bg-orange-50 px-[120px] py-[100px]">
         <div className="">
           <h1 className="text-2xl font-bold text-center">Corporate Policy’s</h1>
           <p className="text-center mt-3">
