@@ -1,11 +1,12 @@
 import { Navbar } from "@/components/Navbar";
 import Footer from "../components/Footer";
-import open_Sans from "next/font/google";
+// import open_Sans from "next/font/google";
 // const opensans = Open_sans({ subsets: ['latin'] });
 import { Open_Sans } from "next/font/google";
 const openSans = Open_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"], // optional, pick what you need
+  weight: ["400", "500", "600", "700"], 
+  variable: "--font-open-sans"
 });
 import "./globals.css";
 // import Link from 'next/link';
@@ -22,11 +23,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={openSans.className}>
       <body
-        className={`${openSans.className} bg-gray-100 text-gray-900 basicTheme`}
+        className={` basicTheme font-sans`}
       >
+        <div className=" !text-[var(--color-dark)]">
+
         <Navbar />
+        </div>
 
         <main>{children}</main>
         <Footer />
