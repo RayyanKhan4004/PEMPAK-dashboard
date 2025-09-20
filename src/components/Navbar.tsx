@@ -1,10 +1,12 @@
 // components/Navbar.tsx
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Typography from "@/components/UI/Typography";
 import { useEffect, useState , useRef } from "react";
 export const Navbar = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   const navLinks = [
     { label: "Home", link: "/home" },
@@ -35,6 +37,12 @@ export const Navbar = () => {
   ];
   const [mainDorpdown, setMainDropdown] = useState("");
   const [subDropdown, setSubDropdown] = useState("");
+  const routeByCategory: Record<string, string> = {
+    "Switchgear / Controlgear": "/Controleger",
+    "Power Distribution Transformer": "/PowerDistribution",
+    "Green Energy": "/GreenEnergy",
+    "Appliances": "/Appliences",
+  };
     useEffect(() => {
       const handleClickOutside = (event: MouseEvent) => {
         if (
@@ -75,7 +83,13 @@ export const Navbar = () => {
                     return (
                       <div
                         className="reletive px-4"
-                        onClick={() => setSubDropdown(sub.name)}
+                        onClick={() => {
+                          setSubDropdown(sub.name);
+                          const target = routeByCategory[sub.name] || "/";
+                          const url = `${target}?cate=${encodeURIComponent(sub.name)}`;
+                          router.push(url);
+                          setMainDropdown("");
+                        }}
                         // onMouseLeave={() => setSubDropdown("")}
                       >
                         <Typography
