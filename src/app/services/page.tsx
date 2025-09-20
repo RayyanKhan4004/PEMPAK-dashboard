@@ -60,15 +60,31 @@ const page = () => {
     {
       id: 3,
       description: "Genuine & identified sourced components with Backup Warrantee"
-    }
+    },
+    {
+      id: 4,
+      description: "Compliance of Relative International standards with localize input"
+    },
+    {
+      id: 5,
+      description: "Motivated staff & Workforce with wide variety of indispensable experiance"
+    },
+    {
+      id: 6,
+      description: "International Standards certification like ISO-9001:2008 & OHSAS 18001:2007"
+    },
+    {
+      id: 7,
+      description: "Committed Management with Customer oriented approach"
+    },
 
   ]
 
-return (
-  <div>
+  return (
+    <div>
 
 
-  <div className="relative h-[60vh]">
+      <div className="relative h-[60vh]">
         <div className="absolute inset-0 bg-[url('/about-bg.svg')] bg-cover bg-center z-0" />
 
         <div className="absolute inset-0 z-0" />
@@ -83,249 +99,101 @@ return (
 
 
 
-    {/* Explore Our Services */}
-    <div className="p-2 m-4">
-      <Typography variant="h3" weight="b" className="text-center block">
-        Explore Our Services
-      </Typography>
-    </div>
+      {/* Explore Our Services */}
+      <section className="px-[120px] py-[100px]">
+        <div className="">
+          <Typography variant="h3" weight="b" className="text-center block">
+            Explore Our Services
+          </Typography>
+          <Typography variant="p" className="text-center block pt-4">
+            We provide innovative solutions designed to meet your needs with
+            quality and reliability.
+          </Typography>
+        </div>
+
+        <div className="flex flex-col gap-8">
+          {[obj1.slice(0, 3), obj1.slice(3, 6)].map((row, rowIndex) => (
+            <div key={rowIndex} className="flex gap-6">
+              {row.map((item) => (
+                <div
+                  key={item.id}
+                  className="relative border border-gray-300 rounded-lg text-center shadow-sm w-full overflow-hidden group px-[24px]"
+                >
+                  {/* hover background animation */}
+                  <div className="absolute bottom-0 left-0 w-full h-0 bg-[var(--color-primary)] transition-all duration-500 ease-in-out group-hover:h-full"></div>
+
+                  {/* content */}
+                  <div className="mb-4 relative z-10 pt-4">
+                    <img src={item.image} alt={item.title} className="m-auto" />
+                    <Typography
+                      variant="h4"
+                      weight="b"
+                      className="text-center block mt-6"
+                    >
+                      {item.title}
+                    </Typography>
+                    <Typography
+                      variant="p"
+                      className="text-center block mt-4 pb-6"
+                    >
+                      {item.description}
+                    </Typography>
+                  </div>
+
+                  {/* bottom line */}
+                  <div className="absolute bottom-0 left-0 w-full h-2 bg-[var(--color-primary)] rounded-b-lg"></div>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+
+      </section>
 
 
-    
-    <Typography variant="p" className="text-center block">
-      We provide innovative solutions designed to meet your needs with
-      quality and reliability.
-    </Typography>
 
-<div className="flex justify-center">
-    <div className="flex mt-5">
+      {/* Customer Satisfaction Assured Through */}
+      <div className="block bg-gray-200 p-15 h-180">
+        <div className="p-2 m-4">
+          <Typography variant="h3" weight="b" className="text-center block">
+            Customer Satisfaction Assured Through
+          </Typography>
+        </div>
 
-      <div className="relative border border-gray-300 rounded-lg p-6 text-center shadow-sm w-100 ml-4 overflow-hidden group ml-13 " >
-  {/* background overlay */}
-  <div className="absolute bottom-0 left-0 w-full h-0 bg-orange-500 transition-all duration-500 ease-in-out group-hover:h-full "></div>
-
-  {obj1
-    .filter((item) => item.id === 1)
-    .map((item) => (
-      <div key={item.id} className="mb-4 relative z-10 pt-4">
-        <img src={item.image} alt={item.title} className="m-auto" />
-        <Typography
-          variant="h4"
-          weight="b"
-          className="text-center block mt-6"
-        >
-          {item.title}
+        <Typography variant="p" className="text-center block">
+          We ensure customer satisfaction through quality products, reliable services, and a commitment to exceeding expectations.
         </Typography>
-        <Typography variant="p" className="text-center block mt-6">
-          {item.description}
-        </Typography>
-      </div>
-    ))}
-    <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-500 rounded-b-lg"></div>
-      </div>
 
-
-      <div className="relative border border-gray-300 rounded-lg p-6 text-center shadow-sm w-100 ml-4 overflow-hidden group">
-  {/* background overlay */}
-  <div className="absolute bottom-0 left-0 w-full h-0 bg-orange-500 transition-all duration-500 ease-in-out group-hover:h-full"></div>
-
-  {obj1
-    .filter((item) => item.id === 2)
-    .map((item) => (
-      <div key={item.id} className="mb-4 relative z-10">
-        <img src={item.image} alt={item.title} className="m-auto" />
-        <Typography
-          variant="h4"
-          weight="b"
-          className="text-center block"
-        >
-          {item.title}
-        </Typography>
-        <Typography variant="p" className="text-center block mt-4">
-          {item.description}
-        </Typography>
-      </div>
-    ))}
-    <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-500 rounded-b-lg"></div>
-      </div>
-
-
-
-      <div className="relative border border-gray-300 rounded-lg p-6 text-center shadow-sm w-100 ml-4 overflow-hidden group mr-10 pt-10 pb-15">
-  {/* background overlay */}
-  <div className="absolute bottom-0 left-0 w-full h-0 bg-orange-500 transition-all duration-500 ease-in-out group-hover:h-full"></div>
-
-  {obj1
-    .filter((item) => item.id === 3)
-    .map((item) => (
-      <div key={item.id} className="mb-4 relative z-10 ">
-        <img src={item.image} alt={item.title} className="m-auto" />
-        <Typography
-          variant="h4"
-          weight="b"
-          className="text-center block mt-6"
-        >
-          {item.title}
-        </Typography>
-        <Typography variant="p" className="text-center block mt-4">
-          {item.description}
-        </Typography>
-      </div>
-    ))}
-    <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-500 rounded-b-lg"></div>
+        <div className="p-3 m-10 flex space-x-49 space-y-10 overflow-x-auto scroll-hide">
+          {data.map((item, index) => (
+            <div
+              key={item.id}
+              className={`min-w-[220px] h-53 rounded-full flex items-center justify-center relative bg-white shadow-xl ${index % 2 !== 0 ? "mt-20" : ""
+                }`}
+            >
+              <p className="text-center p-3">{item.description}</p>
+              <div className="absolute top-0 right-6 bg-[var(--color-primary)] text-white rounded-full h-9 w-9 flex items-center justify-center text-sm">
+                {item.id}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
-    </div>
-</div>    
 
- <div className="flex justify-center">
-    <div className="flex mt-5">
-      <div className="relative border border-gray-300 rounded-lg p-6 text-center shadow-sm w-100 ml-4 overflow-hidden group ml-13" >
-  {/* background overlay */}
-  <div className="absolute bottom-0 left-0 w-full h-0 bg-orange-500 transition-all duration-500 ease-in-out group-hover:h-full"></div>
 
-  {obj1
-    .filter((item) => item.id === 4)
-    .map((item) => (
-      <div key={item.id} className="mb-4 relative z-10">
-        <img src={item.image} alt={item.title} className="m-auto" />
-        <Typography
-          variant="h4"
-          weight="b"
-          className="text-center block mt-6"
-        >
-          {item.title}
-        </Typography>
-        <Typography variant="p" className="text-center block mt-4">
-          {item.description}
-        </Typography>
+
+      {/* From start to stretch */}
+      <div className="flex justify-center">
+
+        <div className="mb-20 mt-20">
+          <img src="ourServices/map-start-to-end.svg" alt="" className="mt-10" />
+        </div>
+
       </div>
-    ))}
-    <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-500 rounded-b-lg"></div>
-</div>
-
-
-      <div className="relative border border-gray-300 rounded-lg p-6 text-center shadow-sm w-100 ml-4 overflow-hidden group">
-  {/* background overlay */}
-  <div className="absolute bottom-0 left-0 w-full h-0 bg-orange-500 transition-all duration-500 ease-in-out group-hover:h-full"></div>
-
-  {obj1
-    .filter((item) => item.id === 5)
-    .map((item) => (
-      <div key={item.id} className="mb-4 relative z-10">
-        <img src={item.image} alt={item.title} className="m-auto" />
-        <Typography
-          variant="h4"
-          weight="b"
-          className="text-center block mt-6"
-        >
-          {item.title}
-        </Typography>
-        <Typography variant="p" className="text-center block mt-4">
-          {item.description}
-        </Typography>
-      </div>
-    ))}
-        <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-500 rounded-b-lg"></div>
-</div>
-
-
-      <div className="relative border border-gray-300 rounded-lg p-6 text-center shadow-sm w-100 ml-4 overflow-hidden group mr-10">
-  {/* background overlay */}
-  <div className="absolute bottom-0 left-0 w-full h-0 bg-orange-500 transition-all duration-500 ease-in-out group-hover:h-full"></div>
-
-  {obj1
-    .filter((item) => item.id === 6)
-    .map((item) => (
-      <div key={item.id} className="mb-4 relative z-10">
-        <img src={item.image} alt={item.title} className="m-auto" />
-        <Typography
-          variant="h4"
-          weight="b"
-          className="text-center block mt-6"
-        >
-          {item.title}
-        </Typography>
-        <Typography variant="p" className="text-center block mt-4 pb-9">
-          {item.description}
-        </Typography>
-      </div>
-    ))}
-    <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-500 rounded-b-lg"></div>
-</div>
 
     </div>
- </div>
-
-    {/* Customer Satisfaction Assured Through */}
-    <div className="block bg-gray-200 p-15 h-180 mt-30" >
-
-    <div className="p-2 m-4">
-      <Typography variant="h3" weight="b" className="text-center block">
-        Customer Satisfaction Assured Through
-      </Typography>
-    </div>
-
-    <Typography variant="p" className="text-center block">
-      We ensure customer satisfaction through quality products, reliable services, and a commitment to exceeding expectations.
-    </Typography>
-
-    <div className="p-3 m-10 flex space-x-49 space-y-10 overflow-x-auto scroll-hide">
-  <div className="min-w-[220px] h-53 rounded-full flex items-center justify-center relative bg-white shadow-xl">
-    <p className="text-center p-3">{data[0].description}</p>
-    <div className="absolute top-0 right-6 bg-orange-500 text-white rounded-full h-9 w-9 flex items-center justify-center text-sm">
-      {data[0].id}
-    </div>
-  </div>
-
-  <div className="min-w-[220px] h-53 rounded-full flex items-center justify-center relative bg-white shadow-xl mt-20 ">
-    <p className="text-center p-3">{data[1].description}</p>
-    <div className="absolute top-0 right-6 bg-orange-500 text-white rounded-full h-9 w-9 flex items-center justify-center text-sm">
-      {data[1].id}
-    </div>
-  </div>
-
-  <div className="min-w-[220px] h-53 rounded-full flex items-center justify-center relative bg-white shadow-xl">
-    <p className="text-center p-3">{data[2].description}</p>
-    <div className="absolute top-0 right-6 bg-orange-500 text-white rounded-full h-9 w-9 flex items-center justify-center text-sm">
-      {data[2].id}
-    </div>
-  </div>
-
-  <div className="min-w-[220px] h-53 rounded-full flex items-center justify-center relative bg-white shadow-xl mt-20">
-    <p className="text-center p-3">{data[1].description}</p>
-    <div className="absolute top-0 right-6 bg-orange-500 text-white rounded-full h-9 w-9 flex items-center justify-center text-sm">
-      {data[1].id}
-    </div>
-  </div>
-
-  <div className="min-w-[220px] h-53 rounded-full flex items-center justify-center relative bg-white shadow-xl">
-    <p className="text-center p-3">{data[2].description}</p>
-    <div className="absolute top-0 right-6 bg-orange-500 text-white rounded-full h-9 w-9 flex items-center justify-center text-sm">
-      {data[2].id}
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-    </div>
-          
-
-    {/* From start to stretch */}
-    <div className="flex justify-center">
-
-    <div className="mb-20 mt-20">
-      <img src="ourServices/map-start-to-end.svg" alt="" className="mt-10" />
-    </div>
-
-    </div>
-
-  </div>
-);
+  );
 };
 
 export default page;

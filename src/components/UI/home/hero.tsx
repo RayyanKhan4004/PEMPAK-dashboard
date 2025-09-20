@@ -1,3 +1,11 @@
+import exam from '../../../app/home/assets/exam.svg'
+import light from '../../../app/home/assets/eco-light-bulb.svg'
+import automation from '../../../app/home/assets/automation.svg'
+import presentation from '../../../app/home/assets/presentation.svg'
+import tool from '../../../app/home/assets/tool.svg'
+import setting from '../../../app/home/assets/settings.svg'
+import Image from 'next/image'
+
 export const products1 = [
   { id: 1, name: "Automatic Switch Transfer (ATS)", image: "/Block/homeimg/product1.jpg" },
   { id: 2, name: "Light Power Distribution Board (BDS)", image: "/Block/homeimg/product2.jpg" },
@@ -9,38 +17,37 @@ export const services = [
     id: 1,
     title: "Manufacturing",
     description: "We deliver high-quality manufacturing with precision, durability, and innovation at every stage.",
-    icon: "⚙️", 
+    icon: <Image src={automation} alt=''/>, 
   },
   {
     id: 2,
     title: "Installation & Commissioning",
     description: "We deliver reliable installation and commissioning, ensuring smooth setup, optimal performance, and long-term efficiency.",
-    icon: "🛠️",
-    active: true,  
+    icon: <Image src={setting} alt=''/>,
   },
   {
     id: 3,
     title: "Maintenance",
     description: "We provide expert maintenance to keep your systems running smoothly, safely, and efficiently.",
-    icon: "🔧",
+    icon: <Image src={tool} alt=''/>,
   },
   {
     id: 4,
     title: "Testing",
     description: "We provide reliable testing services to ensure safety, accuracy, and optimum performance of your systems.",
-    icon: "📋",
+    icon: <Image src={exam} alt=''/>,
   },
   {
     id: 5,
     title: "Training",
     description: "We offer professional training to equip your team with the knowledge and skills for safe and efficient operations.",
-    icon: "👨‍🏫",
+    icon: <Image src={presentation} alt=''/>,
   },
   {
     id: 6,
     title: "Energy Audit",
     description: "Identify energy waste, optimize efficiency, and reduce costs with our professional energy audit service.",
-    icon: "💡",
+    icon: <Image src={light} alt=''/>,
   },
 ];
 export const team1= [
@@ -195,7 +202,7 @@ export const Signatureprojects= [
 
 ]
 
-export const btn1 = " cursor-pointer px-6 py-3 bg-orange-500 text-white rounded-lg font-semibold shadow hover:bg-orange-600 transition"  
+export const btn1 = " cursor-pointer px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold shadow hover:bg-orange-600 transition"  
 export const news1= [
 
     {
