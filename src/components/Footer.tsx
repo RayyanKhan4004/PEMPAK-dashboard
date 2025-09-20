@@ -14,7 +14,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="text-gray-300 pt-12 pb-6 p-10 bg-orange-500">
+    <footer className="text-white pt-12 pb-6 p-10 bg-orange-500">
       <div className="max-w-7xl px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
         <div className="">
           <h2 className="text-2xl font-bold text-white mb-4">PAMPAK</h2>

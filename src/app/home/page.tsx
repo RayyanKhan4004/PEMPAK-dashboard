@@ -46,10 +46,23 @@ export default function Homepage() {
   // stats
   const [teams, setTeams] = useState<TeamMember[]>([])
   const [blogData, setBlogdata] = useState<ItemProps[]>([])
+  const [ceoData, setCeoData] = useState<{ name: string, image: string } | null>(null)
+  
   // effects
   useEffect(() => {
     (async () => {
-      setTeams(await getTeamMembers());
+      const teamMembers = await getTeamMembers();
+      setTeams(teamMembers);
+      
+      // Find the CEO from the team data
+      const ceo = teamMembers.find((member: TeamMember) => member.role === 'Chief Executive Officer (CEO)');
+      if (ceo) {
+        setCeoData({
+          name: ceo.name,
+          image: ceo.image || '/placeholder-avatar.jpg'
+        });
+      }
+      
       setBlogdata(await getBlogs())
     })()
 
@@ -540,12 +553,8 @@ export default function Homepage() {
         <div className="container mx-auto max-w-7xl grid grid-cols-1 sm:grd-cols-2 lg:grid-cols-3 gap-6 p-4">
           {blogData.slice(0, 3).map((item: ItemProps, ind: number) => (
             <div
-              key={item._id}
-              className={`rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden px-5 py-5 mt-5
-          ${ind === 1
-                  ? "bg-orange-500 border-orange-500 shadow-orange-200 text-white"
-                  : "bg-white border-gray-200 hover:border-blue-400"
-                }`}
+              key={ind}
+              className={`rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden px-5 py-5 mt-5`}
             >
               <img
                 src={item.image}
@@ -560,11 +569,11 @@ export default function Homepage() {
                 <p className="text-gray-600 text-sm mt-1">{item.description}</p>
                 <div className="flex items-center gap-2 mt-4">
                   <img
-                    src={item.ownerImage}
+                    src={item.ownerImage || ceoData?.image || '/placeholder-avatar.jpg'}
                     alt={item.name}
                     className="w-8 h-8 rounded-full object-cover"
                   />
-                  <p className="text-gray-700 text-sm font-medium">{item.pf}</p>
+                  <p className="text-gray-700 text-sm font-medium">{item.name || ceoData?.name || 'Author'}</p>
                 </div>
               </div>
             </div>
