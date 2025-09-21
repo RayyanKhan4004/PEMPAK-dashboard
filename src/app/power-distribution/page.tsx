@@ -1,94 +1,94 @@
 import React from 'react'
 import CustomHero from '@/components/common/CustomHero'
-import AppliencesImage from '../../../public/Images/blog/Appliences.png'
+import PowerImage from '../../../public/Images/blog/powerdistribution.png'
 import Typography from '@/components/UI/Typography'
 import Image from 'next/image'
 
 function page() {
-  // Product categories data for Appliances
+  // Product categories data for Power Distribution Transformers
   const productCategories = [
     {
       id: '1',
-      title: 'Kitchen Appliances',
-      subtitle: 'Refrigerators, Stoves, Microwaves, Dishwashers',
-      description: 'Complete range of kitchen appliances for residential and commercial use with energy-efficient designs and modern features.',
+      title: 'Distribution Transformers',
+      subtitle: 'Up to 5000 kVA, 11kV/0.4kV',
+      description: 'High-efficiency distribution transformers for reliable power distribution in industrial and commercial applications.',
       image: '/Images/blog/product1.jpg'
     },
     {
       id: '2',
-      title: 'Laundry Equipment',
-      subtitle: 'Washing Machines, Dryers, Ironing Systems',
-      description: 'High-capacity laundry equipment for homes and commercial laundromats with advanced washing and drying technologies.',
+      title: 'Pad-Mounted Transformers',
+      subtitle: 'Underground distribution up to 2500 kVA',
+      description: 'Compact pad-mounted transformers designed for urban areas with space constraints and aesthetic requirements.',
       image: '/Images/blog/product2.jpg'
     },
     {
       id: '3',
-      title: 'HVAC Systems',
-      subtitle: 'Air Conditioners, Heaters, Ventilation',
-      description: 'Complete heating, ventilation, and air conditioning solutions for comfortable indoor environments in all seasons.',
+      title: 'Pole-Mounted Transformers',
+      subtitle: 'Single and three-phase up to 500 kVA',
+      description: 'Lightweight pole-mounted transformers for rural and suburban power distribution networks.',
       image: '/Images/blog/product3.jpg'
     },
     {
       id: '4',
-      title: 'Water Heating Systems',
-      subtitle: 'Tank and Tankless Water Heaters',
-      description: 'Efficient water heating solutions for residential and commercial applications with instant hot water delivery.',
+      title: 'Dry-Type Transformers',
+      subtitle: 'Cast resin and air-cooled up to 2500 kVA',
+      description: 'Environmentally friendly dry-type transformers with no oil, suitable for indoor installations.',
       image: '/Images/blog/product1.jpg'
     },
     {
       id: '5',
-      title: 'Cleaning Equipment',
-      subtitle: 'Vacuum Cleaners, Floor Care Systems',
-      description: 'Professional cleaning equipment for homes and commercial spaces with powerful suction and advanced filtration.',
+      title: 'Oil-Filled Transformers',
+      subtitle: 'Mineral oil and synthetic ester up to 10 MVA',
+      description: 'High-efficiency oil-filled transformers for heavy-duty industrial and utility applications.',
       image: '/Images/blog/product2.jpg'
     },
     {
       id: '6',
-      title: 'Small Kitchen Appliances',
-      subtitle: 'Blenders, Mixers, Coffee Makers, Toasters',
-      description: 'Essential small kitchen appliances for food preparation and cooking with compact designs and powerful performance.',
+      title: 'Step-Up Transformers',
+      subtitle: 'For power generation up to 50 MVA',
+      description: 'Step-up transformers for power generation applications, connecting generators to transmission systems.',
       image: '/Images/blog/product3.jpg'
     },
     {
       id: '7',
-      title: 'Food Storage Solutions',
-      subtitle: 'Freezers, Wine Coolers, Ice Makers',
-      description: 'Advanced food storage appliances for preserving freshness and maintaining optimal temperature conditions.',
+      title: 'Step-Down Transformers',
+      subtitle: 'Transmission to distribution voltage levels',
+      description: 'Step-down transformers for reducing transmission voltages to distribution levels for end users.',
       image: '/Images/blog/product1.jpg'
     },
     {
       id: '8',
-      title: 'Home Entertainment',
-      subtitle: 'TVs, Audio Systems, Gaming Consoles',
-      description: 'Modern home entertainment systems with smart features and high-quality audio-visual performance.',
+      title: 'Isolation Transformers',
+      subtitle: 'Galvanic isolation and voltage regulation',
+      description: 'Isolation transformers providing electrical safety and voltage regulation for sensitive equipment.',
       image: '/Images/blog/product2.jpg'
     },
     {
       id: '9',
-      title: 'Personal Care Appliances',
-      subtitle: 'Hair Dryers, Electric Shavers, Massagers',
-      description: 'Personal grooming and wellness appliances for daily care routines with ergonomic designs and safety features.',
+      title: 'Auto Transformers',
+      subtitle: 'Variable voltage ratio up to 10 MVA',
+      description: 'Auto transformers for voltage regulation and power transfer with reduced copper requirements.',
       image: '/Images/blog/product3.jpg'
     },
     {
       id: '10',
-      title: 'Smart Home Devices',
-      subtitle: 'Smart Speakers, Security Systems, Automation',
-      description: 'Connected home devices for automation, security, and convenience with smartphone control and voice commands.',
+      title: 'Furnace Transformers',
+      subtitle: 'Arc furnace and induction heating applications',
+      description: 'Specialized transformers for electric arc furnaces and induction heating systems in industrial processes.',
       image: '/Images/blog/product1.jpg'
     },
     {
       id: '11',
-      title: 'Commercial Appliances',
-      subtitle: 'Industrial Kitchen, Laundry, and HVAC Equipment',
-      description: 'Heavy-duty commercial appliances for restaurants, hotels, hospitals, and industrial facilities with professional-grade performance.',
+      title: 'Rectifier Transformers',
+      subtitle: 'For DC power supply systems',
+      description: 'Rectifier transformers designed for converting AC power to DC for industrial and traction applications.',
       image: '/Images/blog/product2.jpg'
     },
     {
       id: '12',
-      title: 'Appliance Repair & Maintenance',
-      subtitle: 'Service and maintenance for all appliance brands',
-      description: 'Professional repair and maintenance services for all major appliance brands with certified technicians and genuine parts.',
+      title: 'Testing & Commissioning Services',
+      subtitle: 'Factory and site testing services',
+      description: 'Comprehensive testing and commissioning services for all types of power distribution transformers.',
       image: '/Images/blog/product3.jpg'
     }
   ]
@@ -105,8 +105,12 @@ function page() {
       {/* Hero Section */}
       <div>
         <CustomHero 
-          bg={AppliencesImage}
-          title='APPLIANCES' 
+          bg={PowerImage}
+          title={
+            <>
+              POWER DISTRIBUTION <br /> TRANSFORMER
+            </>
+          } 
           sub=""
         />
       </div>
@@ -116,8 +120,8 @@ function page() {
         <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
           <div className="flex-1">
             <Image
-              src="/Images/blog/Appliences.png"
-              alt="Home and Commercial Appliances"
+              src="/Images/blog/powerdistribution.png"
+              alt="Power Distribution Transformer"
               width={565}
               height={466}
               className="rounded-xl shadow-md w-full h-auto"
@@ -141,16 +145,16 @@ function page() {
             </Typography>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <Typography variant="p-l" color="tertiary">
-                We offer a comprehensive range of home and commercial appliances designed to enhance comfort, efficiency, and convenience in modern living and business environments.
+                Power distribution transformers are essential components in electrical power systems, responsible for stepping down high transmission voltages to lower distribution voltages suitable for end users.
               </Typography>
               <Typography variant="p-l" color="tertiary">
-                Our product portfolio includes kitchen appliances, laundry equipment, HVAC systems, water heating solutions, and smart home devices from leading international brands.
+                Our transformers are designed and manufactured to meet international standards including IEC, IEEE, and ANSI specifications, ensuring reliable performance in various environmental conditions.
               </Typography>
               <Typography variant="p-l" color="tertiary">
-                All appliances are selected for their energy efficiency, durability, and advanced features to provide long-term value and optimal performance for our customers.
+                We offer a complete range of distribution transformers from 25 kVA to 10 MVA, covering all voltage levels from 11kV down to 0.4kV for industrial, commercial, and utility applications.
               </Typography>
               <Typography variant="p-l" color="tertiary">
-                We provide complete installation, maintenance, and repair services to ensure your appliances continue to perform at their best throughout their lifespan.
+                All transformers undergo rigorous testing including routine tests, type tests, and special tests to ensure compliance with performance specifications and safety requirements.
               </Typography>
             </div>
           </div>
@@ -209,5 +213,4 @@ function page() {
 }
 
 export default page
-
 

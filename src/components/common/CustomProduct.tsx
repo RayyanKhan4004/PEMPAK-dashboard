@@ -32,7 +32,8 @@ const CustomProduct = () => {
   const selectedCate = searchParams.get("cate") || "";
 
   useEffect(() => {
-    const apiBase = process.env.NEXT_PUBLIC_API_BASE ?? 'http://localhost:5050';
+    // const apiBase = process.env.NEXT_PUBLIC_API_BASE ?? 'http://localhost:5050';
+    const apiBase = process.env.NEXT_PUBLIC_API_BASE ?? 'https://pempak-api.vercel.app/';
 
     const fetchCategories = async () => {
       try {
@@ -48,10 +49,10 @@ const CustomProduct = () => {
       }
     }
 
-    const fetchSubcategories = async () => {
+    const fetchProducts = async () => {
       try {
         setLoading(true)
-        const response = await fetch(`${apiBase}/api/subcategories?limit=50`)
+        const response = await fetch(`${apiBase}/api/products?limit=50`)
         const json = await response.json();
         const data = Array.isArray(json) ? json : json?.data ?? [];
         setSubcategories(data)
@@ -63,7 +64,7 @@ const CustomProduct = () => {
     }
 
     fetchCategories()
-    fetchSubcategories()
+    fetchProducts()
   }, [])
 
   const activeCategory = useMemo(() => {

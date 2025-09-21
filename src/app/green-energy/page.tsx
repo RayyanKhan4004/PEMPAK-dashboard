@@ -1,94 +1,94 @@
 import React from 'react'
 import CustomHero from '@/components/common/CustomHero'
-import AppliencesImage from '../../../public/Images/blog/Appliences.png'
+import GreenImage from '../../../public/Images/blog/GreenEnergy.png'
 import Typography from '@/components/UI/Typography'
 import Image from 'next/image'
 
 function page() {
-  // Product categories data for Appliances
+  // Product categories data for Green Energy
   const productCategories = [
     {
       id: '1',
-      title: 'Kitchen Appliances',
-      subtitle: 'Refrigerators, Stoves, Microwaves, Dishwashers',
-      description: 'Complete range of kitchen appliances for residential and commercial use with energy-efficient designs and modern features.',
+      title: 'Solar Panel Systems',
+      subtitle: 'Monocrystalline and Polycrystalline up to 500W',
+      description: 'High-efficiency solar panels for residential, commercial, and industrial applications with advanced cell technology.',
       image: '/Images/blog/product1.jpg'
     },
     {
       id: '2',
-      title: 'Laundry Equipment',
-      subtitle: 'Washing Machines, Dryers, Ironing Systems',
-      description: 'High-capacity laundry equipment for homes and commercial laundromats with advanced washing and drying technologies.',
+      title: 'Wind Energy Systems',
+      subtitle: 'Small-scale turbines 1kW to 50kW capacity',
+      description: 'Vertical and horizontal axis wind turbines for off-grid and grid-tie applications in various wind conditions.',
       image: '/Images/blog/product2.jpg'
     },
     {
       id: '3',
-      title: 'HVAC Systems',
-      subtitle: 'Air Conditioners, Heaters, Ventilation',
-      description: 'Complete heating, ventilation, and air conditioning solutions for comfortable indoor environments in all seasons.',
+      title: 'Battery Storage Solutions',
+      subtitle: 'Lithium-ion and Lead-acid systems up to 100kWh',
+      description: 'Advanced battery storage systems for energy backup, peak shaving, and grid independence applications.',
       image: '/Images/blog/product3.jpg'
     },
     {
       id: '4',
-      title: 'Water Heating Systems',
-      subtitle: 'Tank and Tankless Water Heaters',
-      description: 'Efficient water heating solutions for residential and commercial applications with instant hot water delivery.',
+      title: 'Solar Inverters',
+      subtitle: 'String, Central, and Micro inverters up to 1MW',
+      description: 'Grid-tie and off-grid solar inverters with MPPT technology for optimal energy conversion efficiency.',
       image: '/Images/blog/product1.jpg'
     },
     {
       id: '5',
-      title: 'Cleaning Equipment',
-      subtitle: 'Vacuum Cleaners, Floor Care Systems',
-      description: 'Professional cleaning equipment for homes and commercial spaces with powerful suction and advanced filtration.',
+      title: 'Charge Controllers',
+      subtitle: 'MPPT and PWM controllers up to 100A',
+      description: 'Smart charge controllers for battery protection and optimal solar panel performance in all weather conditions.',
       image: '/Images/blog/product2.jpg'
     },
     {
       id: '6',
-      title: 'Small Kitchen Appliances',
-      subtitle: 'Blenders, Mixers, Coffee Makers, Toasters',
-      description: 'Essential small kitchen appliances for food preparation and cooking with compact designs and powerful performance.',
+      title: 'LED Lighting Systems',
+      subtitle: 'Commercial and industrial LED solutions',
+      description: 'Energy-efficient LED lighting systems for indoor and outdoor applications with smart controls and dimming.',
       image: '/Images/blog/product3.jpg'
     },
     {
       id: '7',
-      title: 'Food Storage Solutions',
-      subtitle: 'Freezers, Wine Coolers, Ice Makers',
-      description: 'Advanced food storage appliances for preserving freshness and maintaining optimal temperature conditions.',
+      title: 'Heat Pump Systems',
+      subtitle: 'Air-source and ground-source up to 50kW',
+      description: 'High-efficiency heat pumps for space heating and cooling with renewable energy integration capabilities.',
       image: '/Images/blog/product1.jpg'
     },
     {
       id: '8',
-      title: 'Home Entertainment',
-      subtitle: 'TVs, Audio Systems, Gaming Consoles',
-      description: 'Modern home entertainment systems with smart features and high-quality audio-visual performance.',
+      title: 'Smart Energy Management',
+      subtitle: 'IoT-based monitoring and control systems',
+      description: 'Smart energy management systems for real-time monitoring, optimization, and control of renewable energy assets.',
       image: '/Images/blog/product2.jpg'
     },
     {
       id: '9',
-      title: 'Personal Care Appliances',
-      subtitle: 'Hair Dryers, Electric Shavers, Massagers',
-      description: 'Personal grooming and wellness appliances for daily care routines with ergonomic designs and safety features.',
+      title: 'EV Charging Infrastructure',
+      subtitle: 'Level 1, 2, and DC fast charging stations',
+      description: 'Electric vehicle charging stations for residential, commercial, and public applications with smart grid integration.',
       image: '/Images/blog/product3.jpg'
     },
     {
       id: '10',
-      title: 'Smart Home Devices',
-      subtitle: 'Smart Speakers, Security Systems, Automation',
-      description: 'Connected home devices for automation, security, and convenience with smartphone control and voice commands.',
+      title: 'Micro Inverters',
+      subtitle: 'Panel-level optimization up to 1.5kW',
+      description: 'Micro inverters for maximum solar panel efficiency and individual panel monitoring and control.',
       image: '/Images/blog/product1.jpg'
     },
     {
       id: '11',
-      title: 'Commercial Appliances',
-      subtitle: 'Industrial Kitchen, Laundry, and HVAC Equipment',
-      description: 'Heavy-duty commercial appliances for restaurants, hotels, hospitals, and industrial facilities with professional-grade performance.',
+      title: 'Energy Storage Management',
+      subtitle: 'Battery management and grid integration',
+      description: 'Advanced energy storage management systems for optimal battery performance and grid services integration.',
       image: '/Images/blog/product2.jpg'
     },
     {
       id: '12',
-      title: 'Appliance Repair & Maintenance',
-      subtitle: 'Service and maintenance for all appliance brands',
-      description: 'Professional repair and maintenance services for all major appliance brands with certified technicians and genuine parts.',
+      title: 'Green Energy Consulting',
+      subtitle: 'System design and feasibility studies',
+      description: 'Comprehensive consulting services for green energy system design, installation, and maintenance planning.',
       image: '/Images/blog/product3.jpg'
     }
   ]
@@ -105,8 +105,8 @@ function page() {
       {/* Hero Section */}
       <div>
         <CustomHero 
-          bg={AppliencesImage}
-          title='APPLIANCES' 
+          bg={GreenImage}
+          title='GREEN ENERGY' 
           sub=""
         />
       </div>
@@ -116,8 +116,8 @@ function page() {
         <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
           <div className="flex-1">
             <Image
-              src="/Images/blog/Appliences.png"
-              alt="Home and Commercial Appliances"
+              src="/Images/blog/GreenEnergy.png"
+              alt="Green Energy Solutions"
               width={565}
               height={466}
               className="rounded-xl shadow-md w-full h-auto"
@@ -141,16 +141,16 @@ function page() {
             </Typography>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <Typography variant="p-l" color="tertiary">
-                We offer a comprehensive range of home and commercial appliances designed to enhance comfort, efficiency, and convenience in modern living and business environments.
+                Green energy solutions are essential for sustainable development and reducing carbon footprint in industrial and commercial applications.
               </Typography>
               <Typography variant="p-l" color="tertiary">
-                Our product portfolio includes kitchen appliances, laundry equipment, HVAC systems, water heating solutions, and smart home devices from leading international brands.
+                Our comprehensive range includes solar photovoltaic systems, wind energy solutions, energy storage systems, and smart energy management technologies.
               </Typography>
               <Typography variant="p-l" color="tertiary">
-                All appliances are selected for their energy efficiency, durability, and advanced features to provide long-term value and optimal performance for our customers.
+                We provide complete turnkey solutions from feasibility studies and system design to installation, commissioning, and ongoing maintenance services.
               </Typography>
               <Typography variant="p-l" color="tertiary">
-                We provide complete installation, maintenance, and repair services to ensure your appliances continue to perform at their best throughout their lifespan.
+                All our green energy products are certified to international standards and designed for optimal performance in Pakistan's climate conditions.
               </Typography>
             </div>
           </div>
@@ -209,5 +209,4 @@ function page() {
 }
 
 export default page
-
 
