@@ -10,7 +10,8 @@ import Thumbnail_two from './assets/thired.png'
 import Thumbnail_three from './assets/fourth.png'
 import Thumbnail_four from './assets/last.png'
 
-function page() {
+function Page() {
+
 
   // * interface for main categories
   interface Category {
@@ -21,7 +22,7 @@ function page() {
     additionalImages?: string[]
   }
 
-  // * interface for main categories
+  // * interface for  subcategories
   interface SubCategory {
     _id: string
     name: string
@@ -39,19 +40,17 @@ function page() {
   const [currentCategory, setCurrentCategory] = useState<Category | null>(null);
 
   useEffect(() => {
-    const baseApi = process.env.NEXT_PUBLIC_API_BASE ?? 'https://pempak-api.vercel.app'
-    // const baseApi = process.env.NEXT_PUBLIC_API_BASE ?? 'http://localhost:5050'
+    const baseApi = process.env.NEXT_PUBLIC_API_BASE ?? 'https://pempak-api.vercel.app/api'
+    // const baseApi = process.env.NEXT_PUBLIC_API_BASE ?? 'http://localhost:5050/api'
 
-    // fetch main categories
     const fetchCategories = async () => {
       try {
         setLoading(true)
-        const res = await fetch(`${baseApi}/api/categories`)
-        
+        const res = await fetch(`${baseApi}/categories`)
         const json = await res.json()
         const data = Array.isArray(json) ? json : json.data ?? []
         setCategories(data)
-        
+
         // Find the SWITCHGEAR / CONTROLGEAR category
         const switchgearCategory = data.find((cat: Category) => 
           cat.name.toLowerCase().includes('switchgear') || 
@@ -76,11 +75,10 @@ function page() {
       }
     }
 
-    // fetch products
     const fetchSubCategories = async () => {
       try {
         setLoading(true)
-        const response = await fetch(`${baseApi}/api/subcategories?limit=50`)
+        const response = await fetch(`${baseApi}/subcategories?limit=50`)
         const json = await response.json();
         const data = Array.isArray(json) ? json : json?.data ?? [];
         setSubCategories(data)
@@ -90,102 +88,97 @@ function page() {
         setLoading(false);
       }
     }
+
     fetchCategories()
     fetchSubCategories()
+
   }, [])
 
-  // Product categories data matching the template
+  // Product categories data for Power Distribution Transformers
   const productCategories = [
     {
       id: '1',
-      title: 'Medium Voltage Switchgear',
-      subtitle: 'Switchboard up to 24kV 2500/40kA',
-      description: 'Some industries only require generator power for emergency lighting and other emergency systems but in Pakistan as the power failure issues or load.',
+      title: 'Distribution Transformers',
+      subtitle: 'Up to 5000 kVA, 11kV/0.4kV',
+      description: 'High-efficiency distribution transformers for reliable power distribution in industrial and commercial applications.',
       image: '/Images/blog/product1.jpg'
     },
     {
       id: '2',
-      title: 'Low Voltage Switchgears',
-      subtitle: 'Switchboard up to 1kV 6000A/ 100KA',
-      description: 'Some industries only require generator power for emergency lighting and other emergency systems but in Pakistan as the power failure issues or load.',
+      title: 'Pad-Mounted Transformers',
+      subtitle: 'Underground distribution up to 2500 kVA',
+      description: 'Compact pad-mounted transformers designed for urban areas with space constraints and aesthetic requirements.',
       image: '/Images/blog/product2.jpg'
     },
     {
       id: '3',
-      title: 'Control & Relay Panels',
-      subtitle: 'For 500kV/ 220kV/ 132kV Grid Stations',
-      description: 'Some industries only require generator power for emergency lighting and other emergency systems but in Pakistan as the power failure issues or load.',
+      title: 'Pole-Mounted Transformers',
+      subtitle: 'Single and three-phase up to 500 kVA',
+      description: 'Lightweight pole-mounted transformers for rural and suburban power distribution networks.',
       image: '/Images/blog/product3.jpg'
     },
     {
       id: '4',
-      title: 'AC/DC Auxiliary Supply Equipment',
-      subtitle: 'For 500kV/220kV/ 132kV Grid Stations',
-      description: 'Some industries only require generator power for emergency lighting and other emergency systems but in Pakistan as the power failure issues or load.',
+      title: 'Dry-Type Transformers',
+      subtitle: 'Cast resin and air-cooled up to 2500 kVA',
+      description: 'Environmentally friendly dry-type transformers with no oil, suitable for indoor installations.',
       image: '/Images/blog/product1.jpg'
     },
     {
       id: '5',
-      title: 'Motor Control Centers',
-      subtitle: 'with DOL, ASD, Slip Ring and Soft Starters for complete range of motors at 220V, 415V and 3.3kV',
-      description: 'Some industries only require generator power for emergency lighting and other emergency systems but.',
+      title: 'Oil-Filled Transformers',
+      subtitle: 'Mineral oil and synthetic ester up to 10 MVA',
+      description: 'High-efficiency oil-filled transformers for heavy-duty industrial and utility applications.',
       image: '/Images/blog/product2.jpg'
     },
     {
       id: '6',
-      title: 'Multi Source Power Supply Synchronizing Panels',
-      subtitle: '',
-      description: 'Some industries only require generator power for emergency lighting and other emergency systems but in Pakistan as the power failure issues or load.',
+      title: 'Step-Up Transformers',
+      subtitle: 'For power generation up to 50 MVA',
+      description: 'Step-up transformers for power generation applications, connecting generators to transmission systems.',
       image: '/Images/blog/product3.jpg'
     },
     {
       id: '7',
-      title: 'PLC based equipment tailored to specific requirements',
-      subtitle: '',
-      description: 'Some industries only require generator power for emergency lighting and other emergency systems but in.',
+      title: 'Step-Down Transformers',
+      subtitle: 'Transmission to distribution voltage levels',
+      description: 'Step-down transformers for reducing transmission voltages to distribution levels for end users.',
       image: '/Images/blog/product1.jpg'
     },
     {
       id: '8',
-      title: 'Power Factor Improvement Equipment',
-      subtitle: 'of 415V, 3.3kV and 11kV with auto/ manual operation and necessary protection as per system requirement.',
-      description: 'Some industries only require generator power for emergency',
+      title: 'Isolation Transformers',
+      subtitle: 'Galvanic isolation and voltage regulation',
+      description: 'Isolation transformers providing electrical safety and voltage regulation for sensitive equipment.',
       image: '/Images/blog/product2.jpg'
     },
     {
       id: '9',
-      title: 'MV/ LV Changeover equipment',
-      subtitle: 'with VCB/ LBS and MCCB/ ACB with Electrical and Mechanical Interlocking',
-      description: 'Some industries only require generator power for emergency lighting and other emergency systems.',
+      title: 'Auto Transformers',
+      subtitle: 'Variable voltage ratio up to 10 MVA',
+      description: 'Auto transformers for voltage regulation and power transfer with reduced copper requirements.',
       image: '/Images/blog/product3.jpg'
     },
     {
       id: '10',
-      title: 'Auto Main Failure (AMF) Panel and Auto Transfer Switch (ATS)',
-      subtitle: '',
-      description: 'Some industries only require generator power for emergency lighting and other emergency systems but in Pakistan as the power failure load.',
+      title: 'Furnace Transformers',
+      subtitle: 'Arc furnace and induction heating applications',
+      description: 'Specialized transformers for electric arc furnaces and induction heating systems in industrial processes.',
       image: '/Images/blog/product1.jpg'
     },
     {
       id: '11',
-      title: 'Power and Lighting Distribution Boards and Feeder Pillar Panel, Etc.',
-      subtitle: '',
-      description: 'Some industries only require generator power for emergency lighting and other emergency systems but in Pakistan as the power failure issues or load.',
+      title: 'Rectifier Transformers',
+      subtitle: 'For DC power supply systems',
+      description: 'Rectifier transformers designed for converting AC power to DC for industrial and traction applications.',
       image: '/Images/blog/product2.jpg'
     },
     {
       id: '12',
-      title: 'Bus Tie Duct (BTD) & Bus Bar Trunking system',
-      subtitle: 'up to till 6000A and Cable Tray, etc.',
-      description: 'Some industries only require generator power for emergency lighting and other emergency systems but in Pakistan as the power failure issues or load.',
+      title: 'Testing & Commissioning Services',
+      subtitle: 'Factory and site testing services',
+      description: 'Comprehensive testing and commissioning services for all types of power distribution transformers.',
       image: '/Images/blog/product3.jpg'
-    },
-    {
-      id: '13',
-      title: 'Rehabilitation & Reclamation of all kind of Switchgear and Grid Station equipment',
-      subtitle: 'for 500kV, 220kV, 132kV and 66kV voltage ranges.',
-      description: '',
-      image: '/Images/blog/product1.jpg'
     }
   ]
 
@@ -209,28 +202,20 @@ function page() {
     )
   }
 
-  if (error) {
-    return (
-      <div className='pb-10'>
-        <div className="flex items-center justify-center h-96">
-          <div className="text-center">
-            <Typography variant="h2" color="dark" className="mb-4">Error Loading Data</Typography>
-            <Typography variant="p-l" color="tertiary">{error}</Typography>
-          </div>
-        </div>
-      </div>
-    )
-  }
 
   return (
     <div className='pb-10'>
       {/* Hero Section */}
-      <div>
+            <div>
         <CustomHero
           bg={currentCategory?.bannerImage || ProductImage}
           title={
             <>
-              {currentCategory?.name?.toUpperCase() || 'SWITCHGEAR / CONTROLGEAR'}
+              {currentCategory?.name?.toUpperCase() || (
+                <>
+                  POWER DISTRIBUTION <br /> TRANSFORMER
+                </>
+              )}
             </>
           }
           sub=""
@@ -311,7 +296,7 @@ function page() {
           {productCategories.map((category, index) => (
             <div
               key={category.id}
-              className={`bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 ${index === 1 ? 'border-2 border-orange-500' : 'border border-gray-200'
+              className={`bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 ${index === 0 ? 'border-2 border-orange-500' : 'border border-gray-200'
                 }`}
             >
               <div className="flex gap-4">
@@ -352,4 +337,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

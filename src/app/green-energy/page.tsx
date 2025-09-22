@@ -1,10 +1,96 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import CustomHero from '@/components/common/CustomHero'
 import GreenImage from '../../../public/Images/blog/GreenEnergy.png'
 import Typography from '@/components/UI/Typography'
 import Image from 'next/image'
+import banner from './assets/banner.png'
+import Thumbnail_one from './assets/thumbnail_one.png'
+import Thumbnail_two from './assets/thumbnail_two.png'
+import Thumbnail_three from './assets/thumbnail_three.png'
+import Thumbnail_four from './assets/thumbnail_four.png'
 
 function page() {
+
+    // * interface for main categories
+  interface Category {
+    _id: string
+    name: string;
+    description?: string;
+    bannerImage?: string;
+    additionalImages?: string[]
+  }
+
+  // * interface for  subcategories
+  interface SubCategory {
+    _id: string
+    name: string
+    description?: string
+    bannerimg: string
+    additionalimages: string[]
+    parentCategory: string
+  }
+
+    const [categories, setCategories] = useState<Category[]>([])
+    const [subCategories, setSubCategories] = useState<SubCategory[]>([])
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+    const [currentCategory, setCurrentCategory] = useState<Category | null>(null);
+
+      useEffect(() => {
+        const baseApi = process.env.NEXT_PUBLIC_API_BASE ?? 'https://pempak-api.vercel.app/api'
+        // const baseApi = process.env.NEXT_PUBLIC_API_BASE ?? 'http://localhost:5050/api'
+    
+        const fetchCategories = async () => {
+          try {
+            setLoading(true)
+            const res = await fetch(`${baseApi}/categories`)
+            const json = await res.json()
+            const data = Array.isArray(json) ? json : json.data ?? []
+            setCategories(data)
+    
+            const greenCategory = data.find((cat: Category) =>
+              cat.name.toLowerCase().includes('power') ||
+              cat.name.toLowerCase().includes('distribution') ||
+              cat.name.toLowerCase().includes('transformer') ||
+              cat.name.toLowerCase().includes('power distribution')
+            )
+            if (greenCategory) {
+              setCurrentCategory(greenCategory)
+              console.log('Found Transformer category:', greenCategory)
+              console.log('Category description:', greenCategory.description)
+              console.log('Category banner image:', greenCategory.bannerImage)
+              console.log('Category additional images:', greenCategory.additionalImages)
+            } else {
+              console.log('Transformer category not found in:', data)
+              console.log('Available categories:', data.map((cat: Category) => cat.name))
+            }
+          } catch (err) {
+            setError(err instanceof Error ? err.message : 'Failed to fetch categories');
+          } finally {
+            setLoading(false);
+          }
+        }
+    
+        const fetchSubCategories = async () => {
+          try {
+            setLoading(true)
+            const response = await fetch(`${baseApi}/subcategories?limit=50`)
+            const json = await response.json();
+            const data = Array.isArray(json) ? json : json?.data ?? [];
+            setSubCategories(data)
+          } catch (err) {
+            setError(err instanceof Error ? err.message : 'Failed to fetch subcategories');
+          } finally {
+            setLoading(false);
+          }
+        }
+    
+        fetchCategories()
+        fetchSubCategories()
+    
+      }, [])
+
   // Product categories data for Green Energy
   const productCategories = [
     {
@@ -94,19 +180,24 @@ function page() {
   ]
 
   const thumbnailImages = [
-    '/Images/blog/product1.jpg',
-    '/Images/blog/product2.jpg',
-    '/Images/blog/product3.jpg',
-    '/Images/blog/product1.jpg'
+    Thumbnail_one,
+    Thumbnail_two,
+    Thumbnail_three,
+    Thumbnail_four
   ]
+
 
   return (
     <div className='pb-10'>
       {/* Hero Section */}
-      <div>
-        <CustomHero 
-          bg={GreenImage}
-          title='GREEN ENERGY' 
+            <div>
+        <CustomHero
+          bg={currentCategory?.bannerImage || GreenImage}
+          title={
+            <>
+              {currentCategory?.name?.toUpperCase() || 'Green Energy'}
+            </>
+          }
           sub=""
         />
       </div>
@@ -116,42 +207,61 @@ function page() {
         <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
           <div className="flex-1">
             <Image
-              src="/Images/blog/GreenEnergy.png"
-              alt="Green Energy Solutions"
+              src={currentCategory?.bannerImage || banner}
+              alt="Switchgear Control Room"
               width={565}
               height={466}
               className="rounded-xl shadow-md w-full h-auto"
             />
-            <div className="flex flex-wrap gap-3 mt-4">
-              {thumbnailImages.map((img, index) => (
-                <Image
-                  key={index}
-                  src={img}
-                  alt={`Thumbnail ${index + 1}`}
-                  width={80}
-                  height={80}
-                  className="w-20 h-20 rounded-lg shadow object-cover"
-                />
-              ))}
+            <div className="flex flex-wrap gap-[23px] mt-4">
+              {currentCategory?.additionalImages && currentCategory.additionalImages.length > 0 ? (
+                currentCategory.additionalImages.slice(0, 4).map((img, index) => (
+                  <Image
+                    key={index}
+                    src={img}
+                    alt={`Thumbnail ${index + 1}`}
+                    width={80}
+                    height={80}
+                    className="w-[123px] h-[95px] rounded-lg shadow object-cover"
+                  />
+                ))
+              ) : (
+                thumbnailImages.map((img, index) => (
+                  <Image
+                    key={index}
+                    src={img}
+                    alt={`Thumbnail ${index + 1}`}
+                    width={80}
+                    height={80}
+                    className="w-[123px] h-[95px] rounded-lg shadow object-cover"
+                  />
+                ))
+              )}
             </div>
           </div>
           <div className="flex-1">
-            <Typography variant="h2" color="dark" className="mb-6">
+            <Typography variant="h2" color="dark" className="mb-[16px] text-semibold">
               Description
             </Typography>
             <div className="space-y-4 text-gray-700 leading-relaxed">
-              <Typography variant="p-l" color="tertiary">
-                Green energy solutions are essential for sustainable development and reducing carbon footprint in industrial and commercial applications.
-              </Typography>
-              <Typography variant="p-l" color="tertiary">
-                Our comprehensive range includes solar photovoltaic systems, wind energy solutions, energy storage systems, and smart energy management technologies.
-              </Typography>
-              <Typography variant="p-l" color="tertiary">
-                We provide complete turnkey solutions from feasibility studies and system design to installation, commissioning, and ongoing maintenance services.
-              </Typography>
-              <Typography variant="p-l" color="tertiary">
-                All our green energy products are certified to international standards and designed for optimal performance in Pakistan's climate conditions.
-              </Typography>
+              {loading ? (
+                <div className="space-y-2">
+                  <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+                  <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+                  <div className="h-4 bg-gray-200 rounded animate-pulse w-3/4"></div>
+                </div>
+              ) : currentCategory?.description ? (
+                <Typography variant="p-l" color="tertiary">
+                  {currentCategory.description}
+                </Typography>
+              ) : (
+                <Typography variant="p-l" color="tertiary">
+                  Secondary power systems i.e. generators are used in industries or commercial buildings and hospitals as emergency, prime or continuous power supply when utility power is lost. <br /> <br />
+                  Some industries only require generator power for emergency lighting and other emergency systems but in Pakistan as the power failure issues or load shedding is common, the secondary power supply is mandatory. Facilities that have critical or life support systems utilize a more advanced distribution system. <br /> <br />
+                  Some industries only require generator power for emergency lighting and other emergency systems but in Pakistan as the power failure issues or load shedding is common, the secondary power supply is mandatory. Facilities that have critical or life support systems utilize a more advanced distribution system. <br /> <br />
+                  Some industries only require generator power for emergency lighting and other emergency systems but in Pakistan as the power failure issues or load shedding is common, the secondary power
+                </Typography>
+              )}
             </div>
           </div>
         </div>
