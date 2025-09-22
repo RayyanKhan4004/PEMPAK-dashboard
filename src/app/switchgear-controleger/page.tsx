@@ -27,8 +27,8 @@ function Page() {
     _id: string
     name: string
     description?: string
-    bannerimg: string
-    additionalimages: string[]
+    bannerimg?: string
+    images: string[]
     parentCategory: string
   }
 
@@ -61,6 +61,7 @@ function Page() {
         if (switchgearCategory) {
           setCurrentCategory(switchgearCategory)
           console.log('Found Switchgear category:', switchgearCategory)
+          console.log('Found Name:', switchgearCategory.name)
           console.log('Category description:', switchgearCategory.description)
           console.log('Category banner image:', switchgearCategory.bannerImage)
           console.log('Category additional images:', switchgearCategory.additionalImages)
@@ -94,93 +95,10 @@ function Page() {
 
   }, [])
 
-  // Product categories data for Power Distribution Transformers
-  const productCategories = [
-    {
-      id: '1',
-      title: 'Distribution Transformers',
-      subtitle: 'Up to 5000 kVA, 11kV/0.4kV',
-      description: 'High-efficiency distribution transformers for reliable power distribution in industrial and commercial applications.',
-      image: '/Images/blog/product1.jpg'
-    },
-    {
-      id: '2',
-      title: 'Pad-Mounted Transformers',
-      subtitle: 'Underground distribution up to 2500 kVA',
-      description: 'Compact pad-mounted transformers designed for urban areas with space constraints and aesthetic requirements.',
-      image: '/Images/blog/product2.jpg'
-    },
-    {
-      id: '3',
-      title: 'Pole-Mounted Transformers',
-      subtitle: 'Single and three-phase up to 500 kVA',
-      description: 'Lightweight pole-mounted transformers for rural and suburban power distribution networks.',
-      image: '/Images/blog/product3.jpg'
-    },
-    {
-      id: '4',
-      title: 'Dry-Type Transformers',
-      subtitle: 'Cast resin and air-cooled up to 2500 kVA',
-      description: 'Environmentally friendly dry-type transformers with no oil, suitable for indoor installations.',
-      image: '/Images/blog/product1.jpg'
-    },
-    {
-      id: '5',
-      title: 'Oil-Filled Transformers',
-      subtitle: 'Mineral oil and synthetic ester up to 10 MVA',
-      description: 'High-efficiency oil-filled transformers for heavy-duty industrial and utility applications.',
-      image: '/Images/blog/product2.jpg'
-    },
-    {
-      id: '6',
-      title: 'Step-Up Transformers',
-      subtitle: 'For power generation up to 50 MVA',
-      description: 'Step-up transformers for power generation applications, connecting generators to transmission systems.',
-      image: '/Images/blog/product3.jpg'
-    },
-    {
-      id: '7',
-      title: 'Step-Down Transformers',
-      subtitle: 'Transmission to distribution voltage levels',
-      description: 'Step-down transformers for reducing transmission voltages to distribution levels for end users.',
-      image: '/Images/blog/product1.jpg'
-    },
-    {
-      id: '8',
-      title: 'Isolation Transformers',
-      subtitle: 'Galvanic isolation and voltage regulation',
-      description: 'Isolation transformers providing electrical safety and voltage regulation for sensitive equipment.',
-      image: '/Images/blog/product2.jpg'
-    },
-    {
-      id: '9',
-      title: 'Auto Transformers',
-      subtitle: 'Variable voltage ratio up to 10 MVA',
-      description: 'Auto transformers for voltage regulation and power transfer with reduced copper requirements.',
-      image: '/Images/blog/product3.jpg'
-    },
-    {
-      id: '10',
-      title: 'Furnace Transformers',
-      subtitle: 'Arc furnace and induction heating applications',
-      description: 'Specialized transformers for electric arc furnaces and induction heating systems in industrial processes.',
-      image: '/Images/blog/product1.jpg'
-    },
-    {
-      id: '11',
-      title: 'Rectifier Transformers',
-      subtitle: 'For DC power supply systems',
-      description: 'Rectifier transformers designed for converting AC power to DC for industrial and traction applications.',
-      image: '/Images/blog/product2.jpg'
-    },
-    {
-      id: '12',
-      title: 'Testing & Commissioning Services',
-      subtitle: 'Factory and site testing services',
-      description: 'Comprehensive testing and commissioning services for all types of power distribution transformers.',
-      image: '/Images/blog/product3.jpg'
-    }
-  ]
+  // Filter subcategories for the current parent category
+  const filteredSubCategories: SubCategory[] = currentCategory
+    ? subCategories.filter((sc) => sc.parentCategory === currentCategory.name)
+    : subCategories
 
   const thumbnailImages = [
     Thumbnail_one,
@@ -209,14 +127,14 @@ function Page() {
             <div>
         <CustomHero
           bg={currentCategory?.bannerImage || ProductImage}
-          title={
-            <>
-              {currentCategory?.name?.toUpperCase() || (
-                <>
-                  POWER DISTRIBUTION <br /> TRANSFORMER
-                </>
-              )}
-            </>
+          title={currentCategory?.name?.toUpperCase()
+            // <>
+            //   {currentCategory?.name?.toUpperCase() || (
+            //     <>
+            //       POWER DISTRIBUTION <br /> TRANSFORMER
+            //     </>
+            //   )}
+            // </>
           }
           sub=""
         />
@@ -231,7 +149,7 @@ function Page() {
               alt="Switchgear Control Room"
               width={565}
               height={466}
-              className="rounded-xl shadow-md w-full h-auto"
+              className="rounded-xl shadow-md object-cover"
             />
             <div className="flex flex-wrap gap-[23px] mt-4">
               {currentCategory?.additionalImages && currentCategory.additionalImages.length > 0 ? (
@@ -293,17 +211,16 @@ function Page() {
           Product Categories
         </Typography>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {productCategories.map((category, index) => (
+          {filteredSubCategories.map((subcategory, index) => (
             <div
-              key={category.id}
-              className={`bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 ${index === 0 ? 'border-2 border-orange-500' : 'border border-gray-200'
-                }`}
+              key={subcategory._id}
+              className={`bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 ${index === 0 ? 'border-2 border-orange-500' : 'border border-gray-200'}`}
             >
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
                   <Image
-                    src={category.image}
-                    alt={category.title}
+                    src={subcategory.bannerimg || subcategory.images?.[0] || '/Images/blog/product1.jpg'}
+                    alt={subcategory.name}
                     width={120}
                     height={120}
                     className="w-30 h-30 rounded-lg object-cover"
@@ -311,16 +228,13 @@ function Page() {
                 </div>
                 <div className="flex-grow">
                   <Typography variant="h4" color="dark" className="mb-2 font-bold">
-                    {category.title}
+                    {subcategory.name}
                   </Typography>
-                  {category.subtitle && (
-                    <Typography variant="ps" color="primary" className="mb-2 font-semibold">
-                      {category.subtitle}
+                  {subcategory.description && (
+                    <Typography variant="ps" color="tertiary" className="mb-4 line-clamp-3">
+                      {subcategory.description}
                     </Typography>
                   )}
-                  <Typography variant="ps" color="tertiary" className="mb-4 line-clamp-3">
-                    {category.description}
-                  </Typography>
                   <div className="flex items-center text-orange-500 font-medium">
                     <span className="mr-2">Learn More</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
