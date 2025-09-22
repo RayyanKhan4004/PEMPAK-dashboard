@@ -70,6 +70,7 @@ export const Navbar = () => {
         {navLinks.map((item, index) => {
           return (
             <Link
+              key={`nav-${item.label}-${index}`}
               href={item.link ? item.link : ("/" as string)}
               className="hover:font-bold"
               onClick={() => setMainDropdown(item.label)}
@@ -82,6 +83,7 @@ export const Navbar = () => {
                   {item.catagoried.map((sub, i) => {
                     return (
                       <div
+                        key={`cat-${sub.name}-${i}`}
                         className="reletive px-4"
                         onClick={() => {
                           setSubDropdown(sub.name);
@@ -104,7 +106,7 @@ export const Navbar = () => {
                           <div className="absolute left-full top-0 bg-white shadow-lg   space-y-2 rounded-[12px] z-10 hover:text-white hover:bg-[var(--color-primary)]">
                             {sub.sub.map((s, j) => {
                               return (
-                                <div className="p-4 bg-white rounded-[12px]">
+                                <div key={`sub-${s.name}-${j}`} className="p-4 bg-white rounded-[12px]">
                                   <p className="  hover:text-white hover:bg-[var(--color-primary)] text-nowrap">
                                     {s.name}
                                   </p>

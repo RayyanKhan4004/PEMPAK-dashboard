@@ -79,9 +79,22 @@ function Page() {
     const fetchSubCategories = async () => {
       try {
         setLoading(true)
-        const response = await fetch(`${baseApi}/subcategories?limit=50`)
-        const json = await response.json();
-        const data = Array.isArray(json) ? json : json?.data ?? [];
+        const parentName = 'Switchgear / Controlgear'
+
+        // Try fetching with a server-side filter first (if API supports it)
+        const filteredUrl = `${baseApi}/subcategories?parentCategory=${encodeURIComponent(parentName)}&limit=50`
+        let response = await fetch(filteredUrl)
+        let json = await response.json()
+        let data = Array.isArray(json) ? json : json?.data ?? []
+
+        // Fallback: if API didn't filter, fetch all and filter client-side
+        if (!Array.isArray(data) || (Array.isArray(data) && data.length > 0 && !data.every((sc: any) => sc.parentCategory?.toLowerCase() === parentName.toLowerCase()))) {
+          response = await fetch(`${baseApi}/subcategories?limit=50`)
+          json = await response.json()
+          const all = Array.isArray(json) ? json : json?.data ?? []
+          data = all.filter((sc: any) => sc.parentCategory?.toLowerCase() === parentName.toLowerCase())
+        }
+
         setSubCategories(data)
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to fetch subcategories');
@@ -95,10 +108,10 @@ function Page() {
 
   }, [])
 
-  // Filter subcategories for the current parent category
-  const filteredSubCategories: SubCategory[] = currentCategory
-    ? subCategories.filter((sc) => sc.parentCategory === currentCategory.name)
-    : subCategories
+  // Filter subcategories to only those with parent category 'Switchgear / Controlgear'
+  const filteredSubCategories: SubCategory[] = subCategories.filter(
+    (sc) => sc.parentCategory?.toLowerCase() === 'switchgear / controlgear'
+  )
 
   const thumbnailImages = [
     Thumbnail_one,
@@ -126,6 +139,7 @@ function Page() {
       {/* Hero Section */}
             <div>
         <CustomHero
+        gradient={true}
           bg={currentCategory?.bannerImage || ProductImage}
           title={currentCategory?.name?.toUpperCase()
             // <>

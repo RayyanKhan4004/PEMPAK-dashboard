@@ -85,7 +85,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/ourteam" className="hover:text-white">
+              <Link href="/our-team" className="hover:text-white">
                 Our team
               </Link>
             </li>
@@ -128,12 +128,12 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/ourteam" className="hover:text-white">
+              <Link href="/our-team" className="hover:text-white">
                 Testing
               </Link>
             </li>
             <li>
-              <Link href="/blogs" className="hover:text-white">
+              <Link href="/blog" className="hover:text-white">
                 Manufacturing
               </Link>
             </li>
