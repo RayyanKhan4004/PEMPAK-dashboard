@@ -115,7 +115,7 @@ const Card = () => {
                         />
                         <div className='py-4'><Typography color='primary'>{item.date.split('T')[0]}</Typography></div>
                         <div><Typography variant='h4'>{item.title}</Typography></div>
-                        <div className='py-[20px]'><Typography>{item.description}</Typography></div>
+                        <div className='py-[20px]'><Typography>{item.description.split("").slice(0, 100).join("")+"..."}</Typography></div>
                         <Typography>{item.des}</Typography>
                         <Typography className='flex gap-2.5'>
                             <img

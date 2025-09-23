@@ -105,7 +105,7 @@ const page = () => {
           <Typography variant="h3" weight="b" className="text-center block">
             Explore Our Services
           </Typography>
-          <Typography variant="p" className="text-center block pt-4">
+          <Typography variant="p" className="text-center block pb-12">
             We provide innovative solutions designed to meet your needs with
             quality and reliability.
           </Typography>

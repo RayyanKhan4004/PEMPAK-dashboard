@@ -1,9 +1,10 @@
 'use client'
 import React, { useState, useEffect, useMemo } from "react";
 import Typography from "../UI/Typography";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 
 const CustomProduct = () => {
+  const router = useRouter()
 
   // API types
   interface Category {
@@ -150,7 +151,8 @@ const CustomProduct = () => {
             {visibleSubcategories.map((sub) => (
               <Typography
                 key={sub._id}
-                className="bg-white border rounded-xl shadow-md hover:shadow-lg transition overflow-hidden flex flex-row hover:bg-[var(--color-primary)]  w-[588px] p-[24px] text-black hover:text-white"
+                onClick={() => router.push(`/power-distribution/${sub._id}`)}
+                className="bg-white border rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-row hover:bg-[var(--color-primary)] hover:scale-105 cursor-pointer w-[588px] p-[24px] text-black hover:text-white"
               >
                 <img
                   src={sub.bannerimg || "/images/product2.jpg"}
@@ -163,6 +165,12 @@ const CustomProduct = () => {
                       {sub.description}
                     </p>
                   )}
+                  <div className="flex items-center text-orange-500 font-medium group mt-2">
+                    <span className="mr-2 group-hover:mr-3 transition-all">Learn More</span>
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
               </Typography>
             ))}

@@ -4,6 +4,7 @@ import CustomHero from '@/components/common/CustomHero'
 import AppliencesImage from '../../../public/Images/blog/Appliences.png'
 import Typography from '@/components/UI/Typography'
 import Image from 'next/image'
+import Link from 'next/link'
 import banner from './assets/banner.png'
 import Thumbnail_one from './assets/thumbnail_one.png'
 import Thumbnail_two from './assets/thumbnail_two.png'
@@ -294,30 +295,30 @@ function page() {
         </Typography>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredSubCategories.map((subcategory, index) => (
-            <div
+            <Link
               key={subcategory._id}
-              className={`bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 ${index === 0 ? 'border-2 border-orange-500' : 'border border-gray-200'}`}
-            >
-              <div className="flex gap-4">
+              href={`/subcategory/${subcategory._id}`}
+              className={`relative rounded-lg shadow-md p-6 transition-shadow duration-300 block overflow-hidden group  bg-white`}>
+              {/* Foreground content */}
+              <div className="relative z-10 flex gap-4 transition-colors duration-500 group-hover:text-white">
                 <div className="flex-shrink-0">
                   <Image
                     src={subcategory.bannerimg || subcategory.images?.[0] || '/Images/blog/product1.jpg'}
                     alt={subcategory.name}
-                    width={120}
-                    height={120}
+                    width={120} height={120} 
                     className="w-30 h-30 rounded-lg object-cover"
                   />
                 </div>
                 <div className="flex-grow">
-                  <Typography variant="h4" color="dark" className="mb-2 font-bold">
+                  <Typography variant="h4" color="dark" className="mb-2 font-bold group-hover:text-white">
                     {subcategory.name}
                   </Typography>
                   {subcategory.description && (
-                    <Typography variant="ps" color="tertiary" className="mb-4 line-clamp-3">
+                    <Typography variant="ps" color="tertiary" className="mb-4 line-clamp-3 group-hover:text-gray-100">
                       {subcategory.description}
                     </Typography>
                   )}
-                  <div className="flex items-center text-orange-500 font-medium">
+                  <div className="flex items-center text-orange-500 font-medium group-hover:text-white">
                     <span className="mr-2">Learn More</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -325,7 +326,13 @@ function page() {
                   </div>
                 </div>
               </div>
-            </div>
+
+              {/* Hover background (fill from bottom to top) */}
+              <div className="absolute inset-0 h-full w-full bg-[var(--color-primary)] transition-all duration-500 ease-in-out -translate-x-full group-hover:translate-x-0"></div>
+
+              {/* Bottom strip (7px when idle) */}
+              <div className="absolute left-0 bottom-0 w-[7PX] h-full bg-[var(--color-primary)]"></div>
+            </Link>
           ))}
         </div>
       </div>

@@ -3,6 +3,7 @@
 import Footer from "@/components/Footer";
 import { Signatureprojects, btn1, clientlogo, news1, products1, services, team1, team2 } from "@/components/UI/home/hero";
 import Typography from "@/components/UI/Typography";
+import Link from 'next/link'
 import asclepius from './assets/Asclepius.svg'
 import chip from './assets/chip.svg'
 import clipbord from './assets/clipbord.svg';
@@ -62,13 +63,13 @@ export default function Homepage() {
   const [teams, setTeams] = useState<TeamMember[]>([])
   const [blogData, setBlogdata] = useState<ItemProps[]>([])
   const [ceoData, setCeoData] = useState<{ name: string, image: string } | null>(null)
-  
+
   // effects
   useEffect(() => {
     (async () => {
       const teamMembers = await getTeamMembers();
       setTeams(teamMembers);
-      
+
       // Find the CEO from the team data
       const ceo = teamMembers.find((member: TeamMember) => member.role === 'Chief Executive Officer (CEO)');
       if (ceo) {
@@ -77,7 +78,7 @@ export default function Homepage() {
           image: ceo.image || '/placeholder-avatar.jpg'
         });
       }
-      
+
       setBlogdata(await getBlogs())
     })()
 
@@ -107,10 +108,10 @@ export default function Homepage() {
 
             <div className="mt-8 flex space-x-4">
               <button className="px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold shadow hover:bg-orange-600 transition">
-                Our Services
+                <a href="/services"> Our Services </a>
               </button>
               <button className="px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold shadow hover:bg-gray-100 transition">
-                Learn More
+                <a href="/about"> Learn More </a>
               </button>
             </div>
           </div>
@@ -146,7 +147,7 @@ export default function Homepage() {
       <h1 className="text-[var(--color-primary)] font-semibold text-center pt-[100px] pb-[40px]">About us </h1>
 
       <section className="container  max-w-7xl mx-auto px-[120] relative ">
-        <Image src={info} alt="" className="absolute right-1/2 top-1/2 translate-x-1/2 -translate-y-[30%]" />
+        <Image src={info} alt="" className="absolute right-1/2 top-1/2 translate-x-1/2 -translate-y-[30%] -z-10" />
         <div className="grid md:grid-cols-2 gap-[70px] items-center ">
 
           <div>
@@ -161,7 +162,9 @@ export default function Homepage() {
             <p className="text-gray-700 mb-6 text-justify leading-relaxed">
               Our commitment to sustainability is at the heart of everything we do. We believe that solar energy is the key to a more sustainable future, and we are dedicated to making it accessible to everyone. That's why we offer competitive pricing and financing options to help make solar energy more affordable for our clients.
             </p>
-            <a href="/about" className="inline-block bg-[var(--color-primary)] text-white px-6 py-3 rounded-lg shadow hover:bg-orange-600 transition">Learn More →</a>
+            <button className="px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold shadow hover:bg-orange-600 transition">
+              <a href="/about"> Learn More → </a>
+            </button>
           </div>
         </div>
       </section>
@@ -284,7 +287,9 @@ export default function Homepage() {
               </div>
 
               <div className="flex mt-5">
-                <button className={btn1}> View All Products →</button>
+                <button className={btn1}>
+                  <a href="/switchgear-controleger"> View All Products → </a>
+                </button>
               </div>
             </div>
           </div>
@@ -325,16 +330,20 @@ export default function Homepage() {
           {services.map((service) => (
             <div
               key={service.id}
-              className={`p-6 rounded-lg shadow-lg transition transform hover:scale-105 duration-300 ${service.active ? "bg-[var(--color-primary)] text-white" : "bg-white text-gray-800"
-                }`}
+              className={`p-6 rounded-lg shadow-lg relative overflow-hidden group ${service.active ? "bg-[var(--color-primary)] text-white" : "bg-white text-gray-800"}`}
             >
-              <div className="flex items-center justify-center ">
-                <div className="w-24 h-24 bg-orange-600 rounded-full flex items-center justify-center text-white text-2xl">
-                  {service.icon}
+              {/* hover background animation */}
+              <div className="relative z-10 transition-colors duration-500 group-hover:text-white">
+                <div className="flex items-center justify-center">
+                  <div className="w-24 h-24 bg-orange-600 rounded-full flex items-center justify-center text-white text-2xl">
+                    {service.icon}
+                  </div>
                 </div>
+                <h3 className="text-lg font-semibold text-center mb-2 mt-5">{service.title}</h3>
+                <p className="text-center text-sm">{service.description}</p>
               </div>
-              <h3 className="text-lg font-semibold text-center mb-2 mt-5">{service.title}</h3>
-              <p className="text-center text-sm ">{service.description}</p>
+              <div className="absolute inset-0 w-full h-full bg-[var(--color-primary)] transition-all duration-500 ease-in-out translate-y-full group-hover:translate-y-0"></div>
+              <div className="absolute left-0 bottom-0 w-full h-[7px] bg-[var(--color-primary)]"></div>
             </div>
           ))}
         </div>
@@ -353,7 +362,7 @@ export default function Homepage() {
 
 
           {/* Show the last four team members */}
-          <div className="grid grid-cols-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
             {teams.slice(-4).map((item: TeamMember, ind: number) => (
               <div
                 key={item._id + ind}
@@ -610,16 +619,15 @@ export default function Homepage() {
             </p>
           </div>
           <div className="text-right mt-20">
-            <button className={btn1}>View all News & Updates →</button>
+            <button className={btn1}>
+              <a href="/blog"> View all News & Updates → </a>
+            </button>
           </div>
         </div>
 
         <div className="container mx-auto max-w-7xl grid grid-cols-1 sm:grd-cols-2 lg:grid-cols-3 gap-6 p-4">
           {blogData.slice(0, 3).map((item: ItemProps, ind: number) => (
-            <div
-              key={item._id}
-              className={`rounded-2xl shadow-md hover:shadow-xl transform hover:-translate-y-2 transition duration-300 overflow-hidden px-5 py-5 mt-5 hover:bg-[var(--color-primary)] hover:text-white`}
-            >
+            <Link href={`/blog/${item._id}`} key={item._id} className='border border-[#DFDFDF] p-6 rounded-lg w-full max-w-[384px] mx-auto block hover:shadow-md transition-shadow'>
               <img
                 src={item.image}
                 alt={item.title}
@@ -630,7 +638,7 @@ export default function Homepage() {
                 <h1 className="text-lg font-semibold text-[#151515] mt-2">
                   {item.title}
                 </h1>
-                <p className="text-[#474747] text-sm mt-1">{item.description}</p>
+                <p className="text-[#474747] text-sm mt-1">{item.description.split("").slice(0, 100).join("") + "..."}</p>
                 <div className="text-[#151515] flex items-center gap-2 mt-4">
                   <img
                     src={item.ownerImage || ceoData?.image || '/placeholder-avatar.jpg'}
@@ -640,7 +648,7 @@ export default function Homepage() {
                   <p className="text-gray-700 text-sm font-medium">{item.name || ceoData?.name || 'Author'}</p>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>

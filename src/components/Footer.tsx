@@ -15,7 +15,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="text-white px-[50px] py-[50px] bg-[var(--color-primary)] grid grid-cols-1 md:grid-cols-4 gap-[130px]">
+    <footer className="text-white px-[50px] py-[50px] bg-[var(--color-primary)] grid grid-cols-1 md:grid-cols-4 gap-[130px] relative">
       {/* <div className="max-w-7xl grid grid-cols-1 md:grid-cols-4 gap-[130px] text-white"> */}
         <div className="">
           <h2 className="text-2xl font-bold text-white">PAMPAK</h2>
@@ -75,7 +75,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/products" className="hover:text-white">
+              <Link href="/switchgear-controleger" className="hover:text-white">
                 Our Products
               </Link>
             </li>
@@ -118,7 +118,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/products" className="hover:text-white">
+              <Link href="/services" className="hover:text-white">
                 Maintenance
               </Link>
             </li>
@@ -146,29 +146,30 @@ export default function Footer() {
           </h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <Link href="/" className="hover:text-white">
+              <Link href="/switchgear-controleger" className="hover:text-white">
                 Switchgear / Controlgear
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:text-white">
+              <Link href="/power-distribution" className="hover:text-white">
                 Power Distribution Transformer
               </Link>
             </li>
             <li>
-              <Link href="/products" className="hover:text-white">
+              <Link href="/green-energy" className="hover:text-white">
                 Green Energy
               </Link>
             </li>
             <li>
-              <Link href="/services" className="hover:text-white">
+              <Link href="/appliences" className="hover:text-white">
                 Appliances
               </Link>
             </li>
           </ul>
         </div>
 
-        <div className="absolute flex justify-end right-[140px] pt-[340px]">
+        
+        <div className="absolute flex justify-end right-[140px] bottom-24">
           {/* <Image className="m-2" src={facebook} alt="" /> */}
           <Image
             className="m-2 bg-white h-8 w-8 rounded-sm"
