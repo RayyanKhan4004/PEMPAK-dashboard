@@ -3,7 +3,7 @@ import Typography from "@/components/UI/Typography";
 // import CoporatePolicy from "../../../components/CoporatePolicy";
 // import { Eye } from 'lucide-react';
 import Image from "next/image";
-
+""
 export default function AboutPage() {
   return (
     <div>
