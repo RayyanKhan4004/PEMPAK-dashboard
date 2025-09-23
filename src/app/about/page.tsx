@@ -1,4 +1,5 @@
-import Typography from "@/components/UI/Typography";
+// import Typography from "@/components/UI/Typography";
+import Image from "next/image";
 
 import CoporatePolicy from "../../components//CoporatePolicy";
 // import { Eye } from 'lucide-react';
@@ -27,7 +28,7 @@ export default function AboutPage() {
       <div className="space-y-20 space-x-3 px-[120px] py-[100px]">
         {/* Section 1: Image Left, Text Right */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-10">
-          <img
+          <Image
             src="others/team-project.svg"
             alt="Not found"
             // className="h-[250px] w-[70vw] rounded-2xl"
@@ -49,7 +50,7 @@ export default function AboutPage() {
 
         {/* Section 2: Text Left, Image Right */}
         <div className="flex flex-col md:flex-row-reverse justify-between items-center gap-10">
-          <img
+          <Image
             src="others/team-project.svg"
             alt="Not found"
           />
@@ -69,7 +70,7 @@ export default function AboutPage() {
 
         {/* Section 3: Image Left, Text Right */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-10">
-          <img
+          <Image
             src="others/team-project.svg"
             alt="Not found"
           />
@@ -101,7 +102,7 @@ export default function AboutPage() {
         <div className="flex bg-white m-7 p-8 justify-center align-middle rounded-4xl">
           <div className="m-1 h-78 w-90 border-r-3 border-r-amber-500">
             <div className="flex">
-              <img src="others/eye-icon.svg" alt="" className="ml-3" />
+              <Image src="others/eye-icon.svg" alt="" className="ml-3" />
               <h1 className="text-2xl font-bold px-3">Our Vision</h1>
             </div>
 
@@ -117,7 +118,7 @@ export default function AboutPage() {
 
           <div className="m-1 h-78 w-90 border-r-3 border-r-amber-500">
             <div className="flex">
-              <img src="others/our-missions.svg" alt="" className="ml-3" />
+              <Image src="others/our-missions.svg" alt="" className="ml-3" />
               <h1 className="text-2xl font-bold px-3">Our Mission</h1>
             </div>
             <p className="p-3">
@@ -131,7 +132,7 @@ export default function AboutPage() {
           </div>
           <div className="m-1 h-78 w-90 border-r-">
             <div className="flex">
-              <img src="others/our-values.svg" alt="" className="ml-3" />
+              <Image src="others/our-values.svg" alt="" className="ml-3" />
               <h1 className="text-2xl font-bold px-3">Our Values</h1>
             </div>
             <p className="p-3">
@@ -150,7 +151,7 @@ export default function AboutPage() {
 
       <div className="space-y-20 space-x-3 px-[120px] py-[100px]">
         <div className="flex flex-col md:flex-row-reverse justify-between items-center gap-10">
-          <img src="others/team-project.svg" alt="Not found" />
+          <Image src="others/team-project.svg" alt="Not found" />
           <div className="w-[40vw]">
             <h1 className="font-bold text-4xl mb-6 pb-2">Quality Objective</h1>
             <ul className="list-disc ml-7">
@@ -186,7 +187,7 @@ export default function AboutPage() {
         <div className="flex  m-7 p-8 justify-center align-middle rounded-4xl">
           <div className="m-1 w-90 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
             <div className="text-center flex justify-center mb-5">
-              <img src="others/iso-1.svg" alt="" />
+              <Image src="others/iso-1.svg" alt="" />
             </div>
             <h1 className="text-2xl font-bold px-3 text-center">
               ISO 9001:2015
@@ -200,7 +201,7 @@ export default function AboutPage() {
 
           <div className="m-1 w-90 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
             <div className="text-center flex justify-center mb-5">
-              <img src="others/iso-2.svg" alt="" />
+              <Image src="others/iso-2.svg" alt="" />
             </div>
             <h1 className="text-2xl font-bold text-center text-gray-900 mb-2">
               ISO 14001:2015
@@ -215,7 +216,7 @@ export default function AboutPage() {
           <div className="m-1 w-90 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
             <h1 className="text-2xl font-bold px-3 text-center">
               <div className="text-center flex justify-center mb-5">
-                <img src="others/iso-3.svg" alt="" />
+                <Image src="others/iso-3.svg" alt="" />
               </div>
               OHSAS 18001:2007
             </h1>
@@ -243,7 +244,7 @@ export default function AboutPage() {
         <div className="flex  m-7 p-8 justify-center align-middle rounded-4xl">
           <div className="m-1 w-100 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
             <div className="text-center flex justify-center mb-5">
-              <img src="registration/registration-1.svg" alt="" />
+              <Image src="registration/registration-1.svg" alt="" />
             </div>
             <p className="text-center">
               WAPDA and subsidiaries like NTDC, LESCO, IESCO, FESCO, MEPCO, HESCO, PESCO, GEPCO and QESCO etc.
@@ -252,7 +253,7 @@ export default function AboutPage() {
 
           <div className="m-1 w-90 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
             <div className="text-center flex justify-center mb-5">
-              <img src="registration/registration-2.svg" alt="" />
+              <Image src="registration/registration-2.svg" alt="" />
             </div>
             <p className="text-gray-800 text-center">
               Engineer in Chief Branch with all formation like MES (Army, Air,
@@ -261,7 +262,7 @@ export default function AboutPage() {
           </div>
           <div className="m-1 w-100 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
             <div className="text-center flex justify-center mb-5">
-              <img src="registration/registration-3.svg" alt="" />
+              <Image src="registration/registration-3.svg" alt="" />
             </div>
             <p className="text-center">
               Pakistan Atomic Energy Commission (Various formations)
@@ -270,7 +271,7 @@ export default function AboutPage() {
 
           <div className="m-1 w-100 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
             <div className="text-center flex justify-center mb-5">
-              <img src="registration/registration-4.svg" alt="" />
+              <Image src="registration/registration-4.svg" alt="" />
             </div>
             <p className="text-center">Pakistan Air Force</p>
           </div>
@@ -279,7 +280,7 @@ export default function AboutPage() {
         <div className="flex  m-7 p-8 justify-center align-middle rounded-4xl">
           <div className="m-1 w-100 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
             <div className="text-center flex justify-center mb-5">
-              <img src="registration/registration-5.svg" alt="" />
+              <Image src="registration/registration-5.svg" alt="" />
             </div>
             <p className="text-center">
               Water & Sanitary Agencies (WASA's) of all development authorities.
@@ -288,13 +289,13 @@ export default function AboutPage() {
 
           <div className="m-1 w-100 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
             <div className="text-center flex justify-center mb-5">
-              <img src="registration/registration-6.svg" alt="" />
+              <Image src="registration/registration-6.svg" alt="" />
             </div>
             <p className="text-gray-800 text-center">C & W (Building Department).</p>
           </div>
           <div className="m-1 w-90 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
             <div className="text-center flex justify-center mb-5">
-              <img src="registration/registration-7.svg" alt="" />
+              <Image src="registration/registration-7.svg" alt="" />
             </div>
             <p className="text-center">
               Fuji Foundation and many other Autonomous bodies.
@@ -303,7 +304,7 @@ export default function AboutPage() {
 
           <div className="m-1 w-90 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
             <div className="text-center flex justify-center mb-5">
-              <img src="registration/registration-8.svg" alt="" />
+              <Image src="registration/registration-8.svg" alt="" />
             </div>
             <p className="text-center">
               Prestigious corporate sector of Pakistan including industries of

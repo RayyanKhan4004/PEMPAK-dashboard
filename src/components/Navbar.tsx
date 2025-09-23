@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Typography from "@/components/UI/Typography";
 import { useEffect, useState, useRef } from "react";
-import { link } from "fs";
+// import { link } from "fs";
 export const Navbar = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();

@@ -1,8 +1,9 @@
-import CustomHero from "@/components/common/CustomHero";
+// import CustomHero from "@/components/common/CustomHero";
 import Typography from "@/components/UI/Typography";
 import React from "react";
+import Image from "next/image";
 
-const page = () => {
+let page = () => {
   let obj1 = [
     {
       id: 1,
@@ -124,7 +125,7 @@ const page = () => {
 
                   {/* content */}
                   <div className="mb-4 relative z-10 pt-4">
-                    <img src={item.image} alt={item.title} className="m-auto" />
+                    <Image src={item.image} alt={item.title} className="m-auto" />
                     <Typography
                       variant="h4"
                       weight="b"
@@ -187,7 +188,7 @@ const page = () => {
       <div className="flex justify-center">
 
         <div className="mb-20 mt-20">
-          <img src="ourServices/map-start-to-end.svg" alt="" className="mt-10" />
+          <Image src="ourServices/map-start-to-end.svg" alt="" className="mt-10" />
         </div>
 
       </div>

@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import Link from "next/link";
 import Typography from "../../../components/UI/Typography";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 
 type Blog = {
   _id: string;
@@ -39,14 +40,14 @@ async function BlogDetail({ id }: { id: string }) {
       <Typography className="text-[48px] mt-[50px]">{blog.title}</Typography>
       <Typography className="flex mb-[32px] gap-[11px]">
         <Typography className="flex gap-2.5">
-          <img src={blog.image} alt={blog.title} className="h-8 w-8 rounded-full object-cover" />
+          <Image src={blog.image} alt={blog.title} className="h-8 w-8 rounded-full object-cover" />
         </Typography>
         <Typography variant="p" color="dark">{blog.pf}</Typography>
         <span className="inline-block w-4 h-4 bg-[var(--color-gray)] rounded-full "></span>
         <Typography color="secondary">{new Date(blog.date).toDateString()}</Typography>
       </Typography>
       <div>
-        <img className="w-full py-[50px] rounded-[16px] object-cover" src={blog.image} alt={blog.title} />
+        <Image className="w-full py-[50px] rounded-[16px] object-cover" src={blog.image} alt={blog.title} />
       </div>
       <div className="">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">

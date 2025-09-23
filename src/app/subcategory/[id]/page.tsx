@@ -3,6 +3,7 @@ import Typography from '@/components/UI/Typography'
 import CustomHero from '@/components/common/CustomHero'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import Link from "next/link"
 
 type SubCategory = {
   _id: string
@@ -57,7 +58,7 @@ async function SubCategoryDetail({ id }: { id: string }) {
         <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
           <div className="flex-1">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={heroImage}
               alt={sub.name}
               className="rounded-xl shadow-md w-full h-auto object-cover"
@@ -66,7 +67,7 @@ async function SubCategoryDetail({ id }: { id: string }) {
               <div className="flex flex-wrap gap-[23px] mt-4">
                 {sub.images.slice(1, 5).map((img, index) => (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img
+                  <Image
                     key={index}
                     src={img}
                     alt={`Thumbnail ${index + 1}`}
@@ -96,18 +97,18 @@ async function SubCategoryDetail({ id }: { id: string }) {
             More in {sub.parentCategory}
           </Typography>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {siblings.map((sibling, index) => (
-              <a
+            {siblings.slice(0, 15).map((sibling, index) => (
+              <Link
                 key={sibling._id}
                 href={`/subcategory/${sibling._id}`}
                 className={`relative overflow-hidden rounded-lg shadow-md p-6 transition-shadow duration-300 block group 
-            ${index === 0 ? 'border-2 border-orange-500' : 'border border-gray-200'} bg-white`}
+            `}
               >
                 {/* Foreground content */}
                 <div className="relative z-10 flex gap-4 transition-colors duration-500 group-hover:text-white">
                   <div className="flex-shrink-0">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={sibling.bannerimg || sibling.images?.[0] || '/Images/blog/product1.jpg'}
                       alt={sibling.name}
                       className="w-30 h-30 rounded-lg object-cover"
@@ -136,7 +137,7 @@ async function SubCategoryDetail({ id }: { id: string }) {
 
                 {/* Left strip (always visible, 7px wide) */}
                 <div className="absolute top-0 left-0 h-full w-[7px] bg-[var(--color-primary)]"></div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

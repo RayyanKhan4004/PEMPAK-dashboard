@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Typography from '../UI/Typography';
+import Image from "next/image";
 
 const Card = () => {
     interface ItemProps {
@@ -108,7 +109,7 @@ const Card = () => {
             <Typography className='gap-6 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-[50px]'>
                 {displayedBlogs.map((item: ItemProps) => (
                     <Link href={`/blog/${item._id}`} key={item._id} className='border border-[#DFDFDF] p-6 rounded-lg w-full max-w-[384px] mx-auto block hover:shadow-md transition-shadow'>
-                        <img
+                        <Image
                             src={item.image || '/placeholder-image.jpg'}
                             alt={item.title}
                             className='h-[236px] w-full rounded-[16px] object-cover'
@@ -118,7 +119,7 @@ const Card = () => {
                         <div className='py-[20px]'><Typography>{item.description.split("").slice(0, 100).join("")+"..."}</Typography></div>
                         <Typography>{item.des}</Typography>
                         <Typography className='flex gap-2.5'>
-                            <img
+                            <Image
                                 src={item.ownerImage || ceoData?.image || '/placeholder-avatar.jpg'}
                                 alt={item.pf}
                                 className='h-8 w-8 rounded-full object-cover'

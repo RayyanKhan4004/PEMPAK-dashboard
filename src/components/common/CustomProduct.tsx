@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Typography from "../UI/Typography";
 import { useSearchParams, useRouter } from "next/navigation";
+import Image from "next/image";
 
 const CustomProduct = () => {
   const router = useRouter()
@@ -104,13 +105,13 @@ const CustomProduct = () => {
       <div className="flex flex-row mt-[100px] justify-center items-center px-[120px] w-full flex-wrap gap-10">
         <Typography className="flex-1 ">
           {(activeCategory?.bannerImage) ? (
-            <img
+            <Image
               src={activeCategory.bannerImage}
               alt={activeCategory.name}
               className="  rounded-xl shadow-md w-[565px] h-[466px]  "
             />
           ) : (
-            <img
+            <Image
               src="/images/main.jpg"
               alt="Main"
               className="  rounded-xl shadow-md w-[565px] h-[466px]  "
@@ -119,10 +120,11 @@ const CustomProduct = () => {
           {activeCategory?.additionalImages && (
             <Typography className="flex flex-wrap gap-3 mt-4  ">
               {activeCategory.additionalImages.map((img, index) => (
-                <img
+                <Image
                   key={index}
                   src={img}
                   className="w-20 h-20 rounded-lg shadow "
+                  alt={``}
                 />
               ))}
             </Typography>
@@ -149,14 +151,21 @@ const CustomProduct = () => {
         ) : (
           <Typography className="flex flex-row-2 gap-6 justify-center w-full flex-wrap">
             {visibleSubcategories.map((sub) => (
-              <Typography
+              <div
                 key={sub._id}
                 onClick={() => router.push(`/power-distribution/${sub._id}`)}
                 className="bg-white border rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-row hover:bg-[var(--color-primary)] hover:scale-105 cursor-pointer w-[588px] p-[24px] text-black hover:text-white"
+                role="button"
+                tabIndex={0}
+                onKeyPress={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    router.push(`/power-distribution/${sub._id}`);
+                  }
+                }}
               >
-                <img
+                <Image
                   src={sub.bannerimg || "/images/product2.jpg"}
-                  className=" object-cover w-[223px] h-[223px] rounded-2xl"
+                  className=" object-cover w-[223px] h-[223px] rounded-2xl"alt=""
                 />
                 <div className="p-5 flex flex-col flex-grow">
                   <h3 className="font-semibold text-xl mb-2 ">{sub.name}</h3>
@@ -172,7 +181,7 @@ const CustomProduct = () => {
                     </svg>
                   </div>
                 </div>
-              </Typography>
+              </div>
             ))}
           </Typography>
         )}

@@ -6,6 +6,7 @@ import Typography from "@/components/UI/Typography"
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+
 interface TeamMember {
   _id: string;
   name: string;
@@ -65,7 +66,7 @@ export default function OurTeamPage() {
         <div className="grid grid-cols-2">
 
           <div>
-            <img
+            <Image
               className="h-[635px] w-[565px] bg-[#DCE3ED] rounded-2xl object-cover"
               src={ceo?.image || "Block/Our team/pic1.png"}
               alt={ceo?.name || "Chief Executive Officer (CEO)"}
@@ -85,21 +86,21 @@ export default function OurTeamPage() {
 
             <div className="mt-5 grid grid-cols-1 gap-6">
               <div className="flex items-start space-x-3">
-                <img src="Block/Our team/Vector.png" alt="Leader Icon" className="w-8 h-8" />
+                <Image src="Block/Our team/Vector.png" alt="Leader Icon" className="w-8 h-8" />
                 <p className="text-gray-700 text-base">
                   Proven leader with years of industry expertise.
                 </p>
               </div>
 
               <div className="flex items-start space-x-3">
-                <img src="Block/Our team/Vector.png" alt="Vision Icon" className="w-8 h-8" />
+                <Image src="Block/Our team/Vector.png" alt="Vision Icon" className="w-8 h-8" />
                 <p className="text-gray-700 text-base">
                   Visionary mindset driving growth and innovation.
                 </p>
               </div>
 
               <div className="flex items-start space-x-3">
-                <img src="Block/Our team/Vector.png" alt="Excellence Icon" className="w-8 h-8" />
+                <Image src="Block/Our team/Vector.png" alt="Excellence Icon" className="w-8 h-8" />
                 <p className="text-gray-700 text-base">
                   Committed to excellence and long-term success.
                 </p>
@@ -172,7 +173,7 @@ export default function OurTeamPage() {
               <div
                 key={member._id}
                 className={`bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2`} >
-                <img
+                <Image
                   className={`object-contain  border-gray-300 rounded-xl mb-4 h-[353px] w-full
           `}
                   // src={member.image }

@@ -16,12 +16,12 @@ import quationRight from './assets/qr.svg'
 import leaf from './assets/leaf.svg'
 import flower from './assets/flower.svg'
 import sheld from './assets/sheld.svg'
+import Image from "next/image";
 import bage from './assets/bage.svg'
 
 // import Image from "next/image";
 // import Link from "next/link";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 // team members interface
 interface TeamMember {
@@ -108,17 +108,17 @@ export default function Homepage() {
 
             <div className="mt-8 flex space-x-4">
               <button className="px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold shadow hover:bg-orange-600 transition">
-                <a href="/services"> Our Services </a>
+                <Link href="/services"> Our Services </Link>
               </button>
               <button className="px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold shadow hover:bg-gray-100 transition">
-                <a href="/about"> Learn More </a>
+                <Link href="/about"> Learn More </Link>
               </button>
             </div>
           </div>
           {/* <Typography variant="p" color="primary" weight="semi-b">fhfjf</Typography> */}
           <div className="flex justify-center">
             <div className="relative">
-              <img
+              <Image
                 src="/Block/Front images/home-f1.jpg"
                 alt="Engineer"
                 width={400}
@@ -151,7 +151,7 @@ export default function Homepage() {
         <div className="grid md:grid-cols-2 gap-[70px] items-center ">
 
           <div>
-            <img src="/Block/homeimg/homeabout1.jpg" alt="Team working" className="rounded-lg shadow-lg" />
+            <Image src="/Block/homeimg/homeabout1.jpg" alt="Team working" className="rounded-lg shadow-lg" />
           </div>
 
           <div>
@@ -163,7 +163,7 @@ export default function Homepage() {
               Our commitment to sustainability is at the heart of everything we do. We believe that solar energy is the key to a more sustainable future, and we are dedicated to making it accessible to everyone. That's why we offer competitive pricing and financing options to help make solar energy more affordable for our clients.
             </p>
             <button className="px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold shadow hover:bg-orange-600 transition">
-              <a href="/about"> Learn More → </a>
+              <Link href="/about"> Learn More → </Link>
             </button>
           </div>
         </div>
@@ -236,7 +236,7 @@ export default function Homepage() {
           </div>
 
           <div>
-            <img src="/Block/homeimg/homeabout2.jpg" alt="Meeting" className="rounded-lg shadow-lg" />
+            <Image src="/Block/homeimg/homeabout2.jpg" alt="Meeting" className="rounded-lg shadow-lg" />
           </div>
         </div>
       </section>
@@ -288,7 +288,7 @@ export default function Homepage() {
 
               <div className="flex mt-5">
                 <button className={btn1}>
-                  <a href="/switchgear-controleger"> View All Products → </a>
+                  <Link href="/switchgear-controleger"> View All Products → </Link>
                 </button>
               </div>
             </div>
@@ -302,7 +302,7 @@ export default function Homepage() {
                 key={item.id}
                 className="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 hover:shadow-xl transition duration-300 hover:bg-[var(--color-primary)] hover:text-white"
               >
-                <img
+                <Image
                   src={item.image}
                   alt={item.name}
                   className="w-[336] h-[280] object-cover p-[24px] rounded-[8px]"
@@ -369,7 +369,7 @@ export default function Homepage() {
                 className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl w-[282px] h-[357px]"
               >
                 <div className="relative w-full h-64">
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.name}
                     className="w-full h-full object-cover"
@@ -389,7 +389,7 @@ export default function Homepage() {
         {/* Button */}
         <section className="text-center pt-[50px]">
           <button className="bg-[var(--color-primary)] cursor-pointer text-white font-semibold py-2 px-8 rounded-xl shadow-lg hover:bg-orange-600 hover:scale-105 transition transform duration-300 ease-in-out">
-            <a href="/our-team">View All Team <span className="text-lg">→</span></a>
+            <Link href="/our-team">View All Team <span className="text-lg">→</span></Link>
           </button>
 
         </section>
@@ -409,7 +409,7 @@ export default function Homepage() {
           alt="CEO"
         />
         <div className="flex flex-col items-center justify-between text-white">
-          <img
+          <Image
             className="rounded-full w-[150px] mt-8"
             src="/Block/Teampempak/pic1.jpg"
             alt="CEO"
@@ -418,10 +418,11 @@ export default function Homepage() {
           <div className="flex justify-center items-center mt-3">
             <p className="text-center max-w-2xl py-[32px]">
               Welcome to PEMPAK <br /><br />
-              We thrive in the dynamic business landscape, driven by our unwavering commitment with perfection of equipment focused on client’s convenience and satisfaction <br /><br />
-              Our self-motivated team is adapting to evolving client needs, we have enhanced capabilities in key areas, all while following principles of diversity, inclusivity, and equality. Despite of various market challenges, our team’s expertise in management at all level ensures consistent in time delivery of Quality equipment <br /><br />
-              We have expanded and focused on crucial domains like reverse engineering, market analysis, R&D, and technology scouting. This resulted in a remarkable growth in all segments of business <br /><br />
-              This success story of quarter century plus legacy speaks to the dedication and resilience of PEMPAK team, here to continued growth and excellence <br /><br />
+              We thrive in the dynamic business landscape, driven by our unwavering commitment with perfection of equipment focused on client’s convenience and satisfaction.<br /><br />
+              Our self-motivated team is adapting to evolving client needs, we have enhanced capabilities in key areas, all while following principles of diversity, inclusivity, and equality. Despite of various market challenges, our team’s expertise in management at all level ensures consistent in time delivery of Quality equipment.<br /><br />
+              We have expanded and focused on crucial domains like reverse engineering, market analysis, R&D, and technology scouting. This resulted in a remarkable growth in all segments of business.<br /><br />
+              This success story of quarter century plus legacy speaks to the dedication and resilience of PEMPAK team, here to continued growth and excellence.<br /><br />
+              May Allah help us in our deeds <br /><br />
               May Allah help us in our deeds
             </p>
           </div>
@@ -452,7 +453,7 @@ export default function Homepage() {
                 key={index}
                 className={` w-[384px] h-[386px] rounded-2xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl px-4 py-4 border-1 border-[#DFDFDF]`}
               >
-                <img
+                <Image
                   src={item.image}
                   alt={item.description}
                   className="w-full object-cover rounded-t-2xl h-[278px]"
@@ -474,7 +475,7 @@ export default function Homepage() {
             A stunning bird’s-eye perspective showcasing the full scale and beauty of
             our operations.
           </p>
-          <img
+          <Image
             className="block mx-auto mt-8"
             src="/Block/Images/pic1.png"
             alt=""
@@ -497,7 +498,7 @@ export default function Homepage() {
 
           <div className="pt-20 flex justify-between">
             <div>
-              <img
+              <Image
                 className="opacity-50"
                 src="/Block/Certification/pic1.png"
                 alt=""
@@ -569,7 +570,7 @@ export default function Homepage() {
                 key={item.id}
                 className={`flex items-center justify-center p-4 border-1 rounded-2xl shadow-sm hover:shadow-xl transform hover:-translate-y-2 transition duration-300`}
               >
-                <img
+                <Image
                   src={item.image}
                   alt=""
                   className={`max-h-20 object-contain`}
@@ -595,7 +596,7 @@ export default function Homepage() {
                 key={item.id}
                 className=" space-y-4 text-left px-4 py-4 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transform hover:-translate-y-2 transition duration-300 bg-white"
               >
-                <img
+                <Image
                   className="w-full h-64 object-cover rounded-lg"
                   src={item.image}
                   alt={`Signature project ${item.id}`}
@@ -620,7 +621,7 @@ export default function Homepage() {
           </div>
           <div className="text-right mt-20">
             <button className={btn1}>
-              <a href="/blog"> View all News & Updates → </a>
+              <Link href="/blog"> View all News & Updates → </Link>
             </button>
           </div>
         </div>
@@ -628,7 +629,7 @@ export default function Homepage() {
         <div className="container mx-auto max-w-7xl grid grid-cols-1 sm:grd-cols-2 lg:grid-cols-3 gap-6 p-4">
           {blogData.slice(0, 3).map((item: ItemProps, ind: number) => (
             <Link href={`/blog/${item._id}`} key={item._id} className='border border-[#DFDFDF] p-6 rounded-lg w-full max-w-[384px] mx-auto block hover:shadow-md transition-shadow'>
-              <img
+              <Image
                 src={item.image}
                 alt={item.title}
                 className="w-full h-48 object-cover"
@@ -640,7 +641,7 @@ export default function Homepage() {
                 </h1>
                 <p className="text-[#474747] text-sm mt-1">{item.description.split("").slice(0, 100).join("") + "..."}</p>
                 <div className="text-[#151515] flex items-center gap-2 mt-4">
-                  <img
+                  <Image
                     src={item.ownerImage || ceoData?.image || '/placeholder-avatar.jpg'}
                     alt={item.name}
                     className="w-8 h-8 rounded-full object-cover"

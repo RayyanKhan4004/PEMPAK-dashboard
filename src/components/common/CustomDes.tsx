@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Typography from "../UI/Typography";
+import Image from "next/image";
 
 type SUBIMG = string[];
 const CustomDes = () => {
@@ -17,18 +18,19 @@ const CustomDes = () => {
     <Typography className="w-full px-4 sm:px-8 md:px-12 lg:px-20 py-12 ">
       <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16 mt-[100px] ">
         <Typography className="flex-1  ">
-          <img
+          <Image
             src={MainImg}
             alt="Main"
             className="w-full h-auto rounded-xl shadow-md"
           />
           <Typography className="flex flex-wrap gap-3 mt-4">
             {des.map((img, index) => (
-              <img
+              <Image
                 onClick={() => setMainImg(img)}
                 key={index}
                 src={img}
                 className="w-20 h-20 rounded-lg shadow cursor-pointer"
+                alt=""
               />
             ))}
           </Typography>
