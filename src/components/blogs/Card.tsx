@@ -133,7 +133,7 @@ const Card = () => {
                 <div className=" flex justify-center w-full items-center">
                     <button 
                         onClick={handleViewMore}
-                        className="text-white rounded-[12px] bg-[#F16336] h-[50px] w-[146px] font-semibold text-size-[16px]  hover:bg-orange-600"
+                        className="text-white rounded-[12px] bg-[#F16336] h-[50px] w-[146px] font-semibold text-size-[16px]  hover:bg-[var(--color-primary)]"
                     >
                         View More
                     </button>

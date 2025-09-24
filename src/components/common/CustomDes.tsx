@@ -40,7 +40,7 @@ const CustomDes = () => {
           <Typography
             variant="p-l"
             color="tertiary"
-            className="space-y-4 text-gray-700 leading-relaxed"
+            className="space-y-4 text-[var(--color-light-black)] leading-relaxed"
           >
             <p>
               Secondary power system in generators and in industries or

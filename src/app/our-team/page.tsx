@@ -89,21 +89,21 @@ export default function OurTeamPage() {
             <div className="mt-5 grid grid-cols-1 gap-6">
               <div className="flex items-start space-x-3">
                 <Image src="/Block/Our team/Vector.png" alt="Leader Icon" className="w-8 h-8" width={32} height={32} />
-                <p className="text-gray-700 text-base">
+                <p className="text-[var(--color-light-black)] text-base">
                   Proven leader with years of industry expertise.
                 </p>
               </div>
 
               <div className="flex items-start space-x-3">
                 <Image src="/Block/Our team/Vector.png" alt="Vision Icon" className="w-8 h-8" width={32} height={32} />
-                <p className="text-gray-700 text-base">
+                <p className="text-[var(--color-light-black)] text-base">
                   Visionary mindset driving growth and innovation.
                 </p>
               </div>
 
               <div className="flex items-start space-x-3">
                 <Image src="/Block/Our team/Vector.png" alt="Excellence Icon" className="w-8 h-8" width={32} height={32} />
-                <p className="text-gray-700 text-base">
+                <p className="text-[var(--color-light-black)] text-base">
                   Committed to excellence and long-term success.
                 </p>
               </div>
@@ -119,7 +119,7 @@ export default function OurTeamPage() {
           </div>
 
           <div className="w-1/2 pl-4">
-            <p className="text-gray-700 break-words whitespace-normal">
+            <p className="text-[var(--color-light-black)] break-words whitespace-normal">
               Our Board of Directors provides strategic guidance, leadership, and oversight to drive sustainable growth.
             </p>
           </div>

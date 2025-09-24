@@ -81,7 +81,7 @@ async function SubCategoryDetail({ id }: { id: string }) {
             <Typography variant="h2" color="dark" className="mb-[16px] text-semibold">
               Description
             </Typography>
-            <div className="space-y-4 text-gray-700 leading-relaxed">
+            <div className="space-y-4 text-[var(--color-light-black)] leading-relaxed">
               <Typography variant="p-l" color="tertiary">
                 {sub.description || 'Details will be available soon.'}
               </Typography>

@@ -264,7 +264,7 @@ function Page() {
             <Typography variant="h2" color="dark" className="mb-[16px] text-semibold">
               Description
             </Typography>
-            <div className="space-y-4 text-gray-700 leading-relaxed">
+            <div className="space-y-4 text-[var(--color-light-black)] leading-relaxed">
               {loading ? (
                 <div className="space-y-2">
                   <div className="h-4 bg-gray-200 rounded animate-pulse"></div>

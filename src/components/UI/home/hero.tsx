@@ -202,7 +202,7 @@ export const Signatureprojects= [
 
 ]
 
-export const btn1 = " cursor-pointer px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold shadow hover:bg-orange-600 transition"  
+export const btn1 = " cursor-pointer px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold shadow hover:bg-[var(--color-primary)] transition"  
 export const news1= [
 
     {
