@@ -1,6 +1,6 @@
 // import Typography from "@/components/UI/Typography";
 import Image from "next/image";
-
+import line from "@public/others/Line-1.svg";
 import CoporatePolicy from "../../components//CoporatePolicy";
 // import { Eye } from 'lucide-react';
 
@@ -106,7 +106,7 @@ export default function AboutPage() {
         </div>
 
         <div className="flex bg-white m-7 p-8 justify-center align-middle rounded-4xl">
-          <div className="m-1 h-78 w-90 border-r-3 border-r-amber-500">
+          <div className="m-1 h-78 w-90 ">
             <div className="flex">
               <Image
                 src="/others/eye-icon.svg"
@@ -127,8 +127,8 @@ export default function AboutPage() {
               proportionately to the individual&apos;s growth.
             </p>
           </div>
-
-          <div className="m-1 h-78 w-90 border-r-3 border-r-amber-500">
+          <Image src={line} alt="" height={205} width={3} />
+          <div className="m-1 h-78 w-90  ">
             <div className="flex">
               <Image
                 src="/others/our-missions.svg"
@@ -148,7 +148,8 @@ export default function AboutPage() {
               community well-being.
             </p>
           </div>
-          <div className="m-1 h-78 w-90 border-r-">
+          <Image src={line} alt="" height={205} width={3} />
+          <div className="m-1 h-78 w-90 ">
             <div className="flex">
               <Image
                 src="/others/our-values.svg"
@@ -390,4 +391,3 @@ export default function AboutPage() {
     </div>
   );
 }
-
