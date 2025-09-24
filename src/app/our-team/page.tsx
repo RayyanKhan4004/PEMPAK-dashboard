@@ -6,6 +6,7 @@ import Typography from "@/components/UI/Typography"
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+
 interface TeamMember {
   _id: string;
   name: string;
@@ -65,41 +66,43 @@ export default function OurTeamPage() {
         <div className="grid grid-cols-2">
 
           <div>
-            <img
+            <Image
               className="h-[635px] w-[565px] bg-[#DCE3ED] rounded-2xl object-cover"
-              src={ceo?.image || "Block/Our team/pic1.png"}
+              src={ceo?.image || "/Block/Our team/pic1.png"}
               alt={ceo?.name || "Chief Executive Officer (CEO)"}
+              width={565}
+              height={635}
             />
           </div>
 
               <div className="space-y-4">
-                    <Typography variant="h2" weight="b" color=""> Shahid Ali Malik</Typography> <br />
+                    <Typography variant="h2" weight="b" color="dark"> {ceo?.name}</Typography> <br />
                     <Typography variant="h4" weight="semi-b" color="primary">Chief Executive Officer (CEO)</Typography> <br />
                     <strong>PERFECT ELEKTRO MEK PAKISTAN (PRIVATE) LIMITED (PEMPAK) </strong>
-                    <p>was established in the year 2000 as Distribution. A team of professionals joined hands to fulfill the market needs and challenges of the new manufacturer of complete range of LV & MV SWITCHGEARS & CONTROLGEARS for Reliable Power millennium in the corporate world. All effort made at PEMPAK are focused on perfection of the equipment and client's convenience.</p>
+                    <p>was established in the year 2000 as Distribution. A team of professionals joined hands to fulfill the market needs and challenges of the new manufacturer of complete range of LV & MV SWITCHGEARS & CONTROLGEARS for Reliable Power millennium in the corporate world. All effort made at PEMPAK are focused on perfection of the equipment and client&apos;s convenience.</p>
 
 
                      <strong>PERFECT ELEKTRO MEK PAKISTAN (PRIVATE) LIMITED (PEMPAK) </strong> 
                     <p>was established in the year 2000 as Distribution. A team of professionals joined hands to fulfill the market needs and challenges of the new manufacturer of complete range.</p>
-                 <Typography variant="h3" weight="semi-b" color=""> Experience</Typography> <br />
+                 <Typography variant="h3" weight="semi-b" color="dark"> Experience</Typography> <br />
 
             <div className="mt-5 grid grid-cols-1 gap-6">
               <div className="flex items-start space-x-3">
-                <img src="Block/Our team/Vector.png" alt="Leader Icon" className="w-8 h-8" />
+                <Image src="/Block/Our team/Vector.png" alt="Leader Icon" className="w-8 h-8" width={32} height={32} />
                 <p className="text-gray-700 text-base">
                   Proven leader with years of industry expertise.
                 </p>
               </div>
 
               <div className="flex items-start space-x-3">
-                <img src="Block/Our team/Vector.png" alt="Vision Icon" className="w-8 h-8" />
+                <Image src="/Block/Our team/Vector.png" alt="Vision Icon" className="w-8 h-8" width={32} height={32} />
                 <p className="text-gray-700 text-base">
                   Visionary mindset driving growth and innovation.
                 </p>
               </div>
 
               <div className="flex items-start space-x-3">
-                <img src="Block/Our team/Vector.png" alt="Excellence Icon" className="w-8 h-8" />
+                <Image src="/Block/Our team/Vector.png" alt="Excellence Icon" className="w-8 h-8" width={32} height={32} />
                 <p className="text-gray-700 text-base">
                   Committed to excellence and long-term success.
                 </p>
@@ -172,12 +175,14 @@ export default function OurTeamPage() {
               <div
                 key={member._id}
                 className={`bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2`} >
-                <img
+                <Image
                   className={`object-contain  border-gray-300 rounded-xl mb-4 h-[353px] w-full
-          ${index % 2 === 0 ? 'bg-[#F3F4F6]' : 'bg-[#FCEDE6]'}`}
+          `}
                   // src={member.image }
                   src={member.image || "https://res.cloudinary.com/dtj45icg0/image/upload/v1758007183/ImagePlaceholder_iin1a8.png"}
                   alt={member.name}
+                  width={400}
+                  height={353}
                 />
                 <div className="px-3 py-3 flex flex-col items-start">
                   <Typography variant="h4" weight="b" >

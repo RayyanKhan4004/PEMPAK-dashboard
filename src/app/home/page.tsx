@@ -3,6 +3,22 @@
 import Footer from "@/components/Footer";
 import { Signatureprojects, btn1, clientlogo, news1, products1, services, team1, team2 } from "@/components/UI/home/hero";
 import Typography from "@/components/UI/Typography";
+import Link from 'next/link'
+import asclepius from './assets/Asclepius.svg'
+import chip from './assets/chip.svg'
+import clipbord from './assets/clipbord.svg';
+import cube from './assets/Cube.svg';
+import hand from './assets/hand.svg';
+import handhaeat from './assets/HandHeart.svg'
+import info from './assets/Info.png'
+import qutationLeft from './assets/ql.svg'
+import quationRight from './assets/qr.svg'
+import leaf from './assets/leaf.svg'
+import flower from './assets/flower.svg'
+import sheld from './assets/sheld.svg'
+import Image from "next/image";
+import bage from './assets/bage.svg'
+
 // import Image from "next/image";
 // import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -18,6 +34,7 @@ interface TeamMember {
 
 // Blos interface
 interface ItemProps {
+  _id: string;
   name: string;
   pf: string;
   title: string;
@@ -46,10 +63,23 @@ export default function Homepage() {
   // stats
   const [teams, setTeams] = useState<TeamMember[]>([])
   const [blogData, setBlogdata] = useState<ItemProps[]>([])
+  const [ceoData, setCeoData] = useState<{ name: string, image: string } | null>(null)
+
   // effects
   useEffect(() => {
     (async () => {
-      setTeams(await getTeamMembers());
+      const teamMembers = await getTeamMembers();
+      setTeams(teamMembers);
+
+      // Find the CEO from the team data
+      const ceo = teamMembers.find((member: TeamMember) => member.role === 'Chief Executive Officer (CEO)');
+      if (ceo) {
+        setCeoData({
+          name: ceo.name,
+          image: ceo.image || '/placeholder-avatar.jpg'
+        });
+      }
+
       setBlogdata(await getBlogs())
     })()
 
@@ -65,7 +95,7 @@ export default function Homepage() {
               Perfect Elektro Mek <br /> Pakistan (Pvt.) Limited
             </h4>
 
-            <div className="w-12 h-1 bg-orange-500 my-4"></div>
+            <div className="w-12 h-1 bg-[var(--color-primary)] my-4"></div>
 
             <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
               An Excellent Legacy <br /> Of Quarter Century Plus
@@ -78,18 +108,18 @@ export default function Homepage() {
             </p>
 
             <div className="mt-8 flex space-x-4">
-              <button className="px-6 py-3 bg-orange-500 text-white rounded-lg font-semibold shadow hover:bg-orange-600 transition">
-                Our Services
+              <button className="px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold shadow hover:bg-orange-600 transition">
+                <Link href="/services"> Our Services </Link>
               </button>
               <button className="px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold shadow hover:bg-gray-100 transition">
-                Learn More
+                <Link href="/about"> Learn More </Link>
               </button>
             </div>
           </div>
           {/* <Typography variant="p" color="primary" weight="semi-b">fhfjf</Typography> */}
           <div className="flex justify-center">
             <div className="relative">
-              <img
+              <Image
                 src="/Block/Front images/home-f1.jpg"
                 alt="Engineer"
                 width={400}
@@ -115,74 +145,104 @@ export default function Homepage() {
           </div>
         </div>
       </section>
-      <h1 className="text-orange-500 font-semibold mb-2 text-center mt-10 ">About us </h1>
+      <h1 className="text-[var(--color-primary)] font-semibold text-center pt-[100px] pb-[40px]">About us </h1>
 
-      <section className="container  max-w-7xl mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-2 gap-10 items-center ">
+      <section className="container  max-w-7xl mx-auto px-[120] relative ">
+        <Image src={info} alt="" className="absolute right-1/2 top-1/2 translate-x-1/2 -translate-y-[30%] -z-10" width={64} height={64} />
+        <div className="grid md:grid-cols-2 gap-[70px] items-center ">
 
           <div>
-            <img src="/Block/homeimg/homeabout1.jpg" alt="Team working" className="rounded-lg shadow-lg" />
+            <Image src="/Block/homeimg/homeabout1.jpg" alt="Team working" className="rounded-lg shadow-lg" width={500} height={300} />
           </div>
 
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-relaxed">Passionate and Sustainable</h2>
+            <h2 className="text-3xl md:text-4xl mb-4 leading-relaxed font-semibold">Passionate and Sustainable</h2>
             <p className="text-gray-700 mb-6 text-justify line-">
               We are proud to offer a wide range of solar energy services, including solar panel installation, maintenance, and repair.
             </p>
             <p className="text-gray-700 mb-6 text-justify leading-relaxed">
-              Our commitment to sustainability is at the heart of everything we do. We believe that solar energy is the key to a more sustainable future, and we are dedicated to making it accessible to everyone. That's why we offer competitive pricing and financing options to help make solar energy more affordable for our clients.
+              Our commitment to sustainability is at the heart of everything we do. We believe that solar energy is the key to a more sustainable future, and we are dedicated to making it accessible to everyone. That&apos;s why we offer competitive pricing and financing options to help make solar energy more affordable for our clients.
             </p>
-            <a href="#" className="inline-block bg-orange-500 text-white px-6 py-3 rounded-lg shadow hover:bg-orange-600 transition">Learn More →</a>
+            <button className="px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold shadow hover:bg-orange-600 transition">
+              <Link href="/about"> Learn More → </Link>
+            </button>
           </div>
         </div>
       </section>
 
 
 
-      <section className="bg-gray-50 py-12">
+      <section className=" py-[50px] px-[120px]">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8">
 
-          <div className="space-y-4">
+          <div className="grid grid-cols-2 gap-7">
             <div className="flex items-start gap-4">
-              <div className="bg-orange-500 p-3 rounded-lg text-white">📄</div>
+              <div className="bg-[var(--color-primary)] p-3 rounded-lg text-white">
+                <Image src={hand} alt="" width={32} height={32} />
+              </div>
               <div>
-                <h4 className="font-bold">Quality Policy</h4>
+                <h4 className="font-semibold ">Quality Policy</h4>
                 <p className="text-gray-600 text-sm">Ensuring top-notch quality and standards in every project.</p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="bg-orange-500 p-3 rounded-lg text-white">👥</div>
+              <div className="bg-[var(--color-primary)] p-3 rounded-lg text-white">
+                <Image src={clipbord} alt="" width={32} height={32} />
+              </div>
               <div>
-                <h4 className="font-bold">Customer Policy</h4>
+                <h4 className="font-semibold ">Customer Policy</h4>
                 <p className="text-gray-600 text-sm">Customer satisfaction is our main goal.</p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="bg-orange-500 p-3 rounded-lg text-white">⚡</div>
+              <div className="bg-[var(--color-primary)] p-3 rounded-lg text-white">
+                <Image src={handhaeat} alt="" width={32} height={32} />
+              </div>
               <div>
-                <h4 className="font-bold">Health & Safety</h4>
+                <h4 className="font-semibold ">Health & Safety</h4>
                 <p className="text-gray-600 text-sm">Ensuring safe and responsible working conditions.</p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="bg-orange-500 p-3 rounded-lg text-white">🌱</div>
+              <div className="bg-[var(--color-primary)] p-3 rounded-lg text-white">
+                <Image src={asclepius} alt="" width={32} height={32} />
+              </div>
               <div>
-                <h4 className="font-bold">Environment Policy</h4>
+                <h4 className="font-semibold ">Environment Policy</h4>
+                <p className="text-gray-600 text-sm">Committed to sustainable practices in all projects.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <div className="bg-[var(--color-primary)] p-3 rounded-lg text-white">
+                <Image src={cube} alt="" width={32} height={32} />
+              </div>
+              <div>
+                <h4 className="font-semibold ">Health & Safety</h4>
+                <p className="text-gray-600 text-sm">Ensuring safe and responsible working conditions.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="bg-[var(--color-primary)] p-3 rounded-lg text-white">
+                <Image src={chip} alt="" width={32} height={32} />
+              </div>
+              <div>
+                <h4 className="font-semibold ">Environment Policy</h4>
                 <p className="text-gray-600 text-sm">Committed to sustainable practices in all projects.</p>
               </div>
             </div>
           </div>
 
           <div>
-            <img src="/Block/homeimg/homeabout2.jpg" alt="Meeting" className="rounded-lg shadow-lg" />
+            <Image src="/Block/homeimg/homeabout2.jpg" alt="Meeting" className="rounded-lg shadow-lg" width={500} height={300} />
           </div>
         </div>
       </section>
 
-      <section className="bg-orange-500 text-white py-12">
+      <section className="bg-[var(--color-primary)] text-white py-12">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8 text-center">
           <div>
             <h3 className="text-3xl font-bold">25+</h3>
@@ -206,7 +266,7 @@ export default function Homepage() {
       <div className="w-full h-48 md:h-96 bg-[url('/Block/homeimg/greenenergy.png')] bg-cover bg-center rounded-lg shadow-lg flex items-center justify-center">
 
         <div className=" text-center  text-white text-shadow-white line-height:1.4">
-          <h1 className="text-5xl font-extrabold" >Green Energy </h1>
+          <h1 className="text-5xl font-bold" >Green Energy </h1>
 
           <p className="items-center mt-4 max-w-md text-center leading-snug">
             Secondary power systems i.e. generators are used in industries or commercial buildings and hospitals as emergency, prime or continuous power supply when utility power is lost.
@@ -214,50 +274,56 @@ export default function Homepage() {
         </div>
       </div>
 
-      <section className="container max-w-7xl mx-auto py-[30px]">
-        <div>
-          <h3 className="text-orange-500 font-extrabold mt-[40px]">Our Products</h3>
+      <section className="px-[120px] py-[100px] bg-[#DFDFDF]">
+        <section className="container max-w-7xl mx-auto">
+          <div>
+            <h3 className="text-[var(--color-primary)] font-extrabold mt-[40px]">Our Products</h3>
 
-          <div className="flex justify-between items-center mt-4">
-            <div>
-              <h1 className="text-[40px] font-bold">Explore Our Products</h1>
-              <p className="mt-2 font-normal text-[#474747]">
-                Built with quality components under stringent manufacturing standards
-              </p>
-            </div>
+            <div className="flex justify-between items-center mt-4">
+              <div>
+                <h1 className="text-[40px] font-bold">Explore Our Products</h1>
+                <p className="mt-2 font-normal text-[#474747]">
+                  Built with quality components under stringent manufacturing standards
+                </p>
+              </div>
 
-            <div className="flex mt-5">
-              <button className={btn1}> View All Products →</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="container max-w-7xl mx-auto px-6 py-4 grid md:grid-cols-3 gap-8">
-          {products1.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 hover:shadow-xl transition duration-300"
-            >
-              <img
-                src={item.image}
-                alt={item.name}
-                className="w-full h-48 object-cover rounded-t-lg"
-              />
-              <div className="p-4 text-center">
-                <h2 className="text-lg font-semibold text-gray-800">{item.name}</h2>
-                <button className=" mt-2 cursor-pointer" >
-                  Learn more  →
+              <div className="flex mt-5">
+                <button className={btn1}>
+                  <Link href="/switchgear-controleger"> View All Products → </Link>
                 </button>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        </section>
+
+        <section>
+          <div className="container max-w-7xl mx-auto py-4 grid md:grid-cols-3 gap-8">
+            {products1.map((item) => (
+              <div
+                key={item.id}
+                className="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 hover:shadow-xl transition duration-300 hover:bg-[var(--color-primary)] hover:text-white"
+              >
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  width={336}
+                  height={280}
+                  className="w-[336px] h-[280px] object-cover p-[24px] rounded-[8px]"
+                />
+                <div className="p-4 text-left w-[280px]">
+                  <h2 className="text-lg font-semibold">{item.name}</h2>
+                  <button className=" mt-2 cursor-pointer" >
+                    Learn more
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
       </section>
 
-      <section className="container max-w-7xl mx-auto px-6 py-12">
-        <p className="text-orange-500 text-center font-semibold">Our Services</p>
+      <section className="container max-w-7xl mx-auto px-[120px] py-[100px]">
+        <p className="text-[var(--color-primary)] text-center font-semibold">Our Services</p>
         <h2 className="text-3xl md:text-4xl font-bold text-center mt-2">Explore Our Services</h2>
         <p className="text-center text-gray-500 mt-2 mb-8">
           We provide innovative solutions designed to meet your needs with quality and reliability.
@@ -267,22 +333,26 @@ export default function Homepage() {
           {services.map((service) => (
             <div
               key={service.id}
-              className={`p-6 rounded-lg shadow-lg transition transform hover:scale-105 duration-300 ${service.active ? "bg-orange-500 text-white" : "bg-white text-gray-800"
-                }`}
+              className="p-6 rounded-lg shadow-lg relative overflow-hidden group bg-white text-gray-800"
             >
-              <div className="flex items-center justify-center ">
-                <div className="w-24 h-24 bg-orange-600 rounded-full flex items-center justify-center text-white text-2xl">
-                  {service.icon}
+              {/* hover background animation */}
+              <div className="relative z-10 transition-colors duration-500 group-hover:text-white">
+                <div className="flex items-center justify-center">
+                  <div className="w-24 h-24 bg-orange-600 rounded-full flex items-center justify-center text-white text-2xl">
+                    {service.icon}
+                  </div>
                 </div>
+                <h3 className="text-lg font-semibold text-center mb-2 mt-5">{service.title}</h3>
+                <p className="text-center text-sm">{service.description}</p>
               </div>
-              <h3 className="text-lg font-semibold text-center mb-2 mt-5">{service.title}</h3>
-              <p className="text-center text-sm ">{service.description}</p>
+              <div className="absolute inset-0 w-full h-full bg-[var(--color-primary)] transition-all duration-500 ease-in-out translate-y-full group-hover:translate-y-0"></div>
+              <div className="absolute left-0 bottom-0 w-full h-[7px] bg-[var(--color-primary)]"></div>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="py-16 bg-[#FCEDE6] ">
+      <section className="py-[100px] px-[120px] bg-[#FCEDE6] ">
         <div className="container max-w-7xl mx-auto px-4 text-center space-y-4">
           <Typography color="primary" variant="h4" weight="semi-b">
             <h2>
@@ -295,60 +365,76 @@ export default function Homepage() {
 
 
           {/* Show the last four team members */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
             {teams.slice(-4).map((item: TeamMember, ind: number) => (
               <div
                 key={item._id + ind}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl"
+                className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl w-[282px] h-[357px]"
               >
                 <div className="relative w-full h-64">
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.name}
+                    width={282}
+                    height={256}
                     className="w-full h-full object-cover"
                   />
                 </div>
 
-                <div className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <div className="pl-4 py-[16px] text-left">
+                  <h3 className="text-xl font-semibold text-gray-900">
                     {item.name}
                   </h3>
                   <p className="text-gray-600 text-sm">{item.role}</p>
-                </div>
-
-                <div className="flex justify-center gap-4 pb-6">
-                  <a href="#" className="text-gray-400 hover:text-blue-500 transition">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                  <a href="#" className="text-gray-400 hover:text-blue-700 transition">
-                    <i className="fab fa-linkedin"></i>
-                  </a>
                 </div>
               </div>
             ))}
           </div>
         </div>
+        {/* Button */}
+        <section className="text-center pt-[50px]">
+          <button className="bg-[var(--color-primary)] cursor-pointer text-white font-semibold py-2 px-8 rounded-xl shadow-lg hover:bg-orange-600 hover:scale-105 transition transform duration-300 ease-in-out">
+            <Link href="/our-team">View All Team <span className="text-lg">→</span></Link>
+          </button>
+
+        </section>
       </section>
 
-      {/* Button */}
-      <section className="text-center mt-8">
-        <button className="bg-orange-500 cursor-pointer text-white font-semibold py-2 px-8 rounded-xl shadow-lg hover:bg-orange-600 hover:scale-105 transition transform duration-300 ease-in-out">
-          View All Team <span className="text-lg">→</span>
-        </button>
-      </section>
 
       {/* CEO Message */}
-      <section className="mt-10 bg-[#F16336] min-h-[723px] flex flex-col items-center justify-center">
-        <div className="flex flex-col items-center text-white">
-          <img
+      <section className="bg-[#F16336] min-h-[723px] flex flex-col items-center justify-center py-[100px] relative">
+        <Image
+          className="w-[150px] left-[100px] top-[10%] absolute"
+          src={qutationLeft}
+          alt="CEO"
+          width={150}
+          height={150}
+        />
+        <Image
+          className="w-[150px] right-[100px] top-[10%] absolute"
+          src={quationRight}
+          alt="CEO"
+          width={150}
+          height={150}
+        />
+        <div className="flex flex-col items-center justify-between text-white">
+          <Image
             className="rounded-full w-[150px] mt-8"
             src="/Block/Teampempak/pic1.jpg"
             alt="CEO"
+            width={150}
+            height={150}
           />
           <h1 className="text-5xl mt-6">Message from our CEO</h1>
           <div className="flex justify-center items-center mt-3">
-            <p className="text-center max-w-2xl font-normal">
-              Lorem Ipsum is simply dummy text...
+            <p className="text-center max-w-2xl py-[32px]">
+              Welcome to PEMPAK <br /><br />
+              We thrive in the dynamic business landscape, driven by our unwavering commitment with perfection of equipment focused on client’s convenience and satisfaction.<br /><br />
+              Our self-motivated team is adapting to evolving client needs, we have enhanced capabilities in key areas, all while following principles of diversity, inclusivity, and equality. Despite of various market challenges, our team’s expertise in management at all level ensures consistent in time delivery of Quality equipment.<br /><br />
+              We have expanded and focused on crucial domains like reverse engineering, market analysis, R&D, and technology scouting. This resulted in a remarkable growth in all segments of business.<br /><br />
+              This success story of quarter century plus legacy speaks to the dedication and resilience of PEMPAK team, here to continued growth and excellence.<br /><br />
+              May Allah help us in our deeds <br /><br />
+              May Allah help us in our deeds
             </p>
           </div>
           <h3 className="text-2xl mt-6">Shahid Ali Malik</h3>
@@ -357,8 +443,8 @@ export default function Homepage() {
       </section>
 
       {/* People at Work */}
-      <section>
-        <div className="text-center mt-15">
+      <section className="py-[100px] px-[120px]">
+        <div className="text-center">
           <h3 className="text-[#F16336] text-[20px] font-semibold">People at Work</h3>
           <h1 className="text-[40px] font-semibold">Our Skilled Team In Action</h1>
           <p className="text-[18px] font-normal">
@@ -367,7 +453,7 @@ export default function Homepage() {
           </p>
         </div>
 
-        <div className="container max-w-7xl mx-auto flex flex-wrap justify-center gap-12 mt-12">
+        <div className="container max-w-7xl mx-auto flex flex-wrap justify-center gap-12 pt-[50px]">
           {team2.map((item, index) => {
             const shortText = item.description.includes("elit.")
               ? item.description.split("elit.")[0] + "elit."
@@ -376,16 +462,14 @@ export default function Homepage() {
             return (
               <div
                 key={index}
-                className={`rounded-2xl overflow-hidden w-72 shadow-lg transition duration-300 px-4 py-4 border-1 border-[#DFDFDF]
-            ${index === 1
-                    ? "bg-orange-500 text-white"
-                    : "bg-white border text-gray-800"
-                  }`}
+                className={` w-[384px] h-[386px] rounded-2xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl px-4 py-4 border-1 border-[#DFDFDF]`}
               >
-                <img
+                <Image
                   src={item.image}
                   alt={item.description}
-                  className="w-full h-48 object-cover rounded-t-2xl"
+                  width={384}
+                  height={278}
+                  className="w-full object-cover rounded-t-2xl h-[278px]"
                 />
                 <div className="p-4">
                   <p className="text-sm font-normal leading-relaxed">{shortText}</p>
@@ -396,7 +480,7 @@ export default function Homepage() {
         </div>
       </section>
 
-      <section className="container mx-auto max-w-8xl text-center mt-15">
+      <section className="container mx-auto max-w-8xl text-center px-[120px] py-[100px]">
         <div>
           <h1 className="text-[#F16336] text-20px font-semibold">Arial View</h1>
           <h1 className="font-semibold text-[40px]">We Are Here</h1>
@@ -404,18 +488,20 @@ export default function Homepage() {
             A stunning bird’s-eye perspective showcasing the full scale and beauty of
             our operations.
           </p>
-          <img
+          <Image
             className="block mx-auto mt-8"
             src="/Block/Images/pic1.png"
             alt=""
+            width={800}
+            height={400}
           />
-          <h1 className="text-[32px] font-bold mt-5">12,000 sq.m Facility</h1>
+          <h1 className="text-[32px] font-bold mt-5 text-[#474747]">12,000 sq.m Facility</h1>
           <p className="text-[18px]">4650 sq.m covered</p>
         </div>
       </section>
 
-      <section className="mt-12 min-h-[923px] bg-[#F16336] text-white">
-        <div className="container max-w-7xl mx-auto pt-20">
+      <section className="bg-[#F16336] text-white py-[100px] px-[120px]">
+        <div className="container max-w-7xl ">
           <div>
             <p className="font-semibold text-[20px]">Our Certificate </p>
             <h1 className="text-[40px]">Certified & Trusted</h1>
@@ -425,44 +511,69 @@ export default function Homepage() {
             </p>
           </div>
 
-          <div className="pt-20 grid grid-cols-2">
+          <div className="pt-20 flex justify-between">
             <div>
-              <img
+              <Image
                 className="opacity-50"
                 src="/Block/Certification/pic1.png"
                 alt=""
+                width={400}
+                height={400}
               />
             </div>
 
-            <div className="flex justify-between">
-              <div className="px-12 space-y-4">
-                <p>Quality Management</p>
-                <h1 className="text-[32px] font-semibold">ISO 9001:2015 /2012</h1>
-                <hr />
-                <p>National Electrical Contractor</p>
-                <h1 className="text-[32px] font-semibold">NECA Member /2012</h1>
-                <hr />
-                <p>Green Building Standards</p>
-                <h1 className="text-[32px] font-semibold">LEED Certified /2012</h1>
-                <hr />
-                <p>Safety Standards</p>
-                <h1 className="text-[32px] font-semibold">OSHA Compliant /2012</h1>
-                <hr />
+            <div className=" w-[500px]">
+              <div className="flex justify-between py-[24px]">
+                <div>
+                  <p className="pb-[12px] ">Quality Management</p>
+                  <div className="flex justify-between gap-12 items-center text-[32px]">
+                    <h1>ISO 9001:2015</h1>
+                    <span className="text-[16px]">/2012</span>
+                  </div>
+                </div>
+                <Image src={flower} alt="" width={32} height={32} />
               </div>
-              <div>
-                <img
-                  className="rounded bg-white border-2"
-                  src="\Certification\Vector.png"
-                  alt=""
-                />
+              <hr />
+              <div className="flex justify-between py-[24px]">
+                <div>
+                  <p className="pb-[12px] ">National Electrical Contractor</p>
+                  <div className="flex justify-between gap-12 items-center text-[32px]">
+                    <h1>NECA Member</h1>
+                    <span className="text-[16px]">/2012</span>
+                  </div>
+                </div>
+                <Image src={sheld} alt="" width={32} height={32} />
               </div>
+              <hr />
+              <div className="flex justify-between py-[24px]">
+                <div>
+                  <p className="pb-[12px] ">Green Building Standards</p>
+                  <div className="flex justify-between gap-12 items-center text-[32px]">
+                    <h1>LEED Certified</h1>
+                    <span className="text-[16px]">/2012</span>
+                  </div>
+                </div>
+                <Image src={leaf} alt="" width={32} height={32} />
+              </div>
+              <hr />
+              <div className="flex justify-between py-[24px]">
+                <div>
+                  <p className="pb-[12px] ">Safety Standards</p>
+                  <div className="flex justify-between gap-12 items-center text-[32px]">
+                    <h1>OSHA Compliant</h1>
+                    <span className="text-[16px]">/2012</span>
+                  </div>
+                </div>
+                <Image src={bage} alt="" width={32} height={32} />
+              </div>
+              <hr />
             </div>
           </div>
         </div>
       </section>
 
-      <section>
-        <div className="container mx-auto max-w-7xl text-center space-y-4 mt-15">
+      <section className="py-[100px] px-[120px]">
+        <div className="container mx-auto max-w-7xl text-center space-y-4">
           <p className="text-[#F16336] font-semibold text-[20px]">Our Major Client</p>
           <h1 className="text-[40px] font-semibold">Client Who trust us </h1>
           <p>
@@ -474,17 +585,14 @@ export default function Homepage() {
             {clientlogo.map((item, index) => (
               <div
                 key={item.id}
-                className={`flex items-center justify-center p-4 border-1 rounded-2xl shadow-sm transition duration-300 
-            ${index === 1
-                    ? "bg-orange-500 border-orange-500 shadow-orange-200"
-                    : "bg-white border-gray-200 hover:border-blue-400"
-                  }`}
+                className={`flex items-center justify-center p-4 border-1 rounded-2xl shadow-sm hover:shadow-xl transform hover:-translate-y-2 transition duration-300`}
               >
-                <img
+                <Image
                   src={item.image}
                   alt=""
-                  className={`max-h-20 object-contain ${index === 1 ? "invert brightness-0" : ""
-                    }`}
+                  width={120}
+                  height={80}
+                  className={`max-h-20 object-contain`}
                 />
               </div>
             ))}
@@ -492,8 +600,8 @@ export default function Homepage() {
         </div>
       </section>
 
-      <section className="bg-[#DFDFDF] my-20 px-20 py-20">
-        <div className="container mx-auto max-w-7xl text-center space-y-4 mt-15">
+      <section className="bg-[#DFDFDF] py-[100px] px-[120px]">
+        <div className="container mx-auto max-w-7xl text-center space-y-4 ">
           <p className="text-[#F16336] font-semibold text-[20px]">Our Major Projects</p>
           <h1 className="text-[40px] font-semibold">Our Signature Projects </h1>
           <p>
@@ -507,23 +615,23 @@ export default function Homepage() {
                 key={item.id}
                 className=" space-y-4 text-left px-4 py-4 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transform hover:-translate-y-2 transition duration-300 bg-white"
               >
-                <img
+                <Image
                   className="w-full h-64 object-cover rounded-lg"
                   src={item.image}
                   alt={`Signature project ${item.id}`}
+                  width={400}
+                  height={256}
                 />
                 <h1 className="text-[20px] font-semibold">{item.title}</h1>
                 <p>{item.description}</p>
               </div>
             ))}
           </div>
-
-          <h1 className="text-[20px] font-bold text-right mx-60">Team Expansion</h1>
         </div>
       </section>
 
       {/* News */}
-      <section className=" bg-white px-23 py-23 mt-12 min-w-screen">
+      <section className=" bg-white py-[100px] px-[120px] min-w-screen">
         <div className="container max-w-7xl mx-auto grid grid-cols-2">
           <div className="space-y-4 font-semibold">
             <h1 className="text-[#F16336]">News & Updates</h1>
@@ -533,41 +641,40 @@ export default function Homepage() {
             </p>
           </div>
           <div className="text-right mt-20">
-            <button className={btn1}>View all News & Updates →</button>
+            <button className={btn1}>
+              <Link href="/blog"> View all News & Updates → </Link>
+            </button>
           </div>
         </div>
 
         <div className="container mx-auto max-w-7xl grid grid-cols-1 sm:grd-cols-2 lg:grid-cols-3 gap-6 p-4">
           {blogData.slice(0, 3).map((item: ItemProps, ind: number) => (
-            <div
-              key={item._id}
-              className={`rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden px-5 py-5 mt-5
-          ${ind === 1
-                  ? "bg-orange-500 border-orange-500 shadow-orange-200 text-white"
-                  : "bg-white border-gray-200 hover:border-blue-400"
-                }`}
-            >
-              <img
+            <Link href={`/blog/${item._id}`} key={item._id} className='border border-[#DFDFDF] p-6 rounded-lg w-full max-w-[384px] mx-auto block hover:shadow-md transition-shadow'>
+              <Image
                 src={item.image}
                 alt={item.title}
+                width={384}
+                height={192}
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
-                <p className="text-sm text-gray-500">{item.date.split('T')[0]}</p>
-                <h1 className="text-lg font-semibold text-gray-800 mt-2">
+                <p className="text-[var(--color-primary)] text-sm">{item.date.split('T')[0]}</p>
+                <h1 className="text-lg font-semibold text-[#151515] mt-2">
                   {item.title}
                 </h1>
-                <p className="text-gray-600 text-sm mt-1">{item.description}</p>
-                <div className="flex items-center gap-2 mt-4">
-                  <img
-                    src={item.ownerImage}
+                <p className="text-[#474747] text-sm mt-1">{item.description ? item.description.split("").slice(0, 100).join("") + "..." : "No description available"}</p>
+                <div className="text-[#151515] flex items-center gap-2 mt-4">
+                  <Image
+                    src={item.ownerImage || ceoData?.image || '/placeholder-avatar.jpg'}
                     alt={item.name}
+                    width={32}
+                    height={32}
                     className="w-8 h-8 rounded-full object-cover"
                   />
-                  <p className="text-gray-700 text-sm font-medium">{item.pf}</p>
+                  <p className="text-gray-700 text-sm font-medium">{item.name || ceoData?.name || 'Author'}</p>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>

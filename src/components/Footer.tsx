@@ -5,6 +5,7 @@ import youtube from '@public/socialMedia/youtube.svg'
 import location from '@public/socialMedia/location-icon.svg'
 import phoneNo from '@public/socialMedia/phoneNo.svg'
 import gmail from '@public/socialMedia/gmail.svg'
+import PhoneDisconnect from '@public/socialMedia/PhoneDisconnect.svg'
 import instagram from '@public/socialMedia/instagram.svg'
 // import facebook from '@public/socialMedia/facebook-icon.svg'
 import watsapp from '@public/socialMedia/watsapp.svg'
@@ -14,31 +15,39 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="text-gray-300 pt-12 pb-6 p-10 bg-orange-500">
-      <div className="max-w-7xl px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+    <footer className="text-white px-[50px] py-[50px] bg-[var(--color-primary)] grid grid-cols-1 md:grid-cols-4 gap-[130px] relative">
+      {/* <div className="max-w-7xl grid grid-cols-1 md:grid-cols-4 gap-[130px] text-white"> */}
         <div className="">
-          <h2 className="text-2xl font-bold text-white mb-4">PAMPAK</h2>
-          <p className="text-sm mb-3">
-            PEMPAK Group delivers innovative electric supplies, energy
-            solutions, and solar concepts. Our goal is to power progress while
-            protecting the environment.
+          <h2 className="text-2xl font-bold text-white">PAMPAK</h2>
+          <p className="font-normal text-[14px] py-[24px]">
+            PEMPAK Group delivers innovative <br /> electric supplies, energy solutions, and solar concepts. Our goal is to power progress while protecting the environment.
           </p>
 
           <div className="flex">
             <Image
               src={phoneNo}
               alt=""
-              className="bg-white h-5 w-7 mr-2"
+              className="bg-white h-5 w-7 mr-2 rounded-[5px]"
             />
 
-            <p className="text-sm mb-3">+92-42-111-736-725</p>
+            <p className="text-sm mb-3">+92-42-3527-2263/66</p>
+          </div>
+
+          <div className="flex">
+            <Image
+              src={PhoneDisconnect}
+              alt=""
+              className="bg-white h-5 w-7 mr-2 rounded-[5px]"
+            />
+
+            <p className="text-sm mb-3">UAN: +92-42-111-736725 (111-PEMPAK).</p>
           </div>
 
           <div className="flex">
             <Image
               src={gmail}
               alt=""
-              className="bg-white h-5 w-7 mr-2"
+              className="bg-white h-5 w-7 mr-2 rounded-[5px]"
             />
             <p className="text-sm mb-3">pempak@gmail.com</p>
           </div>
@@ -46,9 +55,9 @@ export default function Footer() {
             <Image
               src={location}
               alt=""
-              className="bg-white h-5 w-7 mr-2"
+              className="bg-white h-5 w-7 mr-2 rounded-[5px]"
             />
-            <p className="text-sm mb-3">pempak@gmail.com</p>
+            <p className="text-sm mb-3">Plot No.4, Adj. ATS Lane, Kacha Industrial estate, 4kM Kahna Kacha Road, Lahore-Pakistan.</p>
           </div>
         </div>
 
@@ -66,7 +75,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/products" className="hover:text-white">
+              <Link href="/switchgear-controleger" className="hover:text-white">
                 Our Products
               </Link>
             </li>
@@ -76,17 +85,17 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/ourteam" className="hover:text-white">
+              <Link href="/our-team" className="hover:text-white">
                 Our team
               </Link>
             </li>
             <li>
-              <Link href="/blogs" className="hover:text-white">
+              <Link href="/blog" className="hover:text-white">
                 Blogs
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:text-white">
+              <Link href="/contact-us" className="hover:text-white">
                 Contact us
               </Link>
             </li>
@@ -109,7 +118,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/products" className="hover:text-white">
+              <Link href="/services" className="hover:text-white">
                 Maintenance
               </Link>
             </li>
@@ -119,12 +128,12 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/ourteam" className="hover:text-white">
+              <Link href="/our-team" className="hover:text-white">
                 Testing
               </Link>
             </li>
             <li>
-              <Link href="/blogs" className="hover:text-white">
+              <Link href="/blog" className="hover:text-white">
                 Manufacturing
               </Link>
             </li>
@@ -137,29 +146,30 @@ export default function Footer() {
           </h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <Link href="/" className="hover:text-white">
+              <Link href="/switchgear-controleger" className="hover:text-white">
                 Switchgear / Controlgear
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:text-white">
+              <Link href="/power-distribution" className="hover:text-white">
                 Power Distribution Transformer
               </Link>
             </li>
             <li>
-              <Link href="/products" className="hover:text-white">
+              <Link href="/green-energy" className="hover:text-white">
                 Green Energy
               </Link>
             </li>
             <li>
-              <Link href="/services" className="hover:text-white">
+              <Link href="/appliences" className="hover:text-white">
                 Appliances
               </Link>
             </li>
           </ul>
         </div>
 
-        <div className="absolute w-[90vw] p-3 flex justify-end mt-55">
+        
+        <div className="absolute flex justify-end right-[140px] bottom-24">
           {/* <Image className="m-2" src={facebook} alt="" /> */}
           <Image
             className="m-2 bg-white h-8 w-8 rounded-sm"
@@ -171,15 +181,15 @@ export default function Footer() {
           <Image className="m-2" src={youtube} alt="" />
           <Image className="m-2" src={watsapp} alt="" />
         </div>
-      </div>
-
+      {/* </div> */}
+      {/* 
       <hr className="mt-10 ml-10 mr-10 mb-2" />
 
       <div className="flex justify-around">
         <p>© 2025 PEMPAK. All Right Reserved</p>
         <p>Privacy Policy</p>
         <p>Terms & Conditions</p>
-      </div>
+      </div> */}
     </footer>
   );
 }
