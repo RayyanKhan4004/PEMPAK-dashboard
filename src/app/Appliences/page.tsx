@@ -12,7 +12,7 @@ import Thumbnail_three from './assets/thumbnail_three.png'
 import Thumbnail_four from './assets/thumbnail_four.png'
 
 
-function page() {
+function Page() {
 
       // * interface for main categories
   interface Category {
@@ -340,6 +340,6 @@ function page() {
   )
 }
 
-export default page
+export default Page
 
 

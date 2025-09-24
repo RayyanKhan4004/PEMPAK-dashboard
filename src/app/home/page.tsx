@@ -34,6 +34,7 @@ interface TeamMember {
 
 // Blos interface
 interface ItemProps {
+  _id: string;
   name: string;
   pf: string;
   title: string;
@@ -147,11 +148,11 @@ export default function Homepage() {
       <h1 className="text-[var(--color-primary)] font-semibold text-center pt-[100px] pb-[40px]">About us </h1>
 
       <section className="container  max-w-7xl mx-auto px-[120] relative ">
-        <Image src={info} alt="" className="absolute right-1/2 top-1/2 translate-x-1/2 -translate-y-[30%] -z-10" />
+        <Image src={info} alt="" className="absolute right-1/2 top-1/2 translate-x-1/2 -translate-y-[30%] -z-10" width={64} height={64} />
         <div className="grid md:grid-cols-2 gap-[70px] items-center ">
 
           <div>
-            <Image src="/Block/homeimg/homeabout1.jpg" alt="Team working" className="rounded-lg shadow-lg" />
+            <Image src="/Block/homeimg/homeabout1.jpg" alt="Team working" className="rounded-lg shadow-lg" width={500} height={300} />
           </div>
 
           <div>
@@ -160,7 +161,7 @@ export default function Homepage() {
               We are proud to offer a wide range of solar energy services, including solar panel installation, maintenance, and repair.
             </p>
             <p className="text-gray-700 mb-6 text-justify leading-relaxed">
-              Our commitment to sustainability is at the heart of everything we do. We believe that solar energy is the key to a more sustainable future, and we are dedicated to making it accessible to everyone. That's why we offer competitive pricing and financing options to help make solar energy more affordable for our clients.
+              Our commitment to sustainability is at the heart of everything we do. We believe that solar energy is the key to a more sustainable future, and we are dedicated to making it accessible to everyone. That&apos;s why we offer competitive pricing and financing options to help make solar energy more affordable for our clients.
             </p>
             <button className="px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold shadow hover:bg-orange-600 transition">
               <Link href="/about"> Learn More → </Link>
@@ -177,7 +178,7 @@ export default function Homepage() {
           <div className="grid grid-cols-2 gap-7">
             <div className="flex items-start gap-4">
               <div className="bg-[var(--color-primary)] p-3 rounded-lg text-white">
-                <Image src={hand} alt="" />
+                <Image src={hand} alt="" width={32} height={32} />
               </div>
               <div>
                 <h4 className="font-semibold ">Quality Policy</h4>
@@ -187,7 +188,7 @@ export default function Homepage() {
 
             <div className="flex items-start gap-4">
               <div className="bg-[var(--color-primary)] p-3 rounded-lg text-white">
-                <Image src={clipbord} alt="" />
+                <Image src={clipbord} alt="" width={32} height={32} />
               </div>
               <div>
                 <h4 className="font-semibold ">Customer Policy</h4>
@@ -197,7 +198,7 @@ export default function Homepage() {
 
             <div className="flex items-start gap-4">
               <div className="bg-[var(--color-primary)] p-3 rounded-lg text-white">
-                <Image src={handhaeat} alt="" />
+                <Image src={handhaeat} alt="" width={32} height={32} />
               </div>
               <div>
                 <h4 className="font-semibold ">Health & Safety</h4>
@@ -207,7 +208,7 @@ export default function Homepage() {
 
             <div className="flex items-start gap-4">
               <div className="bg-[var(--color-primary)] p-3 rounded-lg text-white">
-                <Image src={asclepius} alt="" />
+                <Image src={asclepius} alt="" width={32} height={32} />
               </div>
               <div>
                 <h4 className="font-semibold ">Environment Policy</h4>
@@ -216,7 +217,7 @@ export default function Homepage() {
             </div>
             <div className="flex items-start gap-4">
               <div className="bg-[var(--color-primary)] p-3 rounded-lg text-white">
-                <Image src={cube} alt="" />
+                <Image src={cube} alt="" width={32} height={32} />
               </div>
               <div>
                 <h4 className="font-semibold ">Health & Safety</h4>
@@ -226,7 +227,7 @@ export default function Homepage() {
 
             <div className="flex items-start gap-4">
               <div className="bg-[var(--color-primary)] p-3 rounded-lg text-white">
-                <Image src={chip} alt="" />
+                <Image src={chip} alt="" width={32} height={32} />
               </div>
               <div>
                 <h4 className="font-semibold ">Environment Policy</h4>
@@ -236,7 +237,7 @@ export default function Homepage() {
           </div>
 
           <div>
-            <Image src="/Block/homeimg/homeabout2.jpg" alt="Meeting" className="rounded-lg shadow-lg" />
+            <Image src="/Block/homeimg/homeabout2.jpg" alt="Meeting" className="rounded-lg shadow-lg" width={500} height={300} />
           </div>
         </div>
       </section>
@@ -305,7 +306,9 @@ export default function Homepage() {
                 <Image
                   src={item.image}
                   alt={item.name}
-                  className="w-[336] h-[280] object-cover p-[24px] rounded-[8px]"
+                  width={336}
+                  height={280}
+                  className="w-[336px] h-[280px] object-cover p-[24px] rounded-[8px]"
                 />
                 <div className="p-4 text-left w-[280px]">
                   <h2 className="text-lg font-semibold">{item.name}</h2>
@@ -330,7 +333,7 @@ export default function Homepage() {
           {services.map((service) => (
             <div
               key={service.id}
-              className={`p-6 rounded-lg shadow-lg relative overflow-hidden group ${service.active ? "bg-[var(--color-primary)] text-white" : "bg-white text-gray-800"}`}
+              className="p-6 rounded-lg shadow-lg relative overflow-hidden group bg-white text-gray-800"
             >
               {/* hover background animation */}
               <div className="relative z-10 transition-colors duration-500 group-hover:text-white">
@@ -372,6 +375,8 @@ export default function Homepage() {
                   <Image
                     src={item.image}
                     alt={item.name}
+                    width={282}
+                    height={256}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -402,17 +407,23 @@ export default function Homepage() {
           className="w-[150px] left-[100px] top-[10%] absolute"
           src={qutationLeft}
           alt="CEO"
+          width={150}
+          height={150}
         />
         <Image
           className="w-[150px] right-[100px] top-[10%] absolute"
           src={quationRight}
           alt="CEO"
+          width={150}
+          height={150}
         />
         <div className="flex flex-col items-center justify-between text-white">
           <Image
             className="rounded-full w-[150px] mt-8"
             src="/Block/Teampempak/pic1.jpg"
             alt="CEO"
+            width={150}
+            height={150}
           />
           <h1 className="text-5xl mt-6">Message from our CEO</h1>
           <div className="flex justify-center items-center mt-3">
@@ -456,6 +467,8 @@ export default function Homepage() {
                 <Image
                   src={item.image}
                   alt={item.description}
+                  width={384}
+                  height={278}
                   className="w-full object-cover rounded-t-2xl h-[278px]"
                 />
                 <div className="p-4">
@@ -479,6 +492,8 @@ export default function Homepage() {
             className="block mx-auto mt-8"
             src="/Block/Images/pic1.png"
             alt=""
+            width={800}
+            height={400}
           />
           <h1 className="text-[32px] font-bold mt-5 text-[#474747]">12,000 sq.m Facility</h1>
           <p className="text-[18px]">4650 sq.m covered</p>
@@ -502,6 +517,8 @@ export default function Homepage() {
                 className="opacity-50"
                 src="/Block/Certification/pic1.png"
                 alt=""
+                width={400}
+                height={400}
               />
             </div>
 
@@ -514,7 +531,7 @@ export default function Homepage() {
                     <span className="text-[16px]">/2012</span>
                   </div>
                 </div>
-                <Image src={flower} alt="" />
+                <Image src={flower} alt="" width={32} height={32} />
               </div>
               <hr />
               <div className="flex justify-between py-[24px]">
@@ -525,7 +542,7 @@ export default function Homepage() {
                     <span className="text-[16px]">/2012</span>
                   </div>
                 </div>
-                <Image src={sheld} alt="" />
+                <Image src={sheld} alt="" width={32} height={32} />
               </div>
               <hr />
               <div className="flex justify-between py-[24px]">
@@ -536,7 +553,7 @@ export default function Homepage() {
                     <span className="text-[16px]">/2012</span>
                   </div>
                 </div>
-                <Image src={leaf} alt="" />
+                <Image src={leaf} alt="" width={32} height={32} />
               </div>
               <hr />
               <div className="flex justify-between py-[24px]">
@@ -547,7 +564,7 @@ export default function Homepage() {
                     <span className="text-[16px]">/2012</span>
                   </div>
                 </div>
-                <Image src={bage} alt="" />
+                <Image src={bage} alt="" width={32} height={32} />
               </div>
               <hr />
             </div>
@@ -573,6 +590,8 @@ export default function Homepage() {
                 <Image
                   src={item.image}
                   alt=""
+                  width={120}
+                  height={80}
                   className={`max-h-20 object-contain`}
                 />
               </div>
@@ -600,6 +619,8 @@ export default function Homepage() {
                   className="w-full h-64 object-cover rounded-lg"
                   src={item.image}
                   alt={`Signature project ${item.id}`}
+                  width={400}
+                  height={256}
                 />
                 <h1 className="text-[20px] font-semibold">{item.title}</h1>
                 <p>{item.description}</p>
@@ -632,6 +653,8 @@ export default function Homepage() {
               <Image
                 src={item.image}
                 alt={item.title}
+                width={384}
+                height={192}
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
@@ -639,11 +662,13 @@ export default function Homepage() {
                 <h1 className="text-lg font-semibold text-[#151515] mt-2">
                   {item.title}
                 </h1>
-                <p className="text-[#474747] text-sm mt-1">{item.description.split("").slice(0, 100).join("") + "..."}</p>
+                <p className="text-[#474747] text-sm mt-1">{item.description ? item.description.split("").slice(0, 100).join("") + "..." : "No description available"}</p>
                 <div className="text-[#151515] flex items-center gap-2 mt-4">
                   <Image
                     src={item.ownerImage || ceoData?.image || '/placeholder-avatar.jpg'}
                     alt={item.name}
+                    width={32}
+                    height={32}
                     className="w-8 h-8 rounded-full object-cover"
                   />
                   <p className="text-gray-700 text-sm font-medium">{item.name || ceoData?.name || 'Author'}</p>

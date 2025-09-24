@@ -11,7 +11,7 @@ import Thumbnail_two from './assets/thumbnail_two.png'
 import Thumbnail_three from './assets/thumbnail_three.png'
 import Thumbnail_four from './assets/thumbnail_four.png'
 
-function page() {
+function Page() {
 
 
   // * interface for main categories
@@ -361,5 +361,5 @@ function page() {
   )
 }
 
-export default page
+export default Page
 

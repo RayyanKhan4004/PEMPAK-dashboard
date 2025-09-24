@@ -154,7 +154,7 @@ export const Navbar = () => {
                             setSubDropdown("")
                           }}
                         >
-                          <Typography weight="semi-b" varient="ps" className="">
+                          <Typography weight="semi-b" variant="ps" className="">
                             {sub.name}
                           </Typography>
                         </button>

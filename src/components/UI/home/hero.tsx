@@ -17,37 +17,37 @@ export const services = [
     id: 1,
     title: "Manufacturing",
     description: "We deliver high-quality manufacturing with precision, durability, and innovation at every stage.",
-    icon: <Image src={automation} alt=''/>, 
+    icon: <Image src={automation} alt='' width={64} height={64} />,
   },
   {
     id: 2,
     title: "Installation & Commissioning",
     description: "We deliver reliable installation and commissioning, ensuring smooth setup, optimal performance, and long-term efficiency.",
-    icon: <Image src={setting} alt=''/>,
+    icon: <Image src={setting} alt='' width={64} height={64} />,
   },
   {
     id: 3,
     title: "Maintenance",
     description: "We provide expert maintenance to keep your systems running smoothly, safely, and efficiently.",
-    icon: <Image src={tool} alt=''/>,
+    icon: <Image src={tool} alt='' width={64} height={64} />,
   },
   {
     id: 4,
     title: "Testing",
     description: "We provide reliable testing services to ensure safety, accuracy, and optimum performance of your systems.",
-    icon: <Image src={exam} alt=''/>,
+    icon: <Image src={exam} alt='' width={64} height={64} />,
   },
   {
     id: 5,
     title: "Training",
     description: "We offer professional training to equip your team with the knowledge and skills for safe and efficient operations.",
-    icon: <Image src={presentation} alt=''/>,
+    icon: <Image src={presentation} alt='' width={64} height={64} />,
   },
   {
     id: 6,
     title: "Energy Audit",
     description: "Identify energy waste, optimize efficiency, and reduce costs with our professional energy audit service.",
-    icon: <Image src={light} alt=''/>,
+    icon: <Image src={light} alt='' width={64} height={64} />,
   },
 ];
 export const team1= [

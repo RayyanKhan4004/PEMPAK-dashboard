@@ -3,8 +3,8 @@ import Typography from "@/components/UI/Typography";
 import React from "react";
 import Image from "next/image";
 
-let page = () => {
-  let obj1 = [
+const Page = () => {
+  const obj1 = [
     {
       id: 1,
       image: "/ourServices/service-1.svg",
@@ -49,7 +49,7 @@ let page = () => {
     },
   ];
 
-  let data = [
+  const data = [
     {
       id: 1,
       description: "Total Engineering Services"
@@ -125,7 +125,7 @@ let page = () => {
 
                   {/* content */}
                   <div className="mb-4 relative z-10 pt-4">
-                    <Image src={item.image} alt={item.title} className="m-auto" />
+                    <Image src={item.image} alt={item.title} className="m-auto" width={64} height={64} />
                     <Typography
                       variant="h4"
                       weight="b"
@@ -188,7 +188,7 @@ let page = () => {
       <div className="flex justify-center">
 
         <div className="mb-20 mt-20">
-          <Image src="ourServices/map-start-to-end.svg" alt="" className="mt-10" />
+          <Image src="/ourServices/map-start-to-end.svg" alt="" className="mt-10" width={800} height={400} />
         </div>
 
       </div>
@@ -197,4 +197,4 @@ let page = () => {
   );
 };
 
-export default page;
+export default Page;
