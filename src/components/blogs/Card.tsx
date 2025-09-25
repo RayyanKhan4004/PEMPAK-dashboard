@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Typography from '../UI/Typography';
 import Image from "next/image";
 
+
 const Card = () => {
     interface ItemProps {
         _id: string;
@@ -63,7 +64,7 @@ const Card = () => {
                 if (ceo) {
                     setCeoData({
                         name: ceo.name,
-                        image: ceo.image || '/placeholder-avatar.jpg'
+                        image: ceo.image || 'https://res.cloudinary.com/dtj45icg0/image/upload/v1758007183/ImagePlaceholder_iin1a8.png'
                     });
                 }
             } catch (err) {
@@ -108,20 +109,24 @@ const Card = () => {
 
             <Typography className='gap-6 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-[50px]'>
                 {displayedBlogs.map((item: ItemProps) => (
-                    <Link href={`/blog/${item._id}`} key={item._id} className='border border-[#DFDFDF] p-6 rounded-lg w-full max-w-[384px] mx-auto block hover:shadow-md transition-shadow'>
+                    <Link href={`/blog/${item._id}`} key={item._id} className='border border-[#DFDFDF] p-6 rounded-lg w-full max-w-[384px] mx-auto block hover:shadow-md transition-shadow relative h-[550px]'>
                         <Image
-                            src={item.image || '/placeholder-image.jpg'}
+                            src={item.image }
                             alt={item.title}
+                            width={336}
+                            height={236}
                             className='h-[236px] w-full rounded-[16px] object-cover'
                         />
                         <div className='py-4'><Typography color='primary'>{item.date.split('T')[0]}</Typography></div>
                         <div><Typography variant='h4'>{item.title}</Typography></div>
                         <div className='py-[20px]'><Typography>{item.description ? item.description.split("").slice(0, 100).join("") + "..." : "No description available"}</Typography></div>
                         <Typography>{item.des}</Typography>
-                        <Typography className='flex gap-2.5'>
+                        <Typography className='flex gap-2 items-center absolute bottom-6'>
                             <Image
-                                src={item.ownerImage || ceoData?.image || '/placeholder-avatar.jpg'}
+                                src={item.ownerImage || ceoData?.image || 'https://res.cloudinary.com/dtj45icg0/image/upload/v1758007183/ImagePlaceholder_iin1a8.png'}
                                 alt={item.pf}
+                                width={32}
+                                height={32}
                                 className='h-8 w-8 rounded-full object-cover'
                             />
                             <Typography>{item.name || ceoData?.name || 'Author'}</Typography>

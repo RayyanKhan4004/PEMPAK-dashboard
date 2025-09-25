@@ -14,50 +14,44 @@ import Link from "next/link";
 //          <Image className="m-2" src="socialMedia/facebook-icon.svg" alt="" />
 
 export default function Footer() {
+
+  const contInfo = [
+    {
+      id: 1,
+      image: phoneNo,
+      text: '+92-42-3527-2263/66'
+    },
+    {
+      id:2,
+      image:PhoneDisconnect,
+      text: 'UAN: +92-42-111-736725(111-PEMPAK).'
+    },
+    {
+      id:3,
+      image:gmail,
+      text: 'info@pempak.com'
+    },
+    {
+      id:4,
+      image:location,
+      text: 'Plot No.4, Adj. ATS Lane, Kacha Industrial estate, 4kM Kahna Kacha Road, Lahore-Pakistan.'
+    }
+  ]
+
   return (
     <footer className="text-white px-[50px] py-[50px] bg-[var(--color-primary)] grid grid-cols-1 md:grid-cols-4 gap-[130px] relative">
       {/* <div className="max-w-7xl grid grid-cols-1 md:grid-cols-4 gap-[130px] text-white"> */}
-      <div className="">
-        <h2 className="text-2xl font-bold text-white">PAMPAK</h2>
-        <p className="font-normal text-[14px] py-[24px]">
-          PEMPAK Group delivers innovative <br /> electric supplies, energy solutions, and solar concepts. Our goal is to power progress while protecting the environment.
-        </p>
-
-        <div className="flex">
-          <Image
-            src={phoneNo}
-            alt=""
-            className="bg-white h-5 w-7 mr-2 rounded-[5px]"
-          />
-
-          <p className="text-sm mb-3">+92-42-3527-2263/66</p>
-        </div>
-
-        <div className="flex">
-          <Image
-            src={PhoneDisconnect}
-            alt=""
-            className="bg-white h-5 w-7 mr-2 rounded-[5px]"
-          />
-
-          <p className="text-sm mb-3">UAN: +92-42-111-736725 (111-PEMPAK).</p>
-        </div>
-
-        <div className="flex">
-          <Image
-            src={gmail}
-            alt=""
-            className="bg-white h-5 w-7 mr-2 rounded-[5px]"
-          />
-          <p className="text-sm mb-3">pempak@gmail.com</p>
-        </div>
-        <div className="flex">
-          <Image
-            src={location}
-            alt=""
-            className="bg-white h-5 w-7 mr-2 rounded-[5px]"
-          />
-          <p className="text-sm mb-3">Plot No.4, Adj. ATS Lane, Kacha Industrial estate, 4kM Kahna Kacha Road, Lahore-Pakistan.</p>
+      <div>
+        <div className='flex flex-col gap-[24px]'><span className="text-[32px] text-white font-bold ">PEMPAK</span>
+          <p>PEMPAK Group delivers innovative electric supplies, energy solutions, and solar concepts. Our goal is to power progress while protecting the environment.</p>
+          <div>
+            {contInfo.map((info) =>(
+              <div key={info.id} className='flex gap-4 items-center mb-2'>
+                <Image src={info.image} alt="" className='bg-white h-7 w-7 p-1 rounded-[5px]'/>
+                <span className='text-sm'>{info.text}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
