@@ -275,11 +275,8 @@ function Page() {
                   {currentCategory.description}
                 </Typography>
               ) : (
-                <Typography variant="p-l" color="tertiary">
-                  Secondary power systems i.e. generators are used in industries or commercial buildings and hospitals as emergency, prime or continuous power supply when utility power is lost. <br /> <br />
-                  Some industries only require generator power for emergency lighting and other emergency systems but in Pakistan as the power failure issues or load shedding is common, the secondary power supply is mandatory. Facilities that have critical or life support systems utilize a more advanced distribution system. <br /> <br />
-                  Some industries only require generator power for emergency lighting and other emergency systems but in Pakistan as the power failure issues or load shedding is common, the secondary power supply is mandatory. Facilities that have critical or life support systems utilize a more advanced distribution system. <br /> <br />
-                  Some industries only require generator power for emergency lighting and other emergency systems but in Pakistan as the power failure issues or load shedding is common, the secondary power
+                <Typography variant="p-l" color="tertiary" className='text-red-500'>
+                  Error loading description
                 </Typography>
               )}
             </div>

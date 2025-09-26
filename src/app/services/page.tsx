@@ -1,53 +1,54 @@
 // import CustomHero from "@/components/common/CustomHero";
 import Typography from "@/components/UI/Typography";
+import { services } from "@/components/UI/home/hero";
 import React from "react";
 import Image from "next/image";
 
 const Page = () => {
-  const obj1 = [
-    {
-      id: 1,
-      image: "/ourServices/service-1.svg",
-      title: "Manufacturing",
-      description:
-        "We deliver high-quality manufacturing with precision, durability, and innovation at every stage.",
-    },
-    {
-      id: 2,
-      image: "/ourServices/service-2.svg",
-      title: "Installation & Commissioning",
-      description:
-        "We deliver reliable installation and commissioning, ensuring smooth setup, optimal performance, and long-term efficiency.",
-    },
-    {
-      id: 3,
-      image: "/ourServices/service-3.svg",
-      title: "Maintenance",
-      description:
-        "We provide expert maintenance to keep your systems running smoothly, safely, and efficiently.",
-    },
-    {
-      id: 4,
-      image: "/ourServices/service-4.svg",
-      title: "Testing",
-      description:
-        "We provide reliable testing services to ensure safety, accuracy, and optimum performance of your systems.",
-    },
-    {
-      id: 5,
-      image: "/ourServices/service-5.svg",
-      title: "Training",
-      description:
-        "We offer professional training to equip your team with the knowledge and skills for safe and efficient operations.",
-    },
-    {
-      id: 6,
-      image: "/ourServices/service-6.svg",
-      title: "Energy Audit",
-      description:
-        "Identify energy waste, optimize efficiency, and reduce costs with our professional energy audit service.",
-    },
-  ];
+  // const obj1 = [
+  //   {
+  //     id: 1,
+  //     image: "/ourServices/service-1.svg",
+  //     title: "Manufacturing",
+  //     description:
+  //       "We deliver high-quality manufacturing with precision, durability, and innovation at every stage.",
+  //   },
+  //   {
+  //     id: 2,
+  //     image: "/ourServices/service-2.svg",
+  //     title: "Installation & Commissioning",
+  //     description:
+  //       "We deliver reliable installation and commissioning, ensuring smooth setup, optimal performance, and long-term efficiency.",
+  //   },
+  //   {
+  //     id: 3,
+  //     image: "/ourServices/service-3.svg",
+  //     title: "Maintenance",
+  //     description:
+  //       "We provide expert maintenance to keep your systems running smoothly, safely, and efficiently.",
+  //   },
+  //   {
+  //     id: 4,
+  //     image: "/ourServices/service-4.svg",
+  //     title: "Testing",
+  //     description:
+  //       "We provide reliable testing services to ensure safety, accuracy, and optimum performance of your systems.",
+  //   },
+  //   {
+  //     id: 5,
+  //     image: "/ourServices/service-5.svg",
+  //     title: "Training",
+  //     description:
+  //       "We offer professional training to equip your team with the knowledge and skills for safe and efficient operations.",
+  //   },
+  //   {
+  //     id: 6,
+  //     image: "/ourServices/service-6.svg",
+  //     title: "Energy Audit",
+  //     description:
+  //       "Identify energy waste, optimize efficiency, and reduce costs with our professional energy audit service.",
+  //   },
+  // ];
 
   const data = [
     {
@@ -112,39 +113,39 @@ const Page = () => {
           </Typography>
         </div>
 
-        <div className="flex flex-col gap-8">
-          {[obj1.slice(0, 3), obj1.slice(3, 6)].map((row, rowIndex) => (
-            <div key={rowIndex} className="flex gap-6">
-              {row.map((item) => (
-                <div
-                  key={item.id}
-                  className="relative border border-gray-300 rounded-lg text-center shadow-sm w-full overflow-hidden group px-[24px]"
-                >
-                  {/* hover background animation */}
-                  <div className="absolute bottom-0 left-0 w-full h-0 bg-[var(--color-primary)] transition-all duration-500 ease-in-out group-hover:h-full"></div>
-
-                  {/* content */}
-                  <div className="mb-4 relative z-10 pt-4">
-                    <Image src={item.image} alt={item.title} className="m-auto" width={64} height={64} />
-                    <Typography
-                      variant="h4"
-                      weight="b"
-                      className="text-center block mt-6"
-                    >
-                      {item.title}
-                    </Typography>
-                    <Typography
-                      variant="p"
-                      className="text-center block mt-4 pb-6"
-                    >
-                      {item.description}
-                    </Typography>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className="p-6 rounded-lg shadow-lg relative overflow-hidden group bg-white text-gray-800"
+            >
+              {/* hover background animation */}
+              <div className="relative z-10 transition-colors duration-500 group-hover:text-white">
+                <div className="flex items-center justify-center">
+                  <div className="w-24 h-24 bg-orange-600 rounded-full flex items-center justify-center text-white text-2xl group-hover:bg-white relative">
+                    {/* Default Icon */}
+                    <Image
+                      src={service.iconDefault}
+                      alt={service.title}
+                      width={48}
+                      height={48}
+                      className="absolute transition-opacity duration-300 opacity-100 group-hover:opacity-0"
+                    />
+                    {/* Hover Icon */}
+                    <Image
+                      src={service.iconHover}
+                      alt={`${service.title} hover`}
+                      width={48}
+                      height={48}
+                      className="absolute transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                    />
                   </div>
-
-                  {/* bottom line */}
-                  <div className="absolute bottom-0 left-0 w-full h-2 bg-[var(--color-primary)] rounded-b-lg"></div>
                 </div>
-              ))}
+                <h3 className="text-lg font-semibold text-center mb-2 mt-5">{service.title}</h3>
+                <p className="text-center text-sm">{service.description}</p>
+              </div>
+              <div className="absolute inset-0 w-full h-full bg-[var(--color-primary)] transition-all duration-500 ease-in-out translate-y-full group-hover:translate-y-0"></div>
+              <div className="absolute left-0 bottom-0 w-full h-[7px] bg-[var(--color-primary)]"></div>
             </div>
           ))}
         </div>

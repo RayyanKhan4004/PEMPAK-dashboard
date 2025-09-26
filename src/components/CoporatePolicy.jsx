@@ -37,13 +37,13 @@ export default function CoporatePolicy() {
             {/* Right Content */}
             <div className="space-y-4 pl-6">
               <h2 className="text-xl font-semibold">Quality Policy</h2>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-[var(--color-light-black)] leading-relaxed">
                 <strong>PEMPAK</strong> will build a standing of{" "}
                 <strong>QUALITY</strong>, <strong>RELIABILITY</strong> and{" "}
                 <strong>COMMITMENT</strong> with the goal of meeting both our
                 Internal & External Customer's requirements.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-[var(--color-light-black)] leading-relaxed">
                 <strong>PEMPAK</strong> further seeks to enhance Customer
                 Satisfaction through consistent improvement of Products,
                 Services, and Quality Management System (QMS) through{" "}
@@ -57,13 +57,13 @@ export default function CoporatePolicy() {
             {/* Left Content */}
             <div className="space-y-4 text-right pr-6">
               <h2 className="text-xl font-semibold">Quality Policy</h2>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-[var(--color-light-black)] leading-relaxed">
                 Customer Relationship Management (CRM) is a widely implemented
                 model for managing <strong>PEMPAK's</strong> interactions with
                 customers, and clients. It involves using technology to
                 organize, automate, and harmonize business process.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-[var(--color-light-black)] leading-relaxed">
                 The overall goals of <strong>PEMPAK</strong> are to find,
                 attract, and <em>win new Client’s Satisfaction</em>,{" "}
                 <strong>Data Security</strong> while retaining the existing
@@ -106,13 +106,13 @@ export default function CoporatePolicy() {
               <h2 className="text-xl font-semibold">
                 Corporate Health & Safety Policy
               </h2>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-[var(--color-light-black)] leading-relaxed">
                 <strong>PEMPAK</strong> acknowledge its responsibility as an
                 employer to ensure the "Health, Safety and Welfare" of all
                 employees whilst at work.
               </p>
 
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-[var(--color-light-black)] leading-relaxed">
                 Management recognizes the importance of its staff/contractors
                 and encourages the reporting of any hazard or risk that nay
                 adversely affects our health and safety standards. We also
@@ -121,7 +121,7 @@ export default function CoporatePolicy() {
                 a safe manner.
               </p>
 
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-[var(--color-light-black)] leading-relaxed">
                 <strong>PEMPAK</strong> as an organization textures the need of
                 identifying/recording the hazards and reviewing the risk
                 assessments for maintaining a pro-active safety approach.
@@ -133,7 +133,7 @@ export default function CoporatePolicy() {
             {/* Left Content */}
             <div className="space-y-4 text-right pr-6">
               <h2 className="text-xl font-semibold">Environmental Policy</h2>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-[var(--color-light-black)] leading-relaxed">
                 <strong>PEMPAK </strong>is committed to conduct its business in
                 such a way as to ensure minutest harmful impacts on the
                 environment whilst making the most proficient use of natural
@@ -142,7 +142,7 @@ export default function CoporatePolicy() {
                 customers and improving our environmental performance whatever
                 it is possible to do.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-[var(--color-light-black)] leading-relaxed">
                 <strong>PEMPAK </strong> prefers working with suppliers and
                 contractors who are implementing Environmental Management
                 Systems and are environmentally conscious organizations.
@@ -184,7 +184,7 @@ export default function CoporatePolicy() {
               <h2 className="text-xl font-semibold">
                 Corporate Social Responsibility (CSR)
               </h2>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-[var(--color-light-black)] leading-relaxed">
                 <strong>PEMPAK</strong> PEMPAK being a responsible business
                 entity fully owe the social responsibility. The up-gradation of
                 surrounded roads and installation of a fresh water turbine to
@@ -202,23 +202,23 @@ export default function CoporatePolicy() {
                 Corporate Management System(CMS)
               </h2>
 
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-[var(--color-light-black)] leading-relaxed">
                 The Corporate Management System (CMS) is one of the most
                 imperative parts of the infrastructure of PEMPAK's automated
                 financial and logistics management functions.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-[var(--color-light-black)] leading-relaxed">
                 <strong>PEMPAK </strong> process the latest, most accurate and
                 updated information analysis which allows them to respond to the
                 market.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-[var(--color-light-black)] leading-relaxed">
                 Implementation of CMS provides the full functional necessity for
                 analysis as well as management of financial, personnel,
                 operational activities and maintenance services of the
                 enterprise.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-[var(--color-light-black)] leading-relaxed">
                 ICMS assists in the operational control of all lines of activity
                 to form a solid base for optimum (short-/long term) solutions at
                 all levels of management.
