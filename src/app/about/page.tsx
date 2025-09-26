@@ -350,7 +350,7 @@ export default function AboutPage() {
 
         <div className="m-7 p-8 justify-center align-middle rounded-4xl grid grid-cols-4 gap-4 ">
           {registrationData.map((reg)=>(
-            <div className="m-1 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg hover:shadow-xl transform hover:-translate-y-2 transition duration-300">
+            <div key={reg.id} className="m-1 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg hover:shadow-xl transform hover:-translate-y-2 transition duration-300">
               <div className="mb-5 flex flex-col justify-center items-center">
                 <Image src={reg.image} alt="" width={60} height={60 }/>
                 <p className="text-center">{reg.desc}</p>
