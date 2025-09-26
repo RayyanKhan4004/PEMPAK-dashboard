@@ -196,7 +196,7 @@ function Page() {
             <Typography variant="h2" color="dark" className="mb-[16px] text-semibold">
               Description
             </Typography>
-            <div className="space-y-4 text-[var(--color-light-black)] leading-relaxed">
+            <div className="space-y-4 text-gray-700 leading-relaxed">
               {loading ? (
                 <div className="space-y-2">
                   <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
@@ -208,11 +208,8 @@ function Page() {
                   {currentCategory.description}
                 </Typography>
               ) : (
-                <Typography variant="p-l" color="tertiary">
-                  Secondary power systems i.e. generators are used in industries or commercial buildings and hospitals as emergency, prime or continuous power supply when utility power is lost. <br /> <br />
-                  Some industries only require generator power for emergency lighting and other emergency systems but in Pakistan as the power failure issues or load shedding is common, the secondary power supply is mandatory. Facilities that have critical or life support systems utilize a more advanced distribution system. <br /> <br />
-                  Some industries only require generator power for emergency lighting and other emergency systems but in Pakistan as the power failure issues or load shedding is common, the secondary power supply is mandatory. Facilities that have critical or life support systems utilize a more advanced distribution system. <br /> <br />
-                  Some industries only require generator power for emergency lighting and other emergency systems but in Pakistan as the power failure issues or load shedding is common, the secondary power
+                <Typography variant="p-l" color="tertiary" className='text-red-500'>
+                  Error loading description
                 </Typography>
               )}
             </div>

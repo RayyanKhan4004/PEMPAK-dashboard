@@ -10,7 +10,7 @@ import tool from '../../../app/home/assets/tool.svg'
 import tool_orange from '../../../app/home/assets/toolyellow.svg'
 import setting from '../../../app/home/assets/settings.svg'
 import setting_orange from '../../../app/home/assets/settingsyellow.svg'
-import Image from 'next/image'
+// import Image from 'next/image'
 
 export const products1 = [
   { id: 1, name: "Automatic Switch Transfer (ATS)", image: "/Block/homeimg/product1.jpg" },
@@ -214,7 +214,7 @@ export const Signatureprojects= [
 
 ]
 
-export const btn1 = " cursor-pointer px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold shadow hover:bg-orange-600 transition"  
+export const btn1 = " cursor-pointer px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold shadow hover:bg-[var(--color-primary)] transition"  
 export const news1= [
 
     {

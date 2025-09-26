@@ -52,7 +52,7 @@ async function BlogDetail({ id }: { id: string }) {
       <div className="">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2 space-y-6">
-            <p className="text-[var(--color-light-black)] leading-relaxed">{blog.description}</p>
+            <p className="text-gray-700 leading-relaxed">{blog.description}</p>
           </div>
           <div className="space-y-10">
             <div>

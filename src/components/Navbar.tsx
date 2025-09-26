@@ -174,7 +174,7 @@ export const Navbar = () => {
                               <button
                                 key={`sub-${s.name}-${j}`}
                                 type="button"
-                                className=" transition-all duration-300 text-[var(--color-light-black)] w-full block text-[14px] text-left px-4 py-2 hover:bg-[var(--color-primary)] hover:text-white rounded-[8px] whitespace-nowrap"
+                                className=" transition-all duration-300 text-gray-700 w-full block text-[14px] text-left px-4 py-2 hover:bg-[var(--color-primary)] hover:text-white rounded-[8px] whitespace-nowrap"
                                 onClick={() => {
                                   // Navigate to the parent category. If you have routes for these sub-items, map them here.
                                   const target =
