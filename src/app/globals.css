@@ -3,8 +3,10 @@
 .basicTheme {
   --color-white: #ffffff;
   --color-gray: #787d86;
+  --color-light-gray: #EAECF0;
   --color-dark: #151515;
   --color-primary: #f16336;
+  --color-light-black : #474747;
   font-family: var(--font-open-sans);
 }
 .font-sans {

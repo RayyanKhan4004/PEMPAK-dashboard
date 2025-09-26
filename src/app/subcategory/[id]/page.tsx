@@ -1,45 +1,54 @@
-import React, { Suspense } from 'react'
-import Typography from '@/components/UI/Typography'
-import CustomHero from '@/components/common/CustomHero'
-import Image from 'next/image'
-import { notFound } from 'next/navigation'
-import Link from "next/link"
+import React, { Suspense } from "react";
+import Typography from "@/components/UI/Typography";
+import CustomHero from "@/components/common/CustomHero";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import Link from "next/link";
 
 type SubCategory = {
-  _id: string
-  name: string
-  description?: string
-  bannerimg?: string
-  images?: string[]
-  parentCategory?: string
-}
+  _id: string;
+  name: string;
+  description?: string;
+  bannerimg?: string;
+  images?: string[];
+  parentCategory?: string;
+};
 
 async function fetchSubCategory(id: string): Promise<SubCategory | null> {
-  const baseApi = process.env.NEXT_PUBLIC_API_BASE ?? 'https://pempak-api.vercel.app/api'
-  const res = await fetch(`${baseApi}/subcategories/${id}`, { cache: 'no-store' })
-  if (res.status === 404) return null
-  if (!res.ok) throw new Error('Failed to fetch subcategory')
-  const data = await res.json()
-  return Array.isArray(data) ? (data[0] ?? null) : (data?.data ?? data)
+  const baseApi =
+    process.env.NEXT_PUBLIC_API_BASE ?? "https://pempak-api.vercel.app/api";
+  const res = await fetch(`${baseApi}/subcategories/${id}`, {
+    cache: "no-store",
+  });
+  if (res.status === 404) return null;
+  if (!res.ok) throw new Error("Failed to fetch subcategory");
+  const data = await res.json();
+  return Array.isArray(data) ? data[0] ?? null : data?.data ?? data;
 }
 
 async function fetchSiblings(parentName?: string): Promise<SubCategory[]> {
-  if (!parentName) return []
-  const baseApi = process.env.NEXT_PUBLIC_API_BASE ?? 'https://pempak-api.vercel.app/api'
-  const url = `${baseApi}/subcategories?parentCategory=${encodeURIComponent(parentName)}&limit=50`
-  const res = await fetch(url, { cache: 'no-store' })
-  if (!res.ok) return []
-  const json = await res.json()
-  const data = Array.isArray(json) ? json : json?.data ?? []
-  return data
+  if (!parentName) return [];
+  const baseApi =
+    process.env.NEXT_PUBLIC_API_BASE ?? "https://pempak-api.vercel.app/api";
+  const url = `${baseApi}/subcategories?parentCategory=${encodeURIComponent(
+    parentName
+  )}&limit=50`;
+  const res = await fetch(url, { cache: "no-store" });
+  if (!res.ok) return [];
+  const json = await res.json();
+  const data = Array.isArray(json) ? json : json?.data ?? [];
+  return data;
 }
 
 async function SubCategoryDetail({ id }: { id: string }) {
-  const sub = await fetchSubCategory(id)
-  if (!sub) notFound()
+  const sub = await fetchSubCategory(id);
+  if (!sub) notFound();
 
-  const heroImage = sub.bannerimg || sub.images?.[0] || '/Images/blog/product1.jpg'
-  const siblings = (await fetchSiblings(sub.parentCategory)).filter(s => s._id !== sub._id)
+  const heroImage =
+    sub.bannerimg || sub.images?.[0] || "/Images/blog/product1.jpg";
+  const siblings = (await fetchSiblings(sub.parentCategory)).filter(
+    (s) => s._id !== sub._id
+  );
 
   return (
     <div className="pb-10">
@@ -58,11 +67,14 @@ async function SubCategoryDetail({ id }: { id: string }) {
         <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
           <div className="flex-1">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <Image
-              src={heroImage}
-              alt={sub.name}
-              className="rounded-xl shadow-md w-full h-auto object-cover"
-            />
+            <div className="rounded-xl shadow-md relative w-[500px] h-[456px] !object-cover !overflow-hidden">
+              <Image
+                src={heroImage}
+                alt={sub.name}
+                fill
+                className="rounded-xl shadow-md max-w-[500px] h-[456px] block"
+              />
+            </div>
             {sub.images && sub.images.length > 1 && (
               <div className="flex flex-wrap gap-[23px] mt-4">
                 {sub.images.slice(1, 5).map((img, index) => (
@@ -78,12 +90,16 @@ async function SubCategoryDetail({ id }: { id: string }) {
             )}
           </div>
           <div className="flex-1">
-            <Typography variant="h2" color="dark" className="mb-[16px] text-semibold">
+            <Typography
+              variant="h2"
+              color="dark"
+              className="mb-[16px] text-semibold"
+            >
               Description
             </Typography>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <Typography variant="p-l" color="tertiary">
-                {sub.description || 'Details will be available soon.'}
+                {sub.description || "Details will be available soon."}
               </Typography>
             </div>
           </div>
@@ -109,24 +125,48 @@ async function SubCategoryDetail({ id }: { id: string }) {
                   <div className="flex-shrink-0">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <Image
-                      src={sibling.bannerimg || sibling.images?.[0] || '/Images/blog/product1.jpg'}
+                      src={
+                        sibling.bannerimg ||
+                        sibling.images?.[0] ||
+                        "/Images/blog/product1.jpg"
+                      }
                       alt={sibling.name}
+                      width={120}
+                      height={120}
                       className="w-30 h-30 rounded-lg object-cover"
                     />
                   </div>
                   <div className="flex-grow">
-                    <Typography variant="h4" color="dark" className="mb-2 font-bold group-hover:text-white">
+                    <Typography
+                      variant="h4"
+                      color="dark"
+                      className="mb-2 font-bold group-hover:text-white"
+                    >
                       {sibling.name}
                     </Typography>
                     {sibling.description && (
-                      <Typography variant="ps" color="tertiary" className="mb-4 line-clamp-3 group-hover:text-gray-100">
+                      <Typography
+                        variant="ps"
+                        color="tertiary"
+                        className="mb-4 line-clamp-3 group-hover:text-gray-100"
+                      >
                         {sibling.description}
                       </Typography>
                     )}
                     <div className="flex items-center text-orange-500 font-medium group-hover:text-white">
                       <span className="mr-2">Learn More</span>
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
                       </svg>
                     </div>
                   </div>
@@ -143,15 +183,19 @@ async function SubCategoryDetail({ id }: { id: string }) {
         </div>
       )}
     </div>
-  )
+  );
 }
 
 export default function Page({ params }: { params: { id: string } }) {
   return (
-    <Suspense fallback={<div className="px-4 sm:px-8 md:px-12 lg:px-20 py-12">Loading subcategory…</div>}>
+    <Suspense
+      fallback={
+        <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-12">
+          Loading subcategory…
+        </div>
+      }
+    >
       <SubCategoryDetail id={params.id} />
     </Suspense>
-  )
+  );
 }
-
-

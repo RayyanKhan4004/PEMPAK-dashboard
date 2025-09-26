@@ -147,7 +147,7 @@ const CustomProduct = () => {
       <Typography variant="h2" color="dark" className="mt-20">
         <h2 className="text-3xl font-bold text-center mb-12 ">Subcategories</h2>
         {visibleSubcategories.length === 0 ? (
-          <Typography className="text-center text-gray-600">No subcategories found.</Typography>
+          <Typography className="text-center text-[var(--color-light-black)]">No subcategories found.</Typography>
         ) : (
           <Typography className="flex flex-row-2 gap-6 justify-center w-full flex-wrap">
             {visibleSubcategories.map((sub) => (
@@ -170,7 +170,7 @@ const CustomProduct = () => {
                 <div className="p-5 flex flex-col flex-grow">
                   <h3 className="font-semibold text-xl mb-2 ">{sub.name}</h3>
                   {sub.description && (
-                    <p className="text-gray-600 text-sm flex-grow">
+                    <p className="text-[var(--color-light-black)] text-sm flex-grow">
                       {sub.description}
                     </p>
                   )}

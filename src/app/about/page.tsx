@@ -1,10 +1,87 @@
 // import Typography from "@/components/UI/Typography";
 import Image from "next/image";
+import line from "@public/others/Line-1.svg";
+import eye from '../../../public/others/eye-icon.svg'
+import mission from '../../../public/others/our-missions.svg'
+import value from '../../../public/others/our-values.svg'
+import wapda from '../../../public/registration/registration-1.svg'
+import polish from '../../../public/registration/registration-2.svg'
+import paec from '../../../public/registration/registration-3.svg'
+import paf from '../../../public/registration/registration-4.svg'
+import wasa from '../../../public/registration/registration-5.svg'
+import cw from '../../../public/registration/registration-6.svg'
+import ffp from '../../../public/registration/registration-7.svg'
+import pcs from '../../../public/registration/registration-8.svg'
 
 import CoporatePolicy from "../../components//CoporatePolicy";
 // import { Eye } from 'lucide-react';
 
 export default function AboutPage() {
+
+  const ourVision = [
+    {
+      id: 1,
+      icon: eye,
+      title: "Our Vision",
+      desc: "PEMPAK firmly believes that perfection in system leads towards amplified system efficiency through highly qualified/ motivated staff to produce reliable output and safe working environment. To uphold motivation level and generate sense of proprietorship amongst the workers at PEMPAK, the corporate growth is linked proportionately to the individual's growth."
+    },
+    {
+      id: 2,
+      icon: mission,
+      title: "Our Mission",
+      desc: "PEMPAK is committed to delivering innovative, sustainable, and reliable solutions in the field of electrical and solar technologies. By integrating advanced systems, skilled manpower, and continuous improvement, we strive to meet customer expectations while ensuring environmental responsibility and community well-being."
+    },
+    {
+      id: 3,
+      icon: value,
+      title: "Our Values",
+      desc: "At PEMPAK, we value integrity, innovation, and teamwork. We believe in empowering our people through knowledge and ownership, fostering a culture of safety and accountability. Our commitment to excellence drives us to create long-term partnerships, where corporate success aligns with the growth and prosperity of every individual."
+    },
+  ]
+
+  const registrationData = [
+    {
+      id:1,
+      image: wapda,
+      desc:"WAPDA and subsidiaries like NTDC, LESCO, IESCO, FESCO, MEPCO, HESCO, PESCO, GEPCO and QESCO etc."
+    },
+    {
+      id:2,
+      image: polish,
+      desc:"Engineer in Chief Branch with all formation like MES (Army, Air, Navy & DP) FWO and NLC etc."
+    },
+    {
+      id:3,
+      image: paec,
+      desc:"Pakistan Atomic Energy Commission (Various formations)"
+    },
+    {
+      id:4,
+      image: paf,
+      desc:"WAPDA and subsidiaries like NTDC, LESCO, IESCO, FESCO, MEPCO, HESCO, PESCO, GEPCO and QESCO etc."
+    },
+    {
+      id:5,
+      image: wasa,
+      desc:"Water & Sanitary Agencies (WASA's) of all development authorities."
+    },
+    {
+      id:6,
+      image: cw,
+      desc:"C & W (Building Department)."
+    },
+    {
+      id:7,
+      image: ffp,
+      desc:"Fuji Foundation and many other Autonomous bodies."
+    },
+    {
+      id:8,
+      image: pcs,
+      desc:"Prestigious corporate sector of Pakistan including industries of various cross section &commercial institutes."
+    },
+  ]
+
   return (
     <div>
       <div className="relative h-[60vh]">
@@ -25,17 +102,17 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="space-y-20 space-x-3 px-[120px] py-[100px]">
+      <div className="space-y-20 space-x-3 px-[120px] py-[100px] flex flex-col items-center justify-center gap-[50px]">
         {/* Section 1: Image Left, Text Right */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-10">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-x-[70px]">
           <Image
             src="/others/team-project.svg"
             alt="Not found"
-            width={500}
+            width={565}
             height={250}
-            // className="h-[250px] w-[70vw] rounded-2xl"
+          // className="h-[250px] w-[70vw] rounded-2xl"
           />
-          <div className="w-[40vw]">
+          <div className="w-[565px]">
             <h1 className="font-bold text-4xl mb-6 pb-2">Company</h1>
             <p>
               <b>PERFECT ELEKTRO MEK PAKISTAN (PRIVATE) LIMITED (PEMPAK)</b>
@@ -51,14 +128,14 @@ export default function AboutPage() {
         </div>
 
         {/* Section 2: Text Left, Image Right */}
-        <div className="flex flex-col md:flex-row-reverse justify-between items-center gap-10">
+        <div className="flex flex-col md:flex-row-reverse justify-between items-center gap-x-[70px]">
           <Image
             src="/others/team-project.svg"
             alt="Not found"
-            width={500}
+            width={565}
             height={250}
           />
-          <div className="w-[40vw]">
+          <div className="w-[565px]">
             <p>
               <strong>PEMPAK</strong> is fully geared up and equipped with the
               requisite potentials to prosper in the electric industry while
@@ -73,31 +150,31 @@ export default function AboutPage() {
         </div>
 
         {/* Section 3: Image Left, Text Right */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-10">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-x-[70px]">
           <Image
             src="/others/team-project.svg"
             alt="Not found"
-            width={500}
+            width={565}
             height={250}
           />
-          <div className="w-[40vw]">
+          <div className="w-[565px]">
             <p>
-              <strong>PEMPAK</strong> aims to attain high degree of customer&apos;s
-              satisfaction and appreciates working in the viable environment of
-              electric industry to provide creative solutions to our valued
-              customers through a convivial program. We look forward for
-              feedback from our customers for reformist improvement to ensure
-              customer&apos;s satisfaction. Despite of the recent stagnations in the
-              energy sector PEMPAK has revealed progressive growth due to its
-              employee&apos;s sheer hard work and commitment to excellence in
-              communal obligations.
+              <strong>PEMPAK</strong> aims to attain high degree of
+              customer&apos;s satisfaction and appreciates working in the viable
+              environment of electric industry to provide creative solutions to
+              our valued customers through a convivial program. We look forward
+              for feedback from our customers for reformist improvement to
+              ensure customer&apos;s satisfaction. Despite of the recent
+              stagnations in the energy sector PEMPAK has revealed progressive
+              growth due to its employee&apos;s sheer hard work and commitment
+              to excellence in communal obligations.
             </p>
           </div>
         </div>
       </div>
 
       <div className="px-[120px] py-[100px] bg-orange-100">
-        <div className="">
+        <div>
           <h1 className="text-2xl font-bold text-center">Corporate Vision</h1>
           <p className="text-center mt-3">
             Our vision drives everything we do, shaping our commitment to
@@ -106,9 +183,15 @@ export default function AboutPage() {
         </div>
 
         <div className="flex bg-white m-7 p-8 justify-center align-middle rounded-4xl">
-          <div className="m-1 h-78 w-90 border-r-3 border-r-amber-500">
+          <div className="m-1 h-78 w-90 ">
             <div className="flex">
-              <Image src="/others/eye-icon.svg" alt="" className="ml-3" width={24} height={24} />
+              <Image
+                src="/others/eye-icon.svg"
+                alt=""
+                className="ml-3"
+                width={24}
+                height={24}
+              />
               <h1 className="text-2xl font-bold px-3">Our Vision</h1>
             </div>
 
@@ -121,10 +204,16 @@ export default function AboutPage() {
               proportionately to the individual&apos;s growth.
             </p>
           </div>
-
-          <div className="m-1 h-78 w-90 border-r-3 border-r-amber-500">
+          <Image src={line} alt="" height={205} width={3} />
+          <div className="m-1 h-78 w-90  ">
             <div className="flex">
-              <Image src="/others/our-missions.svg" alt="" className="ml-3" width={24} height={24} />
+              <Image
+                src="/others/our-missions.svg"
+                alt=""
+                className="ml-3"
+                width={24}
+                height={24}
+              />
               <h1 className="text-2xl font-bold px-3">Our Mission</h1>
             </div>
             <p className="p-3">
@@ -136,9 +225,16 @@ export default function AboutPage() {
               community well-being.
             </p>
           </div>
-          <div className="m-1 h-78 w-90 border-r-">
+          <Image src={line} alt="" height={205} width={3} />
+          <div className="m-1 h-78 w-90 ">
             <div className="flex">
-              <Image src="/others/our-values.svg" alt="" className="ml-3" width={24} height={24} />
+              <Image
+                src="/others/our-values.svg"
+                alt=""
+                className="ml-3"
+                width={24}
+                height={24}
+              />
               <h1 className="text-2xl font-bold px-3">Our Values</h1>
             </div>
             <p className="p-3">
@@ -157,7 +253,12 @@ export default function AboutPage() {
 
       <div className="space-y-20 space-x-3 px-[120px] py-[100px]">
         <div className="flex flex-col md:flex-row-reverse justify-between items-center gap-10">
-          <Image src="/others/team-project.svg" alt="Not found" width={500} height={250} />
+          <Image
+            src="/others/team-project.svg"
+            alt="Not found"
+            width={500}
+            height={250}
+          />
           <div className="w-[40vw]">
             <h1 className="font-bold text-4xl mb-6 pb-2">Quality Objective</h1>
             <ul className="list-disc ml-7">
@@ -209,7 +310,7 @@ export default function AboutPage() {
             <div className="text-center flex justify-center mb-5">
               <Image src="/others/iso-2.svg" alt="" width={64} height={64} />
             </div>
-            <h1 className="text-2xl font-bold text-center text-gray-900 mb-2">
+            <h1 className="text-2xl font-bold text-center text-[var(--color-black)] mb-2">
               ISO 14001:2015
             </h1>
             <p className="text-gray-800 text-center">
@@ -247,80 +348,20 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="flex  m-7 p-8 justify-center align-middle rounded-4xl">
-          <div className="m-1 w-100 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
-            <div className="text-center flex justify-center mb-5">
-              <Image src="/registration/registration-1.svg" alt="" width={64} height={64} />
+        <div className="m-7 p-8 justify-center align-middle rounded-4xl grid grid-cols-4 gap-4 ">
+          {registrationData.map((reg)=>(
+            <div key={reg.id} className="m-1 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg hover:shadow-xl transform hover:-translate-y-2 transition duration-300">
+              <div className="mb-5 flex flex-col justify-center items-center">
+                <Image src={reg.image} alt="" width={60} height={60 }/>
+                <p className="text-center">{reg.desc}</p>
+              </div>
             </div>
-            <p className="text-center">
-              WAPDA and subsidiaries like NTDC, LESCO, IESCO, FESCO, MEPCO, HESCO, PESCO, GEPCO and QESCO etc.
-            </p>
-          </div>
-
-          <div className="m-1 w-90 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
-            <div className="text-center flex justify-center mb-5">
-              <Image src="/registration/registration-2.svg" alt="" width={64} height={64} />
-            </div>
-            <p className="text-gray-800 text-center">
-              Engineer in Chief Branch with all formation like MES (Army, Air,
-              Navy & DP) FWO and NLC etc.
-            </p>
-          </div>
-          <div className="m-1 w-100 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
-            <div className="text-center flex justify-center mb-5">
-              <Image src="/registration/registration-3.svg" alt="" width={64} height={64} />
-            </div>
-            <p className="text-center">
-              Pakistan Atomic Energy Commission (Various formations)
-            </p>
-          </div>
-
-          <div className="m-1 w-100 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
-            <div className="text-center flex justify-center mb-5">
-              <Image src="/registration/registration-4.svg" alt="" width={64} height={64} />
-            </div>
-            <p className="text-center">Pakistan Air Force</p>
-          </div>
+          ))}
         </div>
 
-        <div className="flex  m-7 p-8 justify-center align-middle rounded-4xl">
-          <div className="m-1 w-100 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
-            <div className="text-center flex justify-center mb-5">
-              <Image src="/registration/registration-5.svg" alt="" width={64} height={64} />
-            </div>
-            <p className="text-center">
-              Water & Sanitary Agencies (WASA&apos;s) of all development authorities.
-            </p>
-          </div>
-
-          <div className="m-1 w-100 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
-            <div className="text-center flex justify-center mb-5">
-              <Image src="/registration/registration-6.svg" alt="" width={64} height={64} />
-            </div>
-            <p className="text-gray-800 text-center">C & W (Building Department).</p>
-          </div>
-          <div className="m-1 w-90 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
-            <div className="text-center flex justify-center mb-5">
-              <Image src="/registration/registration-7.svg" alt="" width={64} height={64} />
-            </div>
-            <p className="text-center">
-              Fuji Foundation and many other Autonomous bodies.
-            </p>
-          </div>
-
-          <div className="m-1 w-90 border-4 border-white shadow-md bg-white/80 backdrop-blur-md p-4 rounded-lg">
-            <div className="text-center flex justify-center mb-5">
-              <Image src="/registration/registration-8.svg" alt="" width={64} height={64} />
-            </div>
-            <p className="text-center">
-              Prestigious corporate sector of Pakistan including industries of
-              various cross section & commercial institutes.
-            </p>
-          </div>
-        </div>
+        
       </div>
-      <CoporatePolicy />        
+      <CoporatePolicy />
     </div>
   );
 }
-
