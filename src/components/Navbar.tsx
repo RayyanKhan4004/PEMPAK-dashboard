@@ -27,7 +27,7 @@ export const Navbar = () => {
 
   const [categories, setCategories] = useState<Category[]>([])
   const [subCategories, setSubCategories] = useState<SubCategory[]>([])
-  const [staticLinks , setstaticLinks ] = useState<any[]>([])
+  const [staticLinks, setstaticLinks] = useState<any[]>([])
 
 
   useEffect(() => {
@@ -54,7 +54,7 @@ export const Navbar = () => {
       }
     }
     fetchdata()
-  },[])
+  }, [])
 
 
 
@@ -184,10 +184,10 @@ export const Navbar = () => {
               key={`nav-${item.label}-${index}`}
               className="relative hover:font-bold hover:text-[var(--color-primary)] !mr-0 transition-all duration-300"
               onClick={() => setMainDropdown(item.label)}
-              // onMouseLeave={() => {
-              //   setMainDropdown("")
-              //   setSubDropdown("")
-              // }}
+            // onMouseLeave={() => {
+            //   setMainDropdown("")
+            //   setSubDropdown("")
+            // }}
             >
               <button
                 type="button"
@@ -250,12 +250,12 @@ export const Navbar = () => {
             </div>
           );
         })}
-      <Link
-    href="mailto:yourmail@example.com"
-    className="bg-[#F2613F] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#d94f2f] transition-all duration-300"
-  >
-    Contact Us
-  </Link>
+        <Link
+          href="mailto:yourmail@example.com"
+          className="bg-[#F2613F] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#d94f2f] transition-all duration-300"
+        >
+          Contact Us
+        </Link>
       </div>
     </nav>
   );
