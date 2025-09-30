@@ -118,7 +118,6 @@ export const Navbar = () => {
     { label: "Blog", link: "/blog" },
     { label: "Team", link: "/our-team" },
     { label: "Services", link: "/services" },
-    { label: "Contact us", link: "" },
   ];
 
   const [mainDorpdown, setMainDropdown] = useState("");
@@ -251,6 +250,12 @@ export const Navbar = () => {
             </div>
           );
         })}
+      <Link
+    href="mailto:yourmail@example.com"
+    className="bg-[#F2613F] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#d94f2f] transition-all duration-300"
+  >
+    Contact Us
+  </Link>
       </div>
     </nav>
   );

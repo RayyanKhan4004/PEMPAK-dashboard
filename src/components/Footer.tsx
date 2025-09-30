@@ -89,7 +89,7 @@ export default function Footer() {
             </Link>
           </li>
           <li>
-            <Link href="" className="hover:text-white">
+            <Link href="mailto:yourmail@example.com" className="hover:text-white">
               Contact us
             </Link>
           </li>
