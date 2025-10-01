@@ -83,6 +83,8 @@ async function SubCategoryDetail({ id }: { id: string }) {
                     key={index}
                     src={img}
                     alt={`Thumbnail ${index + 1}`}
+                    width={123}
+                    height={95}
                     className="w-[123px] h-[95px] rounded-lg shadow object-cover"
                   />
                 ))}
@@ -110,7 +112,7 @@ async function SubCategoryDetail({ id }: { id: string }) {
       {siblings.length > 0 && (
         <div className="w-full px-4 sm:px-8 md:px-12 lg:px-20 py-12 bg-gray-50">
           <Typography variant="h2" color="dark" className="text-center mb-12">
-            More in {sub.parentCategory}
+            Explore More Categories
           </Typography>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {siblings.slice(0, 15).map((sibling, index) => (

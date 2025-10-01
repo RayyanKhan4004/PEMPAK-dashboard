@@ -1,8 +1,10 @@
+'use client'
 // import CustomHero from "@/components/common/CustomHero";
+import React from "react";
 import Typography from "@/components/UI/Typography";
 import { services } from "@/components/UI/home/hero";
-import React from "react";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Page = () => {
   // const obj1 = [
@@ -50,6 +52,9 @@ const Page = () => {
   //   },
   // ];
 
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [isAnimating, setIsAnimating] = React.useState(false);
+
   const data = [
     {
       id: 1,
@@ -82,6 +87,30 @@ const Page = () => {
 
   ]
 
+  const visibleItems = 3;
+  const maxIndex = Math.ceil(data.length / visibleItems) - 1;
+
+  const handleNext = () => {
+    if (!isAnimating && currentIndex < maxIndex) {
+      setIsAnimating(true);
+      setCurrentIndex(prev => prev + 1);
+      setTimeout(() => setIsAnimating(false), 500);
+    }
+  };
+
+  const handlePrev = () => {
+    if (!isAnimating && currentIndex > 0) {
+      setIsAnimating(true);
+      setCurrentIndex(prev => prev - 1);
+      setTimeout(() => setIsAnimating(false), 500);
+    }
+  };
+
+  const getVisibleData = () => {
+    const startIdx = currentIndex * visibleItems;
+    return data.slice(startIdx, startIdx + visibleItems);
+  };
+
   return (
     <div>
 
@@ -93,7 +122,7 @@ const Page = () => {
 
         <div className="relative p-10 text-white mx-9">
           <h1 className="text-4xl font-bold mt-8">Our Services</h1>
-          <p className="w-[20vw] mt-10">
+          <p className="w-[400px] mt-10">
             We provide innovative solutions designed to meet your needs with quality and reliability.
           </p>
         </div>

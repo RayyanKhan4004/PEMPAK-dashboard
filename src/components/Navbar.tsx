@@ -9,76 +9,137 @@ export const Navbar = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
+  interface Category {
+    _id: string
+    name: string;
+    description?: string;
+    bannerImage?: string;
+    additionalImages?: string[]
+  }
+  interface SubCategory {
+    _id: string
+    name: string
+    description?: string
+    bannerimg?: string
+    images: string[]
+    parentCategory: string
+  }
+
+  const [categories, setCategories] = useState<Category[]>([])
+  const [subCategories, setSubCategories] = useState<SubCategory[]>([])
+  const [staticLinks, setstaticLinks] = useState<any[]>([])
+
+
+  useEffect(() => {
+    const baseApi = process.env.NEXT_PUBLIC_API_BASE ?? 'https://pempak-api.vercel.app/api'
+    // const baseApi = process.env.NEXT_PUBLIC_API_BASE ?? 'http://localhost:5050/api'
+
+    const fetchdata = async () => {
+      try {
+        const [catRes, subCatRes] = await Promise.all([
+          fetch(`${baseApi}/categories`),
+          fetch(`${baseApi}/subcategories`)
+        ])
+        const [rawCats, rawSubs] = await Promise.all([
+          catRes.json(),
+          subCatRes.json()
+        ])
+        const normalize = (json: any) => Array.isArray(json) ? json : (json?.data ?? [])
+        const categoriesData = normalize(rawCats)
+        const subCategoriesData = normalize(rawSubs)
+        setCategories(categoriesData)
+        setSubCategories(subCategoriesData)
+      } catch (error) {
+        console.error('Error fetching categories or subcategories:', error)
+      }
+    }
+    fetchdata()
+  }, [])
+
+
+
   const navLinks = [
     { label: "Home", link: "/home" },
     { label: "About", link: "/about" },
 
     {
       label: "Our Products",
-      link: "/switchgear-controleger",
       catagoried: [
         {
-          name: "Switchgear / Controlgear",
-          sub: [
-            { name: "Medium Voltage Switchgear" },
-            { name: "Low Voltage Switchgears" },
-            { name: "Control & Relay Panels" },
-            { name: "AC/ DC Auxiliary Supply Equipment" },
-            { name: "Motor Control Centers" },
-            { name: "AC/ DC Auxiliary Supply Equipment" },
-            { name: "Multi-Source Sync Panels" },
-            { name: "PLC based equipment" },
-            { name: "Power Factor Improvement Equipment" },
-            { name: "MV/ LV Changeover equipment" },
-            { name: "Smart AMF & ATS Panels" },
-            { name: "Power & Lighting DBs & Feeder Pillar Panels" },
-            { name: "Bus Tie Duct (BTD) & Bus Bar Trunking system" },
-            { name: "Rehabilitation & Reclamation" },
-          ],
+          // name: "Switchgear",
+          link: "/switchgear-controleger",
+          // sub: [
+          //   { name: "Medium Voltage Switchgear" },
+          //   { name: "Low Voltage Switchgears" },
+          //   { name: "Control & Relay Panels" },
+          //   { name: "AC/ DC Auxiliary Supply Equipment" },
+          //   { name: "Motor Control Centers" },
+          //   { name: "AC/ DC Auxiliary Supply Equipment" },
+          //   { name: "Multi-Source Sync Panels" },
+          //   { name: "PLC based equipment" },
+          //   { name: "Power Factor Improvement Equipment" },
+          //   { name: "MV/ LV Changeover equipment" },
+          //   { name: "Smart AMF & ATS Panels" },
+          //   { name: "Power & Lighting DBs & Feeder Pillar Panels" },
+          //   { name: "Bus Tie Duct (BTD) & Bus Bar Trunking system" },
+          //   { name: "Rehabilitation & Reclamation" },
+          // ],
         },
         {
-          name: "Power Distribution Transformer",
+          // name: "Power Distribution Transformer",
           link: "/power-distribution",
-          sub: [
-            { name: "Oil Cooled Power Distribution Transformer" },
-            { name: "Dry Type Transformers" },
-          ],
+          // sub: [
+          //   { name: "Oil Cooled Power Distribution Transformer" },
+          //   { name: "Dry Type Transformers" },
+          // ],
         },
         {
-          name: "Green Energy",
+          // name: "Green Energy",
           link: "/green-energy",
-          sub: [
-            { name: "Designing" },
-            { name: "Providing" },
-            { name: "Installation" },
-            { name: "Commissioning" },
-          ],
+          // sub: [
+          //   { name: "Designing" },
+          //   { name: "Providing" },
+          //   { name: "Installation" },
+          //   { name: "Commissioning" },
+          // ],
         },
         {
-          name: "Appliances",
+          // name: "Appliances",
           link: "/appliences",
-          sub: [
-            { name: "Industrial Exhaust Fan" },
-            { name: "Ceiling Fans" },
-            { name: "Air Purifier" },
-            { name: "Rechargeable Cells (AA & AAA)" },
-          ],
+          // sub: [
+          //   { name: "Industrial Exhaust Fan" },
+          //   { name: "Ceiling Fans" },
+          //   { name: "Air Purifier" },
+          //   { name: "Rechargeable Cells (AA & AAA)" },
+          // ],
         },
       ],
     },
     { label: "Blog", link: "/blog" },
     { label: "Team", link: "/our-team" },
     { label: "Services", link: "/services" },
-    { label: " Contact us", link: "/contact" },
   ];
+
   const [mainDorpdown, setMainDropdown] = useState("");
   const [subDropdown, setSubDropdown] = useState("");
   const routeByCategory: Record<string, string> = {
     "Switchgear / Controlgear": "/switchgear-controleger",
     "Power Distribution Transformer": "/power-distribution",
     "Green Energy": "/green-energy",
-    Appliances: "/appliences",
+    "Appliances": "/appliences",
   };
+  const normalizeKey = (s: string) => s
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .replace(/\s+/g, " ")
+  const routeByCategoryNormalized: Record<string, string> = Object.fromEntries(
+    Object.entries(routeByCategory).map(([k, v]) => [normalizeKey(k), v])
+  )
+  const getCategoryRoute = (categoryName: string): string => {
+    const key = normalizeKey(categoryName)
+    return routeByCategoryNormalized[key] ?? "/"
+  }
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -123,10 +184,10 @@ export const Navbar = () => {
               key={`nav-${item.label}-${index}`}
               className="relative hover:font-bold hover:text-[var(--color-primary)] !mr-0 transition-all duration-300"
               onClick={() => setMainDropdown(item.label)}
-              // onMouseLeave={() => {
-              //   setMainDropdown("")
-              //   setSubDropdown("")
-              // }}
+            // onMouseLeave={() => {
+            //   setMainDropdown("")
+            //   setSubDropdown("")
+            // }}
             >
               <button
                 type="button"
@@ -135,60 +196,49 @@ export const Navbar = () => {
                 {item.label}
               </button>
 
-              {mainDorpdown === item.label && item.catagoried && (
+              {mainDorpdown === item.label && (
                 <div
                   ref={dropdownRef}
                   className=" transition-all duration-300 absolute top-8 left-1/2 -translate-x-1/2 bg-white shadow-lg space-y-1 rounded-[12px] z-10 py-2 min-w-[240px] !mr-0"
                 >
-                  {item.catagoried.map((sub, i) => {
-                    const hasSubmenu =
-                      Array.isArray(sub.sub) && sub.sub.length > 0;
+                  {(categories.length ? categories.map(c => ({ name: c.name })) : (item.catagoried ?? [])).map((cat: any, i: number) => {
+                    const categoryName = cat.name as string
+                    const children = subCategories.filter(sc => sc.parentCategory?.toLowerCase() === categoryName.toLowerCase())
+                    const hasSubmenu = children.length > 0
                     return (
                       <div
-                        key={`cat-${sub.name}-${i}`}
+                        key={`cat-${categoryName}-${i}`}
                         className="transition-all duration-300 relative px-4 py-2 hover:bg-[var(--color-primary)] group hover:text-white rounded-[8px] whitespace-nowrap"
-                        onMouseEnter={() => setSubDropdown(sub.name)}
+                        onMouseEnter={() => setSubDropdown(categoryName)}
                         onMouseLeave={() => setSubDropdown("")}
                       >
-                        <button
-                          type="button"
-                          className="w-full text-left "
+                        <Link
+                          href={`${getCategoryRoute(categoryName)}?cate=${encodeURIComponent(categoryName)}`}
+                          className="w-full block text-left"
                           onClick={() => {
-                            const target = routeByCategory[sub.name] || "/";
-                            const url = `${target}?cate=${encodeURIComponent(
-                              sub.name
-                            )}`;
-                            router.push(url);
                             setMainDropdown("");
                             setSubDropdown("");
                           }}
                         >
                           <Typography weight="semi-b" variant="ps" className="group-hover:text-white">
-                            {sub.name}
+                            {categoryName}
                           </Typography>
-                        </button>
+                        </Link>
 
-                        {hasSubmenu && subDropdown === sub.name && (
+                        {hasSubmenu && subDropdown === categoryName && (
                           <div className="absolute transition-all duration-300 left-full top-0 bg-white shadow-lg space-y-1 rounded-[12px] z-20 py-2 min-w-[220px]">
-                            {sub.sub!.map((s, j) => (
-                              <button
-                                key={`sub-${s.name}-${j}`}
-                                type="button"
+                            {children.map((s, j) => (
+                              <Link
+                                key={`sub-${s._id ?? s.name}-${j}`}
+                                href={s._id ? `/subcategory/${encodeURIComponent(s._id)}` : `${getCategoryRoute(categoryName)}?cate=${encodeURIComponent(s.name)}`}
                                 className=" transition-all duration-300 text-gray-700 w-full block text-[14px] text-left px-4 py-2 hover:bg-[var(--color-primary)] hover:text-white rounded-[8px] whitespace-nowrap"
                                 onClick={() => {
-                                  // Navigate to the parent category. If you have routes for these sub-items, map them here.
-                                  const target =
-                                    routeByCategory[sub.name] || "/";
-                                  const url = `${target}?cate=${encodeURIComponent(
-                                    s.name
-                                  )}`;
-                                  router.push(url);
                                   setMainDropdown("");
                                   setSubDropdown("");
                                 }}
                               >
                                 {s.name}
-                              </button>
+                              </Link>
                             ))}
                           </div>
                         )}
@@ -200,6 +250,12 @@ export const Navbar = () => {
             </div>
           );
         })}
+        <Link
+          href="mailto:yourmail@example.com"
+          className="bg-[#F2613F] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#d94f2f] transition-all duration-300"
+        >
+          Contact Us
+        </Link>
       </div>
     </nav>
   );
